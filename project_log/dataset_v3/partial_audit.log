@@ -1,0 +1,44 @@
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 2.32 ms  (cached)
+{"scene": "scene_0000", "index": 0, "current_points_max_distance_m": 0.00014942243687464924, "target_points_max_distance_m": 0.0001640623369389526}
+{"scene": "scene_0000", "index": 2500, "current_points_max_distance_m": 0.00015553189055313537, "target_points_max_distance_m": 0.00016201021604560814}
+{"scene": "scene_0000", "index": 4999, "current_points_max_distance_m": 0.00016571442481218683, "target_points_max_distance_m": 0.0001618412860342032}
+{"scene": "scene_0001", "index": 0, "current_points_max_distance_m": 0.00015134691102522868, "target_points_max_distance_m": 0.0001629500946467888}
+{"scene": "scene_0001", "index": 2500, "current_points_max_distance_m": 0.00015383516062075252, "target_points_max_distance_m": 0.0001579674861991746}
+{"scene": "scene_0001", "index": 4999, "current_points_max_distance_m": 0.00015823290133073445, "target_points_max_distance_m": 0.00016769644197588954}
+{"scene": "scene_0002", "index": 0, "current_points_max_distance_m": 0.00016660333571218082, "target_points_max_distance_m": 0.00016598612893483136}
+{"scene": "scene_0002", "index": 2500, "current_points_max_distance_m": 0.0001666729462849268, "target_points_max_distance_m": 0.00016650124106476957}
+{"scene": "scene_0002", "index": 4999, "current_points_max_distance_m": 0.00016671415983555632, "target_points_max_distance_m": 0.0001670540730628648}
+{"scene": "scene_0003", "index": 0, "current_points_max_distance_m": 0.0001594343504817209, "target_points_max_distance_m": 0.00016752513490038187}
+{"scene": "scene_0003", "index": 2500, "current_points_max_distance_m": 0.00015942708994110233, "target_points_max_distance_m": 0.00016166644398490552}
+{"scene": "scene_0003", "index": 4999, "current_points_max_distance_m": 0.00016458490588641136, "target_points_max_distance_m": 0.000162569622604719}
+{"scene": "scene_0004", "index": 0, "current_points_max_distance_m": 0.00016560300198955412, "target_points_max_distance_m": 0.00016369844642751186}
+{"scene": "scene_0004", "index": 2500, "current_points_max_distance_m": 0.00016560459140793632, "target_points_max_distance_m": 0.00016533018782616496}
+{"scene": "scene_0004", "index": 4999, "current_points_max_distance_m": 0.00016556623273461757, "target_points_max_distance_m": 0.0001652965225123605}
+{"scene": "scene_0005", "index": 0, "current_points_max_distance_m": 0.00015421381454574636, "target_points_max_distance_m": 0.00015832597016883179}
+{"scene": "scene_0005", "index": 2500, "current_points_max_distance_m": 0.00015468985508076014, "target_points_max_distance_m": 0.0001555723362384983}
+{"scene": "scene_0005", "index": 4999, "current_points_max_distance_m": 0.00015044254848522946, "target_points_max_distance_m": 0.00016098864778237834}
+{"scene": "scene_0006", "index": 0, "current_points_max_distance_m": 0.00016577085475920418, "target_points_max_distance_m": 0.0001619603503372966}
+{"scene": "scene_0006", "index": 2500, "current_points_max_distance_m": 0.00015763732987088464, "target_points_max_distance_m": 0.00016437104762563782}
+{"scene": "scene_0006", "index": 4999, "current_points_max_distance_m": 0.00015771230759370982, "target_points_max_distance_m": 0.00016406727750996225}
+{"scene": "scene_0007", "index": 0, "current_points_max_distance_m": 0.00015657062809510333, "target_points_max_distance_m": 0.00015786974307685606}
+{"scene": "scene_0007", "index": 2500, "current_points_max_distance_m": 0.000147489812397528, "target_points_max_distance_m": 0.00016272237503038998}
+{"scene": "scene_0007", "index": 4999, "current_points_max_distance_m": 0.00014748496482459977, "target_points_max_distance_m": 0.00016332477528864062}
+{"scene": "scene_0008", "index": 0, "current_points_max_distance_m": 0.00015784425148656893, "target_points_max_distance_m": 0.0001577475886671812}
+{"scene": "scene_0008", "index": 2500, "current_points_max_distance_m": 0.0001499686447390958, "target_points_max_distance_m": 0.00015823784293768738}
+{"scene": "scene_0008", "index": 4999, "current_points_max_distance_m": 0.00016124069989369847, "target_points_max_distance_m": 0.00016094070045219358}
+{"scene": "scene_0009", "index": 0, "current_points_max_distance_m": 0.00015569924920325016, "target_points_max_distance_m": 0.0001563829720985037}
+{"scene": "scene_0009", "index": 2500, "current_points_max_distance_m": 0.0001589966161022795, "target_points_max_distance_m": 0.00016330673063622277}
+{"scene": "scene_0009", "index": 4999, "current_points_max_distance_m": 0.00015304930433331462, "target_points_max_distance_m": 0.0001574887928645257}
+{"scene": "scene_0010", "index": 0, "current_points_max_distance_m": 0.00015486964297408196, "target_points_max_distance_m": 0.0001608245650744645}
+{"scene": "scene_0010", "index": 2500, "current_points_max_distance_m": 0.0001476727929597627, "target_points_max_distance_m": 0.00015754436724597492}
+{"scene": "scene_0010", "index": 4999, "current_points_max_distance_m": 0.00015481691612783256, "target_points_max_distance_m": 0.00016002412994601013}
+{"scene": "scene_0011", "index": 0, "current_points_max_distance_m": 0.00015366257736384135, "target_points_max_distance_m": 0.000163916425230782}
+{"scene": "scene_0011", "index": 2500, "current_points_max_distance_m": 0.00015360478361065643, "target_points_max_distance_m": 0.00015584886776065618}
+{"scene": "scene_0011", "index": 4999, "current_points_max_distance_m": 0.00015361458564979678, "target_points_max_distance_m": 0.0001555014815589906}

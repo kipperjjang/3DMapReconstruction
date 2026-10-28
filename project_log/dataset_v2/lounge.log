@@ -1,0 +1,27 @@
+Collecting full 07_indoor_furnished_lounge using current composed GT
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-cache-v2
+Module dynaraysim.sensors.warp_backend 549379c load on device 'cpu' took 1.74 ms  (cached)
+Old GT audit fingerprint differs; explicit 5 cm resolution, no current audit claim
+Module dynaraysim.data.gt_geometry 435a520 load on device 'cpu' took 0.59 ms  (cached)
+07_indoor_furnished_lounge packets=30 data=0.397 GB
+07_indoor_furnished_lounge packets=60 data=0.417 GB
+07_indoor_furnished_lounge packets=90 data=0.438 GB
+07_indoor_furnished_lounge packets=120 data=0.475 GB
+07_indoor_furnished_lounge packets=150 data=0.487 GB
+07_indoor_furnished_lounge packets=180 data=0.499 GB
+07_indoor_furnished_lounge packets=210 data=0.510 GB
+07_indoor_furnished_lounge packets=240 data=0.520 GB
+07_indoor_furnished_lounge frame 0/240 observations=9687 targets=21123
+07_indoor_furnished_lounge frame 30/240 observations=5413 targets=16446
+07_indoor_furnished_lounge frame 60/240 observations=2129 targets=12455
+07_indoor_furnished_lounge frame 90/240 observations=31 targets=10415
+07_indoor_furnished_lounge frame 120/240 observations=0 targets=9270
+07_indoor_furnished_lounge frame 150/240 observations=16 targets=8472
+07_indoor_furnished_lounge frame 180/240 observations=891 targets=9282
+07_indoor_furnished_lounge frame 210/240 observations=2921 targets=12283

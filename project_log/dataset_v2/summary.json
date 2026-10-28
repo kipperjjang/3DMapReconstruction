@@ -1,0 +1,123 @@
+{
+  "status": "dataset_ready_gpu_training_blocked",
+  "dataset": "/home/intern/Neural Scene unet/outputs/training_dataset_v2",
+  "dataset_bytes": 804196352,
+  "max_dataset_bytes": 5000000000,
+  "old_split_frames": {
+    "train": 450,
+    "validation": 90,
+    "test": 90
+  },
+  "new_split_frames": {
+    "train": 1040,
+    "validation": 180,
+    "test": 200
+  },
+  "old_train_rollout_starts": 332,
+  "new_train_rollout_starts": 769,
+  "gt_mode": "composed",
+  "gt_boundary_voxel_m": 0.05,
+  "gt_sampling_max_edge_m": 0.03,
+  "mapping_source": "/home/intern/DynaMapping",
+  "source_hashes_unchanged_during_collection": true,
+  "sample_audit_frames": 21,
+  "observed_sample_frames": 19,
+  "sample_observation_surface_min_fraction_within_5cm": 1.0,
+  "sample_observation_surface_max_distance_m": 0.027192097927501328,
+  "planned_training": {
+    "updates": 1500,
+    "batch_size": 2,
+    "rollout": 12,
+    "position_noise_m": 0.005,
+    "initial_lr": 0.01,
+    "final_lr": 0.0001,
+    "seed": 20261020,
+    "eval_every": 100,
+    "command": "bash scripts/train_v2.sh"
+  },
+  "gpu_training": {
+    "status": "blocked",
+    "optimizer_updates": 0,
+    "reason": "No /dev/nvidia device nodes exposed; torch.cuda.is_available=False",
+    "log": "outputs/training_run_v2/console.log"
+  },
+  "cpu_execution_check": {
+    "status": "passed",
+    "purpose": "single optimizer update execution check; not a completed training run",
+    "device": "cpu",
+    "batch_size": 2,
+    "rollout": 12,
+    "optimizer_updates": 1,
+    "channels": [
+      32,
+      64,
+      128,
+      256,
+      256
+    ],
+    "elapsed_s": 69.87321035563946,
+    "mean_loss": 1.2473247349262238,
+    "steps": [
+      {
+        "age": 0,
+        "loss": 1.241074800491333,
+        "output_voxels": 14296
+      },
+      {
+        "age": 1,
+        "loss": 1.2176876068115234,
+        "output_voxels": 17148
+      },
+      {
+        "age": 2,
+        "loss": 1.2516438961029053,
+        "output_voxels": 17925
+      },
+      {
+        "age": 3,
+        "loss": 1.2534979581832886,
+        "output_voxels": 17759
+      },
+      {
+        "age": 4,
+        "loss": 1.2512238025665283,
+        "output_voxels": 17981
+      },
+      {
+        "age": 5,
+        "loss": 1.2529352903366089,
+        "output_voxels": 17970
+      },
+      {
+        "age": 6,
+        "loss": 1.2566936016082764,
+        "output_voxels": 17700
+      },
+      {
+        "age": 7,
+        "loss": 1.245896577835083,
+        "output_voxels": 17828
+      },
+      {
+        "age": 8,
+        "loss": 1.2465920448303223,
+        "output_voxels": 17693
+      },
+      {
+        "age": 9,
+        "loss": 1.2508643865585327,
+        "output_voxels": 17490
+      },
+      {
+        "age": 10,
+        "loss": 1.2511353492736816,
+        "output_voxels": 17572
+      },
+      {
+        "age": 11,
+        "loss": 1.2486515045166016,
+        "output_voxels": 17832
+      }
+    ]
+  }
+}

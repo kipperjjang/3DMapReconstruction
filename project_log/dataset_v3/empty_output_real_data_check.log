@@ -1,0 +1,81 @@
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/__init__.py:221: UserWarning: The MinkowskiEngine was compiled with CPU_ONLY flag. If you want to compile with CUDA support, make sure `torch.cuda.is_available()` is True when you install MinkowskiEngine.
+  warnings.warn(
+{
+  "device": "cpu",
+  "status": "passed",
+  "frames": [
+    {
+      "scene": "scene_0000",
+      "index": 0,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0000",
+      "index": 1,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0000",
+      "index": 2,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0010",
+      "index": 0,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0010",
+      "index": 1,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0010",
+      "index": 2,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0020",
+      "index": 0,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0020",
+      "index": 1,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0020",
+      "index": 2,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0030",
+      "index": 0,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0030",
+      "index": 1,
+      "output_voxels": 0
+    },
+    {
+      "scene": "scene_0030",
+      "index": 2,
+      "output_voxels": 0
+    }
+  ],
+  "metrics": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 75291,
+    "matched_distance_sum_m": 0.0,
+    "matched_height_sum_m": 0.0,
+    "frames": 12,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "matched_centroid_distance_m": null,
+    "matched_height_mae_m": null
+  }
+}

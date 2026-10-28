@@ -1,0 +1,13 @@
+{
+  "scripts/collect_dataset_v3.py": "1ea61bf951e0615a1fa641e2d81e59fe6e38e2100b4e3591a500bdcbd77387ef",
+  "scripts/run_dyna.sh": "db756e14f485aa53dfba817aebf3aabd344ce5ec33eb6ad3052460ad95ef5c96",
+  "scripts/train_v3.sh": "56dd31236b59dd210fcf953fba1f8f074d2e510c8b65dad8bdf377c5e8aaa36f",
+  "scripts/validate_dataset_v3.py": "e2d1e6b663d4bb7ee2ece3df1c720e32adaaec2d1bc7aff1f227303514b63f8f",
+  "scripts/audit_dataset_v3.py": "cb87b76d67db1f2a87c5ce0fbff5442a3412dd900f4a39d2714022fd36334b06",
+  "scripts/status_dataset_v3.py": "f7e94a2e22255759cae53b631e83458d60a581f7eb68d3204562012078dc307f",
+  "scripts/build_minkowski.py": "c04a9783efe37e98379036c977ceb19b2ffdaa720f52846e8c11e35917dcd04b",
+  "neural_scene/packed.py": "c9ba31554592286db9628f73b442efc6c83b452003d42b828026cb669db9685e",
+  "neural_scene/experiment.py": "bbaa19f92047a83997ec2c3bc45119077f6eadb186272a90c8644cae9038139c",
+  "tests/test_packed.py": "48c83312fe4f7ef9d759a229df1864956ac78b43cd099c30930fbd4a733ab85b",
+  "tests/test_packed_dataset.py": "3d685cf5e7d2b8fb2c812c70190b576f52685b14f42bb67f153ea882420edd06"
+}

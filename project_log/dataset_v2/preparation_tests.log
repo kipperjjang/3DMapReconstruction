@@ -1,0 +1,7 @@
+test_nonidentity_extrinsic_and_robot_feedback (test_prepare_dataset_v2.PreparationTests) ... ok
+test_storage_guard_prevents_write (test_prepare_dataset_v2.PreparationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.454s
+
+OK

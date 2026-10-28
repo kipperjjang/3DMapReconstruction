@@ -1,0 +1,49 @@
+/home/intern/Neural Scene unet/.deps/MinkowskiEngine/__init__.py:225: UserWarning: The MinkowskiEngine was compiled with CPU_ONLY flag. If you want to compile with CUDA support, make sure `torch.cuda.is_available()` is True when you install MinkowskiEngine.
+  "If you want to compile with CUDA support, make sure `torch.cuda.is_available()` is True when you install MinkowskiEngine.",
+test_bn_calibration_uses_only_train_and_does_not_change_parameters (test_experiment.ExperimentTests) ... /home/intern/anaconda3/envs/sp_conv/lib/python3.7/site-packages/torch/autograd/function.py:327: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionFunction'> should not be instantiated. Methods on autograd functionsare all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  "error in a future version of PyTorch.", DeprecationWarning)
+/home/intern/anaconda3/envs/sp_conv/lib/python3.7/site-packages/torch/autograd/function.py:327: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionTransposeFunction'> should not be instantiated. Methods on autograd functionsare all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  "error in a future version of PyTorch.", DeprecationWarning)
+/home/intern/anaconda3/envs/sp_conv/lib/python3.7/site-packages/torch/autograd/function.py:327: DeprecationWarning: <class 'MinkowskiPruning.MinkowskiPruningFunction'> should not be instantiated. Methods on autograd functionsare all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  "error in a future version of PyTorch.", DeprecationWarning)
+/home/intern/anaconda3/envs/sp_conv/lib/python3.7/site-packages/torch/autograd/function.py:327: DeprecationWarning: <class 'MinkowskiUnion.MinkowskiUnionFunction'> should not be instantiated. Methods on autograd functionsare all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  "error in a future version of PyTorch.", DeprecationWarning)
+ok
+test_candidate_training_defers_test_and_records_rates_and_source (test_experiment.ExperimentTests) ... ok
+test_duplicate_scene_across_splits_is_rejected (test_experiment.ExperimentTests) ... ok
+test_full_training_validation_and_test_path_on_fixture (test_experiment.ExperimentTests) ... ok
+test_mirror_conjugates_pose_and_preserves_feedback_alignment (test_experiment.ExperimentTests) ... ok
+test_rollout_starts_require_evidence_but_preserve_blind_followup (test_experiment.ExperimentTests) ... ok
+test_alignment_preserves_world_point_with_translation_and_rotation (test_geometry.GeometryTests) ... ok
+test_initial_robot_world_origin_cancels (test_geometry.GeometryTests) ... ok
+test_missing_or_invalid_pose_is_rejected (test_geometry.GeometryTests) ... ok
+test_xyzw_quaternion_normalization (test_geometry.GeometryTests) ... ok
+test_empty_member_keeps_batch_identity (test_inputs.InputTests) ... ok
+test_sources_are_merged_to_one_centroid_at_t_zero (test_inputs.InputTests) ... ok
+test_coarse_targets_keep_batch_identity_and_cover_both_times (test_loss_targets.TargetTests) ... ok
+test_matching_uses_coordinates_instead_of_row_order (test_loss_targets.TargetTests) ... ok
+test_feedback_is_prediction_aligned_with_dynamapping_convention (test_mapping.MappingTests) ... ok
+test_order_rejection_and_episode_reset (test_mapping.MappingTests) ... ok
+test_empty_batch_members_and_empty_input (test_model.ModelTests) ... ok
+test_four_scales_t_zero_and_loss_backward (test_model.ModelTests) ... ok
+test_predictive_pruning_can_remove_every_voxel_even_with_gt (test_model.ModelTests) ... ok
+test_single_point_training_through_all_downsample_stages (test_model.ModelTests) ... ok
+test_nonidentity_extrinsic_and_robot_feedback (test_prepare_dataset_v2.PreparationTests) ... skipped 'Preparation uses DynaRaySim Python >=3.9'
+test_storage_guard_prevents_write (test_prepare_dataset_v2.PreparationTests) ... skipped 'Preparation uses DynaRaySim Python >=3.9'
+test_generative_upsample_keeps_temporal_resolution_and_adds_sites (test_sparse_blocks.SparseBlockTests) ... ok
+test_singleton_batchnorm_uses_running_statistics_and_keeps_gradients (test_sparse_blocks.SparseBlockTests) ... ok
+test_union_skip_preserves_generated_sites_and_feature_gradients (test_sparse_blocks.SparseBlockTests) ... ok
+test_checkpoint_preserves_architecture_and_prediction (test_training_io.TrainingIOTests) ... ok
+test_learning_rate_reaches_paper_endpoint (test_training_io.TrainingIOTests) ... ok
+test_npz_cli_aligns_previous_prediction_when_current_scan_is_empty (test_training_io.TrainingIOTests) ... ok
+test_centroid_gradient (test_voxel.VoxelTests) ... ok
+test_centroid_offsets_and_world_round_trip (test_voxel.VoxelTests) ... ok
+test_empty_cloud (test_voxel.VoxelTests) ... ok
+test_invalid_inputs (test_voxel.VoxelTests) ... ok
+test_lower_inclusive_upper_exclusive_crop (test_voxel.VoxelTests) ... ok
+test_previous_to_current_transform_direction (test_voxel.VoxelTests) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 8.829s
+
+OK (skipped=2)

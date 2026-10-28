@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+.build/
+.deps/
+.deps-cuda/
+.deps-dyna/
+.deps-dyna-cuda/
+.deps-tensorboard/
+outputs/
+*.egg-info/
+.idea/
+.pytest_cache/
+*.pdf
+
+# Local environments and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.aws/
+
+# Profiling output (keep human-readable project logs)
+*.pstats

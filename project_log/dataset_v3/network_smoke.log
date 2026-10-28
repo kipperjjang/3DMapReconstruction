@@ -1,0 +1,64 @@
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/__init__.py:221: UserWarning: The MinkowskiEngine was compiled with CPU_ONLY flag. If you want to compile with CUDA support, make sure `torch.cuda.is_available()` is True when you install MinkowskiEngine.
+  warnings.warn(
+{
+  "channels": [
+    32,
+    64,
+    128,
+    256,
+    256
+  ],
+  "ordinary_convolutions_per_block": 2,
+  "parameters": 47537383,
+  "device": "cpu",
+  "input_voxels": 134,
+  "time_coordinates": [
+    0
+  ],
+  "decoder": [
+    {
+      "stride": [
+        8,
+        8,
+        8,
+        1
+      ],
+      "candidates": 160,
+      "kept": 40
+    },
+    {
+      "stride": [
+        4,
+        4,
+        4,
+        1
+      ],
+      "candidates": 419,
+      "kept": 202
+    },
+    {
+      "stride": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "candidates": 1687,
+      "kept": 304
+    },
+    {
+      "stride": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "candidates": 2543,
+      "kept": 1539
+    }
+  ],
+  "output_points": 1539,
+  "loss": 1.1188173294067383,
+  "backward": "passed",
+  "weights": "random initialization; this checks execution, not reconstruction quality"
+}

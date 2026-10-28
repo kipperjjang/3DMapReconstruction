@@ -1,0 +1,26 @@
+{"scene": "01_gymnasium_pedestrians", "index": 0, "observations": 10136, "surface_gt_points_in_crop": 299245, "target_voxels": 17248, "observation_surface_fraction_within_5cm": 1.0, "observation_surface_p95_m": 0.009287265547229981, "observation_surface_max_m": 0.013434120841304973}
+{"scene": "01_gymnasium_pedestrians", "index": 100, "observations": 7152, "surface_gt_points_in_crop": 267973, "target_voxels": 15232, "observation_surface_fraction_within_5cm": 1.0, "observation_surface_p95_m": 0.008942263335315247, "observation_surface_max_m": 0.011037362444201091}
+{"scene": "01_gymnasium_pedestrians", "index": 199, "observations": 6885, "surface_gt_points_in_crop": 267985, "target_voxels": 15232, "observation_surface_fraction_within_5cm": 1.0, "observation_surface_p95_m": 0.008795918177472557, "observation_surface_max_m": 0.01115142761235368}
+Traceback (most recent call last):
+  File "/home/intern/Neural Scene unet/scripts/audit_dataset_v2.py", line 57, in <module>
+    main()
+  File "/home/intern/Neural Scene unet/scripts/audit_dataset_v2.py", line 42, in main
+    np.testing.assert_allclose(frame['target_points'], expected, atol=2e-6, rtol=0)
+  File "/home/intern/DynaRaySim/.venv/lib/python3.9/site-packages/numpy/testing/_private/utils.py", line 1504, in assert_allclose
+    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),
+  File "/home/intern/anaconda3/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/intern/DynaRaySim/.venv/lib/python3.9/site-packages/numpy/testing/_private/utils.py", line 797, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0, atol=2e-06
+
+Mismatched elements: 7068 / 60045 (11.8%)
+Max absolute difference: 3.076302
+Max relative difference: 62.734844
+ x: array([[-1.575, -1.575, -1.5  ],
+       [-1.575, -1.575, -1.3  ],
+       [-1.575, -1.525, -1.5  ],...
+ y: array([[-1.575, -1.575, -1.5  ],
+       [-1.575, -1.575, -1.3  ],
+       [-1.575, -1.525, -1.5  ],...

@@ -1,0 +1,25 @@
+Collecting full 03_trapezoid_loop using current composed GT
+/home/intern/DynaRaySim/dynaraysim/utils/assets.py:136: RuntimeWarning: Removed 1 degenerate triangles from /home/intern/DynaRaySim/resources/assets/objects/woman2.obj
+  return from_arrays(v, tx.cat(faces), str(path), hashlib.sha256(path.read_bytes()).hexdigest(),
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-cache-v2
+Module dynaraysim.sensors.warp_backend 549379c load on device 'cpu' took 1.69 ms  (cached)
+Old GT audit fingerprint differs; explicit 5 cm resolution, no current audit claim
+Module dynaraysim.data.gt_geometry 435a520 load on device 'cpu' took 0.46 ms  (cached)
+03_trapezoid_loop packets=30 data=0.720 GB
+03_trapezoid_loop packets=60 data=0.731 GB
+03_trapezoid_loop packets=90 data=0.743 GB
+03_trapezoid_loop packets=120 data=0.755 GB
+03_trapezoid_loop packets=150 data=0.767 GB
+03_trapezoid_loop packets=180 data=0.778 GB
+03_trapezoid_loop frame 0/180 observations=6074 targets=14732
+03_trapezoid_loop frame 30/180 observations=0 targets=8192
+03_trapezoid_loop frame 60/180 observations=0 targets=8192
+03_trapezoid_loop frame 90/180 observations=0 targets=8192
+03_trapezoid_loop frame 120/180 observations=0 targets=8192
+03_trapezoid_loop frame 150/180 observations=0 targets=8192

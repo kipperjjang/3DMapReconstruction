@@ -1,0 +1,17 @@
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 2.22 ms  (cached)
+{"scene": "scene_9010", "index": 0, "current_points_max_distance_m": 0.00016630488282467657, "target_points_max_distance_m": 0.0001669930180751321}
+{"scene": "scene_9010", "index": 50, "current_points_max_distance_m": 0.00016627462352263955, "target_points_max_distance_m": 0.00016655189915869807}
+{"scene": "scene_9010", "index": 99, "current_points_max_distance_m": 0.00016643073457547149, "target_points_max_distance_m": 0.00016555129261081077}
+{"scene": "scene_9011", "index": 0, "current_points_max_distance_m": 0.000165016812727517, "target_points_max_distance_m": 0.00016523199876072875}
+{"scene": "scene_9011", "index": 50, "current_points_max_distance_m": 0.00016484370086778887, "target_points_max_distance_m": 0.00016370561904382715}
+{"scene": "scene_9011", "index": 99, "current_points_max_distance_m": 0.00016491226511585166, "target_points_max_distance_m": 0.00016428213335406604}
+{"scene": "scene_9012", "index": 0, "current_points_max_distance_m": 0.00015678506416745441, "target_points_max_distance_m": 0.0001626530967022739}
+{"scene": "scene_9012", "index": 50, "current_points_max_distance_m": 0.00015520070936189022, "target_points_max_distance_m": 0.00016511185920447865}
+{"scene": "scene_9012", "index": 99, "current_points_max_distance_m": 0.0001663760123808336, "target_points_max_distance_m": 0.00015657495794697588}

@@ -1,0 +1,73 @@
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/__init__.py:221: UserWarning: The MinkowskiEngine was compiled with CPU_ONLY flag. If you want to compile with CUDA support, make sure `torch.cuda.is_available()` is True when you install MinkowskiEngine.
+  warnings.warn(
+test_comparison_voxels_crop_deduplicate_and_keep_pose (test_evaluation.EvaluationTests) ... ok
+test_export_matches_training_evaluator_and_preserves_clouds (test_evaluation.EvaluationTests) ... /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:284: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  else MinkowskiConvolutionFunction()
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:282: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionTransposeFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  MinkowskiConvolutionTransposeFunction()
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiPruning.py:82: DeprecationWarning: <class 'MinkowskiPruning.MinkowskiPruningFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  self.pruning = MinkowskiPruningFunction()
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiUnion.py:99: DeprecationWarning: <class 'MinkowskiUnion.MinkowskiUnionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  self.union = MinkowskiUnionFunction()
+ok
+test_partial_exports_and_escaping_paths_are_rejected (test_evaluation.EvaluationTests) ... ok
+test_bn_calibration_uses_only_train_and_does_not_change_parameters (test_experiment.ExperimentTests) ... ok
+test_candidate_training_defers_test_and_records_rates_and_source (test_experiment.ExperimentTests) ... /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiUnion.py:99: DeprecationWarning: <class 'MinkowskiUnion.MinkowskiUnionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  self.union = MinkowskiUnionFunction()
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:284: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  else MinkowskiConvolutionFunction()
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:282: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionTransposeFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  MinkowskiConvolutionTransposeFunction()
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiPruning.py:82: DeprecationWarning: <class 'MinkowskiPruning.MinkowskiPruningFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  self.pruning = MinkowskiPruningFunction()
+ok
+test_duplicate_scene_across_splits_is_rejected (test_experiment.ExperimentTests) ... ok
+test_full_training_validation_and_test_path_on_fixture (test_experiment.ExperimentTests) ... Detected out of order event.step likely caused by a TensorFlow restart. Purging expired events from Tensorboard display between the previous step: -1 (timestamp: -1) and current step: 2 (timestamp: 1793114787.1040325). Removing 1 scalars, 0 histograms, 0 compressed histograms, 0 images, and 0 audio.
+ok
+test_mirror_conjugates_pose_and_preserves_feedback_alignment (test_experiment.ExperimentTests) ... ok
+test_rollout_starts_require_evidence_but_preserve_blind_followup (test_experiment.ExperimentTests) ... ok
+test_alignment_preserves_world_point_with_translation_and_rotation (test_geometry.GeometryTests) ... ok
+test_initial_robot_world_origin_cancels (test_geometry.GeometryTests) ... ok
+test_missing_or_invalid_pose_is_rejected (test_geometry.GeometryTests) ... ok
+test_xyzw_quaternion_normalization (test_geometry.GeometryTests) ... ok
+test_empty_member_keeps_batch_identity (test_inputs.InputTests) ... ok
+test_sources_are_merged_to_one_centroid_at_t_zero (test_inputs.InputTests) ... ok
+test_coarse_targets_keep_batch_identity_and_cover_both_times (test_loss_targets.TargetTests) ... ok
+test_matching_uses_coordinates_instead_of_row_order (test_loss_targets.TargetTests) ... ok
+test_feedback_is_prediction_aligned_with_dynamapping_convention (test_mapping.MappingTests) ... ok
+test_order_rejection_and_episode_reset (test_mapping.MappingTests) ... ok
+test_empty_batch_members_and_empty_input (test_model.ModelTests) ... ok
+test_four_scales_t_zero_and_loss_backward (test_model.ModelTests) ... ok
+test_predictive_pruning_can_remove_every_voxel_even_with_gt (test_model.ModelTests) ... ok
+test_single_point_training_through_all_downsample_stages (test_model.ModelTests) ... ok
+test_cell_identity_error_bound_and_multiplicity (test_packed.PackedTests) ... ok
+test_packed_frames_are_isolated_and_decoded (test_packed.PackedTests) ... ok
+test_nonidentity_extrinsic_and_robot_feedback (test_prepare_dataset_v2.PreparationTests) ... ok
+test_storage_guard_prevents_write (test_prepare_dataset_v2.PreparationTests) ... ok
+test_generative_upsample_keeps_temporal_resolution_and_adds_sites (test_sparse_blocks.SparseBlockTests) ... /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:284: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  else MinkowskiConvolutionFunction()
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:282: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionTransposeFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  MinkowskiConvolutionTransposeFunction()
+ok
+test_singleton_batchnorm_uses_running_statistics_and_keeps_gradients (test_sparse_blocks.SparseBlockTests) ... ok
+test_union_skip_preserves_generated_sites_and_feature_gradients (test_sparse_blocks.SparseBlockTests) ... /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiUnion.py:99: DeprecationWarning: <class 'MinkowskiUnion.MinkowskiUnionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  self.union = MinkowskiUnionFunction()
+ok
+test_disabled_logging_creates_no_directory (test_tensorboard.TensorBoardTests) ... ok
+test_events_are_readable_after_exception_and_missing_distances_are_skipped (test_tensorboard.TensorBoardTests) ... ok
+test_checkpoint_preserves_architecture_and_prediction (test_training_io.TrainingIOTests) ... /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiPruning.py:82: DeprecationWarning: <class 'MinkowskiPruning.MinkowskiPruningFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  self.pruning = MinkowskiPruningFunction()
+ok
+test_learning_rate_reaches_paper_endpoint (test_training_io.TrainingIOTests) ... ok
+test_npz_cli_aligns_previous_prediction_when_current_scan_is_empty (test_training_io.TrainingIOTests) ... ok
+test_centroid_gradient (test_voxel.VoxelTests) ... ok
+test_centroid_offsets_and_world_round_trip (test_voxel.VoxelTests) ... ok
+test_empty_cloud (test_voxel.VoxelTests) ... ok
+test_invalid_inputs (test_voxel.VoxelTests) ... ok
+test_lower_inclusive_upper_exclusive_crop (test_voxel.VoxelTests) ... ok
+test_previous_to_current_transform_direction (test_voxel.VoxelTests) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 12.578s
+
+OK

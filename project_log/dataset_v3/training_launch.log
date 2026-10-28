@@ -1,0 +1,17 @@
+/home/intern/anaconda3/envs/dyna/lib/python3.10/site-packages/torch/cuda/__init__.py:734: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+{
+  "device_nodes": [],
+  "torch": "2.6.0+cu118",
+  "torch_compiled_cuda": "11.8",
+  "cuda_visible_devices": null,
+  "cuda_available": false,
+  "device_count": 0,
+  "nvidia_smi": {
+    "returncode": 9,
+    "output": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running."
+  },
+  "kernel_gpu_info": {
+    "0000:3b:00.0": "Model: \t\t NVIDIA GeForce RTX 4090\nIRQ:   \t\t 88\nGPU UUID: \t GPU-56b5166d-824b-bf13-f94d-833ffdbf9c9e\nVideo BIOS: \t 95.02.18.c0.8b\nBus Type: \t PCIe\nDMA Size: \t 47 bits\nDMA Mask: \t 0x7fffffffffff\nBus Location: \t 0000:3b:00.0\nDevice Minor: \t 0\nGPU Excluded:\t No\n"
+  }
+}

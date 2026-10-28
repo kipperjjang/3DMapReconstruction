@@ -1,0 +1,27 @@
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.deps-dyna/MinkowskiEngine/__init__.py:221
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/__init__.py:221: UserWarning: The MinkowskiEngine was compiled with CPU_ONLY flag. If you want to compile with CUDA support, make sure `torch.cuda.is_available()` is True when you install MinkowskiEngine.
+    warnings.warn(
+
+tests/test_model.py: 27 warnings
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:284: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    else MinkowskiConvolutionFunction()
+
+tests/test_model.py::ModelTests::test_empty_output_bypasses_sparse_backend_on_available_devices
+tests/test_model.py::ModelTests::test_empty_output_bypasses_sparse_backend_on_available_devices
+tests/test_model.py::ModelTests::test_empty_output_bypasses_sparse_backend_on_available_devices
+tests/test_model.py::ModelTests::test_empty_output_bypasses_sparse_backend_on_available_devices
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:282: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionTransposeFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    MinkowskiConvolutionTransposeFunction()
+
+tests/test_model.py::ModelTests::test_empty_output_bypasses_sparse_backend_on_available_devices
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiPruning.py:82: DeprecationWarning: <class 'MinkowskiPruning.MinkowskiPruningFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    self.pruning = MinkowskiPruningFunction()
+
+tests/test_model.py::ModelTests::test_empty_output_bypasses_sparse_backend_on_available_devices
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiUnion.py:99: DeprecationWarning: <class 'MinkowskiUnion.MinkowskiUnionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    self.union = MinkowskiUnionFunction()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 34 warnings in 1.55s

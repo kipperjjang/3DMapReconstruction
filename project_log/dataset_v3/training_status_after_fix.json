@@ -1,0 +1,11 @@
+{
+  "status": "blocked_gpu_not_exposed",
+  "code_fix": "empty predictions bypass MinkowskiEngine empty CUDA coordinate-map registration",
+  "cpu_regression": "passed",
+  "actual_v3_validation_frames_checked_on_cpu": 12,
+  "gpu_fix_verified": false,
+  "full_training_updates_started": 0,
+  "launch_command": "bash scripts/train_v3.sh",
+  "launch_exit_code": 1,
+  "launch_log": "project_log/dataset_v3/training_launch_after_empty_fix.log"
+}

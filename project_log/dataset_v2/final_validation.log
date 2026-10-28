@@ -1,0 +1,118 @@
+{
+  "status": "validated",
+  "split_frames": {
+    "train": 1040,
+    "validation": 180,
+    "test": 200
+  },
+  "sequences": [
+    {
+      "scene": "01_gymnasium_pedestrians",
+      "split": "train",
+      "frames": 200,
+      "blind_frames": 0,
+      "observation_count_min_max": [
+        6878,
+        10136
+      ],
+      "target_voxels_min_max": [
+        15232,
+        17310
+      ],
+      "max_feedback_transform_error": 0.0
+    },
+    {
+      "scene": "02_indoor_partition_turns",
+      "split": "train",
+      "frames": 200,
+      "blind_frames": 5,
+      "observation_count_min_max": [
+        0,
+        11326
+      ],
+      "target_voxels_min_max": [
+        8192,
+        21461
+      ],
+      "max_feedback_transform_error": 0.0
+    },
+    {
+      "scene": "03_trapezoid_loop",
+      "split": "train",
+      "frames": 180,
+      "blind_frames": 151,
+      "observation_count_min_max": [
+        0,
+        6074
+      ],
+      "target_voxels_min_max": [
+        8192,
+        15274
+      ],
+      "max_feedback_transform_error": 0.0
+    },
+    {
+      "scene": "06_indoor_furnished_office",
+      "split": "train",
+      "frames": 220,
+      "blind_frames": 0,
+      "observation_count_min_max": [
+        247,
+        12478
+      ],
+      "target_voxels_min_max": [
+        8755,
+        22474
+      ],
+      "max_feedback_transform_error": 0.0
+    },
+    {
+      "scene": "07_indoor_furnished_lounge",
+      "split": "train",
+      "frames": 240,
+      "blind_frames": 60,
+      "observation_count_min_max": [
+        0,
+        9687
+      ],
+      "target_voxels_min_max": [
+        8192,
+        21634
+      ],
+      "max_feedback_transform_error": 0.0
+    },
+    {
+      "scene": "04_outdoor_rough_ground",
+      "split": "validation",
+      "frames": 180,
+      "blind_frames": 0,
+      "observation_count_min_max": [
+        997,
+        1725
+      ],
+      "target_voxels_min_max": [
+        4575,
+        9307
+      ],
+      "max_feedback_transform_error": 0.0
+    },
+    {
+      "scene": "05_outdoor_obstacle_passage",
+      "split": "test",
+      "frames": 200,
+      "blind_frames": 0,
+      "observation_count_min_max": [
+        662,
+        2961
+      ],
+      "target_voxels_min_max": [
+        5154,
+        6880
+      ],
+      "max_feedback_transform_error": 0.0
+    }
+  ],
+  "dataset_bytes": 804196352,
+  "max_dataset_bytes": 5000000000,
+  "total_frames": 1420
+}

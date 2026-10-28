@@ -1,0 +1,62 @@
+scene_0036 generating current surface boundary
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.data.gt_geometry 1ea2fb8 load on device 'cpu' took 2.30 ms  (cached)
+scene_0036 GT ready in 62.7s; 1081961 retained samples
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.65 ms  (cached)
+scene_0036 0/5000 coverage=0.422 voxel_recall=0.197 data=2.045GB
+scene_0036 100/5000 coverage=0.468 voxel_recall=0.235 data=2.080GB
+scene_0036 200/5000 coverage=0.481 voxel_recall=0.236 data=2.100GB
+scene_0036 300/5000 coverage=0.450 voxel_recall=0.227 data=2.117GB
+scene_0036 400/5000 coverage=0.474 voxel_recall=0.216 data=2.137GB
+scene_0036 500/5000 coverage=0.460 voxel_recall=0.223 data=2.157GB
+scene_0036 600/5000 coverage=0.477 voxel_recall=0.235 data=2.175GB
+scene_0036 700/5000 coverage=0.449 voxel_recall=0.221 data=2.195GB
+scene_0036 800/5000 coverage=0.476 voxel_recall=0.218 data=2.214GB
+scene_0036 900/5000 coverage=0.483 voxel_recall=0.236 data=2.234GB
+scene_0036 1000/5000 coverage=0.492 voxel_recall=0.238 data=2.254GB
+scene_0036 1100/5000 coverage=0.428 voxel_recall=0.204 data=2.273GB
+scene_0036 1200/5000 coverage=0.484 voxel_recall=0.223 data=2.292GB
+scene_0036 1300/5000 coverage=0.478 voxel_recall=0.226 data=2.311GB
+scene_0036 1400/5000 coverage=0.465 voxel_recall=0.227 data=2.329GB
+scene_0036 1500/5000 coverage=0.486 voxel_recall=0.232 data=2.349GB
+scene_0036 1600/5000 coverage=0.462 voxel_recall=0.213 data=2.369GB
+scene_0036 1700/5000 coverage=0.482 voxel_recall=0.234 data=2.387GB
+scene_0036 1800/5000 coverage=0.485 voxel_recall=0.236 data=2.408GB
+scene_0036 1900/5000 coverage=0.468 voxel_recall=0.225 data=2.428GB
+scene_0036 2000/5000 coverage=0.486 voxel_recall=0.236 data=2.448GB
+scene_0036 2100/5000 coverage=0.445 voxel_recall=0.213 data=2.467GB
+scene_0036 2200/5000 coverage=0.453 voxel_recall=0.227 data=2.484GB
+scene_0036 2300/5000 coverage=0.454 voxel_recall=0.213 data=2.502GB
+scene_0036 2400/5000 coverage=0.424 voxel_recall=0.211 data=2.523GB
+scene_0036 2500/5000 coverage=0.472 voxel_recall=0.232 data=2.543GB
+scene_0036 2600/5000 coverage=0.461 voxel_recall=0.229 data=2.562GB
+scene_0036 2700/5000 coverage=0.443 voxel_recall=0.207 data=2.580GB
+scene_0036 2800/5000 coverage=0.469 voxel_recall=0.234 data=2.600GB
+scene_0036 2900/5000 coverage=0.450 voxel_recall=0.221 data=2.619GB
+scene_0036 3000/5000 coverage=0.447 voxel_recall=0.227 data=2.635GB
+scene_0036 3100/5000 coverage=0.445 voxel_recall=0.210 data=2.654GB
+scene_0036 3200/5000 coverage=0.470 voxel_recall=0.234 data=2.671GB
+scene_0036 3300/5000 coverage=0.458 voxel_recall=0.230 data=2.687GB
+scene_0036 3400/5000 coverage=0.469 voxel_recall=0.226 data=2.700GB
+scene_0036 3500/5000 coverage=0.461 voxel_recall=0.216 data=2.711GB
+scene_0036 3600/5000 coverage=0.468 voxel_recall=0.226 data=2.724GB
+scene_0036 3700/5000 coverage=0.480 voxel_recall=0.232 data=2.737GB
+scene_0036 3800/5000 coverage=0.457 voxel_recall=0.226 data=2.747GB
+scene_0036 3900/5000 coverage=0.478 voxel_recall=0.226 data=2.755GB
+scene_0036 4000/5000 coverage=0.467 voxel_recall=0.228 data=2.763GB
+scene_0036 4100/5000 coverage=0.474 voxel_recall=0.237 data=2.769GB
+scene_0036 4200/5000 coverage=0.466 voxel_recall=0.212 data=2.776GB
+scene_0036 4300/5000 coverage=0.463 voxel_recall=0.221 data=2.784GB
+scene_0036 4400/5000 coverage=0.454 voxel_recall=0.218 data=2.788GB
+scene_0036 4500/5000 coverage=0.492 voxel_recall=0.245 data=2.794GB
+scene_0036 4600/5000 coverage=0.469 voxel_recall=0.218 data=2.799GB
+scene_0036 4700/5000 coverage=0.478 voxel_recall=0.242 data=2.804GB
+scene_0036 4800/5000 coverage=0.463 voxel_recall=0.230 data=2.809GB
+scene_0036 4900/5000 coverage=0.467 voxel_recall=0.242 data=2.814GB
+scene_0036 completed 5000 frames in 894.4s, coverage 0.466

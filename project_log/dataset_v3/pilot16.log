@@ -1,0 +1,25 @@
+scene_9002 generating current surface boundary
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.data.gt_geometry 1ea2fb8 load on device 'cpu' took 2155.50 ms  (compiled)
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 3151.96 ms  (compiled)
+scene_9002 0/100 coverage=0.244 voxel_recall=0.106 data=0.005GB
+Traceback (most recent call last):
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v3.py", line 351, in <module>
+    main()
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v3.py", line 301, in main
+    collect_scene(args,args.scene)
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v3.py", line 245, in collect_scene
+    raise ValueError('Rejected motion; inspect acquired route')
+ValueError: Rejected motion; inspect acquired route
+Traceback (most recent call last):
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v3.py", line 351, in <module>
+    main()
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v3.py", line 322, in main
+    raise RuntimeError('Scene {} failed ({})'.format(scene,child.returncode))
+RuntimeError: Scene 9002 failed (1)

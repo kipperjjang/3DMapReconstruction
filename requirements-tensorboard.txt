@@ -1,0 +1,2 @@
+# Compatible with the Python 3.7 / PyTorch 1.13 training environment.
+tensorboard==2.11.2

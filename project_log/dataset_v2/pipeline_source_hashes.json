@@ -1,0 +1,8 @@
+{
+  "scripts/prepare_dataset_v2.py": "7954a6c450709880a797f5c86b9f2d92ed0bcf9b24f4e5808fc4874a8e6fd25d",
+  "scripts/audit_dataset_v2.py": "795ac5dfcb570ed827ee18383397fb0aaf7aacc6ca451cee3aa0b96c4e5e9861",
+  "scripts/validate_training_data.py": "611488106921c50893f135a46acd643e8ea466d7f4804c8f6f974fec20f9e8de",
+  "scripts/train_gpu.sh": "1e112168d6426ae1f3ed605fa1dcd635b86f4579a715c637299b6af0803a4036",
+  "scripts/train_v2.sh": "f25247860fa4fc98331f397f4d67acb4ea3d77df68524d6a1030b547f76ac29e",
+  "tests/test_prepare_dataset_v2.py": "c0ca416c0a503a14255b7bce81c6cc3ff3db9f98ba154bed2431a183ddfd3728"
+}

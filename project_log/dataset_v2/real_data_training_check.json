@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "purpose": "single optimizer update execution check; not a completed training run",
+  "device": "cpu",
+  "batch_size": 2,
+  "rollout": 12,
+  "optimizer_updates": 1,
+  "channels": [
+    32,
+    64,
+    128,
+    256,
+    256
+  ],
+  "elapsed_s": 69.87321035563946,
+  "mean_loss": 1.2473247349262238,
+  "steps": [
+    {
+      "age": 0,
+      "loss": 1.241074800491333,
+      "output_voxels": 14296
+    },
+    {
+      "age": 1,
+      "loss": 1.2176876068115234,
+      "output_voxels": 17148
+    },
+    {
+      "age": 2,
+      "loss": 1.2516438961029053,
+      "output_voxels": 17925
+    },
+    {
+      "age": 3,
+      "loss": 1.2534979581832886,
+      "output_voxels": 17759
+    },
+    {
+      "age": 4,
+      "loss": 1.2512238025665283,
+      "output_voxels": 17981
+    },
+    {
+      "age": 5,
+      "loss": 1.2529352903366089,
+      "output_voxels": 17970
+    },
+    {
+      "age": 6,
+      "loss": 1.2566936016082764,
+      "output_voxels": 17700
+    },
+    {
+      "age": 7,
+      "loss": 1.245896577835083,
+      "output_voxels": 17828
+    },
+    {
+      "age": 8,
+      "loss": 1.2465920448303223,
+      "output_voxels": 17693
+    },
+    {
+      "age": 9,
+      "loss": 1.2508643865585327,
+      "output_voxels": 17490
+    },
+    {
+      "age": 10,
+      "loss": 1.2511353492736816,
+      "output_voxels": 17572
+    },
+    {
+      "age": 11,
+      "loss": 1.2486515045166016,
+      "output_voxels": 17832
+    }
+  ]
+}

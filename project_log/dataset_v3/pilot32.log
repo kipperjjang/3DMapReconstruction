@@ -1,0 +1,53 @@
+scene_9011 generating current surface boundary
+scene_9012 generating current surface boundary
+scene_9010 generating current surface boundary
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.data.gt_geometry 1ea2fb8 load on device 'cpu' took 1.75 ms  (cached)
+scene_9011 GT ready in 48.9s; 822723 retained samples
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.40 ms  (cached)
+scene_9011 0/100 coverage=0.375 voxel_recall=0.173 data=0.008GB
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.data.gt_geometry 1ea2fb8 load on device 'cpu' took 1.73 ms  (cached)
+scene_9012 GT ready in 49.1s; 1081549 retained samples
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.38 ms  (cached)
+scene_9012 0/100 coverage=0.449 voxel_recall=0.209 data=0.009GB
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.data.gt_geometry 1ea2fb8 load on device 'cpu' took 2.15 ms  (cached)
+scene_9010 GT ready in 50.6s; 891687 retained samples
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.38 ms  (cached)
+scene_9010 0/100 coverage=0.472 voxel_recall=0.204 data=0.013GB
+scene_9012 completed 100 frames in 63.6s, coverage 0.462
+scene_9011 completed 100 frames in 65.7s, coverage 0.451
+scene_9010 completed 100 frames in 65.5s, coverage 0.449
+{
+  "status": "collected",
+  "total_frames": 300,
+  "unique_acquired_poses": 300,
+  "split_frames": {
+    "train": 100,
+    "validation": 100,
+    "test": 100
+  },
+  "dataset_bytes": 16719872,
+  "mean_gt_point_coverage_5cm": 0.4541696894587813,
+  "mean_gt_voxel_recall": 0.20495834611700817,
+  "max_sensor_up_error": 0.0
+}

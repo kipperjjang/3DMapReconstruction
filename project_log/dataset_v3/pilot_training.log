@@ -1,0 +1,6 @@
+/home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/__init__.py:221: UserWarning: The MinkowskiEngine was compiled with CPU_ONLY flag. If you want to compile with CUDA support, make sure `torch.cuda.is_available()` is True when you install MinkowskiEngine.
+  warnings.warn(
+Initial validation F1: 0.0000, measurement F1: 0.3432
+Update 1/1 loss=1.1933 output=51461 lr=0.000100
+Validation F1=0.2139, best=0.2139
+Training completed. Held-out test F1=0.0000; report=/home/intern/Neural Scene unet/outputs/training_v3_pilot_check/report.json

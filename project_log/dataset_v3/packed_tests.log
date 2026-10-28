@@ -1,0 +1,7 @@
+test_cell_identity_error_bound_and_multiplicity (test_packed.PackedTests) ... ok
+test_packed_frames_are_isolated_and_decoded (test_packed.PackedTests) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.047s
+
+OK

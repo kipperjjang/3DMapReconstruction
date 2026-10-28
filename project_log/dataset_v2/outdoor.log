@@ -1,0 +1,47 @@
+Collecting full 04_outdoor_rough_ground using current composed GT
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-cache-v2
+Module dynaraysim.sensors.warp_backend 549379c load on device 'cpu' took 1.92 ms  (cached)
+Old GT audit fingerprint differs; explicit 5 cm resolution, no current audit claim
+Module dynaraysim.data.gt_geometry 435a520 load on device 'cpu' took 0.43 ms  (cached)
+04_outdoor_rough_ground packets=30 data=0.243 GB
+04_outdoor_rough_ground packets=60 data=0.269 GB
+04_outdoor_rough_ground packets=90 data=0.271 GB
+04_outdoor_rough_ground packets=120 data=0.274 GB
+04_outdoor_rough_ground packets=150 data=0.276 GB
+04_outdoor_rough_ground packets=180 data=0.278 GB
+04_outdoor_rough_ground frame 0/180 observations=1010 targets=7400
+04_outdoor_rough_ground frame 30/180 observations=1579 targets=8122
+04_outdoor_rough_ground frame 60/180 observations=1283 targets=4906
+04_outdoor_rough_ground frame 90/180 observations=1245 targets=4963
+04_outdoor_rough_ground frame 120/180 observations=1151 targets=8880
+04_outdoor_rough_ground frame 150/180 observations=1237 targets=8626
+Collecting full 05_outdoor_obstacle_passage using current composed GT
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-cache-v2
+Module dynaraysim.sensors.warp_backend 549379c load on device 'cpu' took 1.76 ms  (cached)
+Old GT audit fingerprint differs; explicit 5 cm resolution, no current audit claim
+Module dynaraysim.data.gt_geometry 435a520 load on device 'cpu' took 0.40 ms  (cached)
+05_outdoor_obstacle_passage packets=30 data=0.538 GB
+05_outdoor_obstacle_passage packets=60 data=0.544 GB
+05_outdoor_obstacle_passage packets=90 data=0.549 GB
+05_outdoor_obstacle_passage packets=120 data=0.554 GB
+05_outdoor_obstacle_passage packets=150 data=0.559 GB
+05_outdoor_obstacle_passage packets=180 data=0.563 GB
+05_outdoor_obstacle_passage frame 0/200 observations=2123 targets=5329
+05_outdoor_obstacle_passage frame 30/200 observations=2355 targets=5949
+05_outdoor_obstacle_passage frame 60/200 observations=1673 targets=6352
+05_outdoor_obstacle_passage frame 90/200 observations=1976 targets=6266
+05_outdoor_obstacle_passage frame 120/200 observations=2017 targets=6535
+05_outdoor_obstacle_passage frame 150/200 observations=2904 targets=6601
+05_outdoor_obstacle_passage frame 180/200 observations=1585 targets=5923
