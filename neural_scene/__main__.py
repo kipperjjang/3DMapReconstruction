@@ -21,7 +21,7 @@ def smoke(device):
     z = (torch.floor((x + 1.4) / 0.4) * 0.12 - 0.4)
     target = torch.stack((x.flatten(), y.flatten(), z.flatten()), 1)
     observed = target[::3] + torch.randn_like(target[::3]) * 0.01
-    packed = merged_input([observed])
+    packed = merged_input([observed], [target[1::3]], input_policy=model.config.input_policy)
     result = model(packed)
     loss = reconstruction_loss(result, [target])
     loss.total.backward()
@@ -46,7 +46,7 @@ def smoke(device):
 def infer(args):
     model = load_checkpoint(args.checkpoint, args.device).eval()
     if args.alpha is not None:
-        model.config = UNetConfig(model.config.channels, args.alpha)
+        model.config = UNetConfig(model.config.channels, args.alpha, model.config.input_policy)
     with np.load(args.input, allow_pickle=False) as data:
         if "current_points" not in data:
             raise ValueError("Input NPZ must contain DynaMapping's current_points in the current robot frame")
@@ -59,11 +59,11 @@ def infer(args):
                 aligned_previous = transform_points(point_tensor(previous["points"], args.device), data["transformation"])
     grid = VoxelGrid(origin=tuple(args.origin))
     with torch.no_grad():
-        result = model(merged_input([current], [aligned_previous], grid))
+        result = model(merged_input([current], [aligned_previous], grid, input_policy=model.config.input_policy))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     # Exclusive create prevents accidental replacement of another result.
     with args.output.open("xb") as stream:
-        np.savez_compressed(stream, points=result.points()[0].cpu().numpy(), confidence=result.confidence.cpu().numpy(), origin=np.array(grid.origin), voxel_size_m=grid.voxel_size, point_frame="current_robot", input_policy="aligned_merge_t0")
+        np.savez_compressed(stream, points=result.points()[0].cpu().numpy(), confidence=result.confidence.cpu().numpy(), origin=np.array(grid.origin), voxel_size_m=grid.voxel_size, point_frame="current_robot", input_policy=model.config.input_policy)
     return {"output": str(args.output), "points": len(result.confidence)}
 
 

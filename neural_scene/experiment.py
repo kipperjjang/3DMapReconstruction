@@ -12,10 +12,10 @@ import time
 import numpy as np
 import torch
 
-from .inputs import merged_input, point_tensor
+from .inputs import INPUT_POLICIES, TEMPORAL_POLICY, merged_input, point_tensor
 from .loss import match_keys, reconstruction_loss, spatial_keys, target_voxels
 from .model import ReconstructionUNet4D, UNetConfig
-from .training import adam_with_decay, log_scalars, save_checkpoint, tensorboard_writer
+from .training import adam_with_decay, checkpoint_config, log_scalars, save_checkpoint, tensorboard_writer
 from .voxel import VoxelGrid, transform_points, voxelize
 
 
@@ -26,8 +26,8 @@ class SequenceDataset:
         raw = path.read_bytes()
         self.sha256 = hashlib.sha256(raw).hexdigest()
         self.manifest = json.loads(raw)
-        if self.manifest.get("format") not in ("neural-scene-dynamapping-v1", "neural-scene-packed-v1") or self.manifest.get("input_policy") != "aligned_merge_t0":
-            raise ValueError("Expected a DynaMapping-preprocessed aligned_merge_t0 dataset")
+        if self.manifest.get("format") not in ("neural-scene-dynamapping-v1", "neural-scene-packed-v1") or self.manifest.get("input_policy") not in INPUT_POLICIES:
+            raise ValueError("Expected DynaMapping-preprocessed frame data with a supported input policy")
         grid = self.manifest["grid"]
         self.grid = VoxelGrid(grid["voxel_size"], tuple(grid["shape"]), tuple(grid["origin"]))
         self.splits = {name: [] for name in ("train", "validation", "test")}
@@ -84,7 +84,7 @@ def predict(model, frames, previous, grid, device):
     current = [point_tensor(frame["current_points"], device) for frame in frames]
     aligned = [points.new_empty((0, 3)) if history is None else transform_points(history, frame["transformation"])
                for points, history, frame in zip(current, previous, frames)]
-    return model(merged_input(current, aligned, grid))
+    return model(merged_input(current, aligned, grid, input_policy=model.config.input_policy))
 
 
 def augmented_frame(frame, mirror_xy, rng, position_noise):
@@ -216,7 +216,7 @@ def snapshot_source(output):
 
 def save_latest(path, model, optimizer, scheduler, step, rng, metadata):
     temporary = path.with_suffix(".tmp")
-    torch.save({"format": "neural-scene-training-v1", "input_policy": "aligned_merge_t0",
+    torch.save({"format": "neural-scene-training-v1", "input_policy": model.config.input_policy,
         "model": model.state_dict(), "config": asdict(model.config),
         "optimizer": optimizer.state_dict(), "scheduler": scheduler.state_dict(),
         "step": step, "rng": rng.bit_generator.state, "torch_rng": torch.get_rng_state(),
@@ -230,6 +230,8 @@ def main():
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--input-policy", choices=INPUT_POLICIES,
+        help="New runs default to aligned_temporal_t01; resume/evaluation inherit the saved policy")
     parser.add_argument("--updates", type=int, default=500)
     parser.add_argument("--batch-size", type=int, default=2)
     parser.add_argument("--rollout", type=int, default=12)
@@ -279,20 +281,25 @@ def main():
         parser.error("This training run is complete; use a new output directory")
     if (output / "latest.pt").exists() and not args.resume:
         parser.error("An existing run requires --resume or a new output directory")
-    model = ReconstructionUNet4D().to(args.device)
+    state = torch.load(output / 'latest.pt', map_location=args.device) if args.resume else None
+    initial = torch.load(args.initial_checkpoint, map_location=args.device) if args.initial_checkpoint else None
+    saved = state if state is not None else initial
+    config = checkpoint_config(saved) if saved is not None else UNetConfig(input_policy=args.input_policy or TEMPORAL_POLICY)
+    if args.input_policy is not None and args.input_policy != config.input_policy:
+        parser.error('Requested input policy differs from checkpoint; start a new run for a different policy')
+    model = ReconstructionUNet4D(config).to(args.device)
     initial_checkpoint_hash = None
     if args.initial_checkpoint is not None:
         initial_checkpoint_hash = hashlib.sha256(args.initial_checkpoint.read_bytes()).hexdigest()
-        initial = torch.load(args.initial_checkpoint, map_location=args.device)
-        if initial.get('format') != 'neural-scene-unet-v1' or initial.get('input_policy') != 'aligned_merge_t0':
+        if initial.get('format') != 'neural-scene-unet-v1':
             parser.error('Initial checkpoint format/input policy mismatch')
-        if initial['config'] != asdict(model.config):
+        if checkpoint_config(initial) != model.config:
             parser.error('Initial checkpoint architecture/pruning configuration differs')
         model.load_state_dict(initial['model'])
     optimizer, scheduler = adam_with_decay(model, args.updates, args.initial_lr, args.final_lr)
     metadata = {"dataset_sha256": dataset.sha256, "updates": args.updates, "batch_size": args.batch_size,
         "rollout": args.rollout, "seed": args.seed, "channels": list(model.config.channels),
-        "pruning_threshold": model.config.pruning_threshold, "input_policy": "aligned_merge_t0", "device": args.device,
+        "pruning_threshold": model.config.pruning_threshold, "input_policy": model.config.input_policy, "device": args.device,
         "position_noise_m": args.position_noise, "trajectory_mirror_xy": not args.no_mirror,
         "rollout_start_policy": "nonempty first observation; subsequent blind frames retained",
         "train_windows": {sequence["scene"]: len(starts) for sequence, starts in train_windows}}
@@ -307,7 +314,6 @@ def main():
         parser.error("Existing output directory uses a different configuration/dataset")
     start_step = 0
     if args.resume:
-        state = torch.load(output / "latest.pt", map_location=args.device)
         if state["metadata"] != metadata:
             parser.error("Resume configuration/dataset differs from the saved run")
         model.load_state_dict(state["model"])

@@ -57,20 +57,34 @@ def save_checkpoint(path, model):
     temporary = path.with_suffix(path.suffix + ".tmp")
     torch.save({
         "format": "neural-scene-unet-v1",
-        "input_policy": "aligned_merge_t0",
+        "input_policy": model.config.input_policy,
         "config": asdict(model.config),
         "model": model.state_dict(),
     }, temporary)
     temporary.replace(path)
 
 
-def load_checkpoint(path, device="cpu"):
-    from .model import ReconstructionUNet4D, UNetConfig
-    checkpoint = torch.load(path, map_location=device)
-    if checkpoint.get("format") != "neural-scene-unet-v1" or checkpoint.get("input_policy") != "aligned_merge_t0":
-        raise ValueError("Checkpoint must use the aligned_merge_t0 input policy")
+def checkpoint_config(checkpoint):
+    """Validate checkpoint policy and restore legacy configs without a policy field."""
+    from .inputs import INPUT_POLICIES
+    from .model import UNetConfig
+    policy = checkpoint.get('input_policy')
+    if checkpoint.get('format') not in ('neural-scene-unet-v1', 'neural-scene-training-v1') or policy not in INPUT_POLICIES:
+        raise ValueError('Unsupported checkpoint format/input policy')
     config = checkpoint["config"].copy()
     config["channels"] = tuple(config["channels"])
-    model = ReconstructionUNet4D(UNetConfig(**config)).to(device)
+    config.setdefault('input_policy', policy)
+    if config['input_policy'] != policy:
+        raise ValueError('Checkpoint policy and model configuration disagree')
+    return UNetConfig(**config)
+
+
+def load_checkpoint(path, device="cpu"):
+    """Load inference weights using their saved temporal or legacy input policy."""
+    from .model import ReconstructionUNet4D
+    checkpoint = torch.load(path, map_location=device)
+    if checkpoint.get('format') != 'neural-scene-unet-v1':
+        raise ValueError('Inference requires an inference checkpoint, such as best.pt')
+    model = ReconstructionUNet4D(checkpoint_config(checkpoint)).to(device)
     model.load_state_dict(checkpoint["model"])
     return model

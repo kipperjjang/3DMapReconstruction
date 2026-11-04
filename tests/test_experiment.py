@@ -70,8 +70,8 @@ class ExperimentTests(unittest.TestCase):
                 if split == 'test':
                     raise AssertionError('Candidate selection must not evaluate test')
                 return actual_evaluate(model, dataset, split, device, **kwargs)
-            def small_model():
-                return ReconstructionUNet4D(UNetConfig(channels=(2, 4, 4, 4, 4), pruning_threshold=0))
+            def small_model(config=None):
+                return ReconstructionUNet4D(UNetConfig(channels=(2, 4, 4, 4, 4), pruning_threshold=0, input_policy=config.input_policy if config else "aligned_temporal_t01"))
             with patch.object(sys, 'argv', arguments), patch.object(experiment, 'ReconstructionUNet4D', small_model), patch.object(experiment, 'evaluate', checked_evaluate), redirect_stdout(io.StringIO()):
                 experiment.main()
             report = json.loads((output / 'report.json').read_text())
@@ -100,13 +100,13 @@ class ExperimentTests(unittest.TestCase):
             fixture_dataset(directory)
             output = directory / "run"
             arguments = ["experiment", "--dataset", str(directory), "--output", str(output), "--device", "cpu", "--updates", "1", "--rollout", "2", "--eval-every", "1", "--position-noise", "0", "--no-mirror"]
-            def small_model():
-                return ReconstructionUNet4D(UNetConfig(channels=(2, 4, 4, 4, 4), pruning_threshold=0))
+            def small_model(config=None):
+                return ReconstructionUNet4D(UNetConfig(channels=(2, 4, 4, 4, 4), pruning_threshold=0, input_policy=config.input_policy if config else "aligned_temporal_t01"))
             with patch.object(sys, "argv", arguments), patch.object(experiment, "ReconstructionUNet4D", small_model), redirect_stdout(io.StringIO()):
                 experiment.main()
             report = json.loads((output / "report.json").read_text())
             self.assertEqual(report["status"], "completed")
-            self.assertEqual(report["configuration"]["input_policy"], "aligned_merge_t0")
+            self.assertEqual(report["configuration"]["input_policy"], "aligned_temporal_t01")
             self.assertEqual(report["held_out_test"]["model"]["frames"], 12)
             self.assertGreater(report["held_out_test"]["model"]["recall"], 0)
             for name in ("best.pt", "last.pt", "latest.pt", "training.jsonl"):

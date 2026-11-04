@@ -10,10 +10,21 @@ v3 / conda `dyna` 사용 문서:
 사용자와 결정한 채널은 `[32,64,128,256,256]`, 단계당 일반 convolution은 2개다.
 
 **입력 정책:** 직전 reconstruction을 DynaMapping 방식으로 현재 robot frame에 정렬하고,
-현재 관측과 점군을 합친 **다음** voxelization한다. 모든 시간 좌표는 `t=0`이다.
-이는 논문의 현재 `t=0` / 직전 `t=1` 구분에서 사용자가 요청한 변경이다.
-MinkowskiEngine 4D 형식은 유지하지만 시간 slice가 하나이므로 연산은 사실상 공간 3D다.
-시간 kernel의 ±1 위치 가중치는 사용되지 않으며, 별도의 시간축 병합 layer는 없다.
+현재 관측은 `t=0`, 정렬된 직전 예측은 `t=1`로 각각 voxelization한다.
+같은 공간 voxel의 두 출처도 별도 시간 좌표로 유지한다. 새 모델의 기본 정책은
+`aligned_temporal_t01`이며 공간 down/up-sampling에서는 시간 해상도를 유지한다.
+최종 `1×1×1×2` convolution(시간 stride 2)이 두 시간을 통합해 `t=0` 점군 하나를 출력한다.
+기존 `aligned_merge_t0` 체크포인트는 로딩 시 기존 입력·출력 구조를 자동 선택한다.
+기존 v3 데이터는 관측·GT·pose가 분리 저장되어 있어 재수집 없이 사용할 수 있다.
+
+새 시간 구분 모델은 새 출력 폴더에서 학습한다. 기존 가중치를 시간 구분 모델의
+resume checkpoint로 사용할 수는 없다. 기존 학습을 resume하면 기존 정책을 유지한다.
+
+```bash
+conda activate dyna
+bash scripts/train_v3.sh --output outputs/training_run_v3_temporal \
+  --input-policy aligned_temporal_t01
+```
 
 ## 실행
 
@@ -54,7 +65,7 @@ CONDA 환경의 패키지와 원본 소스는 수정하지 않는다. CUDA backe
 | Decoder 2 | 16³ / 4 | 128 | 동일 |
 | Decoder 1 | 32³ / 2 | 64 | 동일 |
 | Decoder 0 | 64³ / 1 | 32 | 동일 |
-| 출력 | 64³ / 1 | 3 | 1×1×1×1 conv → sigmoid offset → robot-frame 점군 |
+| 출력 | 공간 64³ / 1, 시간 1 slice / 2 | 3 | 1×1×1×2 conv → sigmoid offset → robot-frame 점군 |
 
 일반 kernel `[3,3,3,3]`, down/up kernel `[2,2,2,1]`, stride `[2,2,2,1]`이다.
 일반/down/up convolution 뒤에 BatchNorm + ReLU가 붙는다.
@@ -279,7 +290,7 @@ bash scripts/run.sh -m neural_scene infer \
 ```
 
 첫 frame은 `--previous-prediction`을 생략한다. Output NPZ에는 `points`, `confidence`,
-`origin`, `voxel_size_m`, `point_frame=current_robot`, `input_policy=aligned_merge_t0`가 저장된다.
+`origin`, `voxel_size_m`, `point_frame=current_robot`, checkpoint에 따른 `input_policy`가 저장된다.
 기존 출력은 덮어쓰지 않는다. `--origin X Y Z`, `--alpha`, `--device`를 지원한다.
 CUDA backend 재빌드 후 `--device cuda:0`을 사용한다.
 

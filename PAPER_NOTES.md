@@ -9,13 +9,13 @@ Locomotion on Structured Terrain*, Figure 2 및 III.A–C (pp. 3–4).
 | Voxel 크기 | 0.05 m | 동일 |
 | 입력 feature | centroid offset 3채널 | 동일 |
 | 이전 출력 정렬 | 현재 robot frame으로 transform | DynaMapping 계산식 참조 |
-| 시간 좌표 | 현재 0, 직전 reconstruction 1 | **사용자 요청: 점군을 합친 뒤 모두 0** |
-| Backbone | 4D fully convolutional U-Net | 4D 형식, 단일 시간 slice (사실상 공간 3D) |
+| 시간 좌표 | 현재 0, 직전 reconstruction 1 | **현재 0, 정렬된 직전 reconstruction 1을 유지** |
+| Backbone | 4D fully convolutional U-Net | 두 시간 slice에서 공간·시간 convolution 수행 |
 | Encoder | 공간 stride 2 × 4, 시간 stride 1 | 동일 |
 | Decoder | generative upsampling + pruning | 동일 |
 | Occupancy | 별도 conv + sigmoid | 1×1×1×1 head |
 | Pruning | 확률이 α 미만이면 제거, α=0.5 | 동일; GT 보존 및 fallback 없음 |
-| 출력 feature | offset 3채널 | 1×1×1×1 conv + sigmoid |
+| 출력 feature | offset 3채널 | 1×1×1×2 conv, 시간 stride 2 + sigmoid; 출력은 t=0 한 slice |
 | Loss | 각 scale BCE + Euclidean offset error | 동일 항목, BCE stage 평균, 가중치 configurable |
 | Rollout | 12 timesteps, 시간 gradient 전파 없음 | helper 제공, 직전 출력 detach |
 | Optimizer | Adam, exponential LR 0.01 → 0.0001 | helper 제공, 기간은 필수 인자 |
@@ -28,11 +28,18 @@ Locomotion on Structured Terrain*, Figure 2 및 III.A–C (pp. 3–4).
 - 일반/down/up convolution 뒤 BatchNorm + ReLU.
 - Skip은 좌표 합집합의 zero-fill feature concatenate.
 - 최종 offset activation은 sigmoid.
-- 입력 전에 점군을 정렬 및 병합해 모두 t=0. 마지막 temporal collapse layer는 없음.
+- 이전 예측을 현재 robot frame으로 정렬한 후 두 출처를 각각 voxelization한다.
+  현재 관측 t=0, 이전 예측 t=1을 encoder/decoder에서 유지한다.
+- 최종 offset head의 시간 kernel 2·stride 2로 현재 시점의 한 점군으로 통합한다.
+  이 시간축 통합 kernel/stride는 이번 구현에서 명시적으로 선택한 설정이다.
+- Decoder occupancy BCE는 두 시간의 후보 모두에 현재 scene의 공간 GT를 적용한다.
+  최종 출력 confidence는 같은 공간 voxel의 두 시간 점유 확률 중 최댓값이다.
 
 Grid origin, loss weights, training 기간, batch size는 API로 노출했다. 기본 origin은
 robot 중심 lower corner, loss weights는 1:1이다. 원 논문에서 복원한 값으로 주장하지 않는다.
-입력 시간 구분을 변경했으므로 원 논문 전체의 동일 재현으로 주장하지 않는다.
+원 논문 전체의 동일 재현으로 주장하지 않는다. 이전 t=0 병합 모델과 학습 결과는
+baseline commit `7dee8a4` 및 기존 체크포인트로 보존한다. 아래 검증 수치는
+각 기록 시점의 기존 모델 결과이며 새 시간 구분 모델의 학습 성능이 아니다.
 
 ## DynaMapping 참조
 

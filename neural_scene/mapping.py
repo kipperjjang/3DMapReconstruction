@@ -8,7 +8,7 @@ import numpy as np
 import torch
 
 from .geometry import pose_matrix, previous_to_current
-from .inputs import point_tensor, merged_input
+from .inputs import TEMPORAL_POLICY, point_tensor, merged_input
 from .voxel import VoxelGrid, transform_points
 
 
@@ -89,7 +89,8 @@ class NeuralSceneMapper:
             dt_s = (timestamp - self.previous_timestamp_ns) * 1e-9
         context = nullcontext() if track_grad else torch.no_grad()
         with context:
-            packed = merged_input([points], [aligned], self.grid)
+            policy = getattr(getattr(self.model, 'config', None), 'input_policy', TEMPORAL_POLICY)
+            packed = merged_input([points], [aligned], self.grid, input_policy=policy)
             reconstruction = self.model(packed)
             predicted = reconstruction.points()[0]
         step = MappingStep(reconstruction, predicted, aligned, transformation, dt_s, frame_id)

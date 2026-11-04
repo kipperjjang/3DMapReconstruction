@@ -61,8 +61,21 @@ GPU smoke 검사를 통과한 뒤 학습한다. 결과/checkpoint/TensorBoard �
 
 센서와 로봇의 기록된 pose로 관측을 robot frame으로 변환한 후 실제 DynaMapping이
 이전 frame→현재 frame 변환을 계산한다. 각 frame의 `R_world_sensor[:,2]`가
-`[0,0,1]`인지 확인한다. GT voxel 강제 보존, pruning, t=0 병합, detached feedback,
-채널 `[32,64,128,256,256]` 등 기존 네트워크 정책은 유지한다.
+`[0,0,1]`인지 확인한다. 데이터 자체는 관측·GT·pose를 따로 저장한다.
+기존 체크포인트는 t=0 병합 정책을 유지하고, 새 기본 모델은 현재 관측 t=0 /
+정렬된 이전 예측 t=1을 유지한다. manifest의 `aligned_merge_t0`는 기존 수집 시점의
+메타데이터이며, 네트워크의 실제 정책은 체크포인트·학습 configuration에 기록한다.
+Pruning, GT 강제 보존 없음, detached feedback, 채널 `[32,64,128,256,256]`은 동일하다.
+
+시간 구분 모델을 새로 학습할 때는 기존 데이터 그대로 새 출력 폴더를 사용한다.
+
+```bash
+bash scripts/train_v3.sh --output outputs/training_run_v3_temporal \
+  --input-policy aligned_temporal_t01
+```
+
+`--resume` 시에는 저장된 모델의 입력 정책을 따른다. 기존 t=0 병합 학습을
+시간 구분 모델로 바꾸어 resume하는 것은 지원하지 않는다.
 
 ## 논문의 43%와 이번 커버리지
 

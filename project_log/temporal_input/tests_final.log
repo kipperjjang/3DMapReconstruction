@@ -1,0 +1,439 @@
+...............................................                          [100%]
+=============================== warnings summary ===============================
+.deps-dyna/MinkowskiEngine/__init__.py:221
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/__init__.py:221: UserWarning: The MinkowskiEngine was compiled with CPU_ONLY flag. If you want to compile with CUDA support, make sure `torch.cuda.is_available()` is True when you install MinkowskiEngine.
+    warnings.warn(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:18
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:18: DeprecationWarning: Call to deprecated create function FileDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    DESCRIPTOR = _descriptor.FileDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:36
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:36: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:43
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:43: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:50
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:50: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:57
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:57: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:64
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:64: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:71
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:71: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:78
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:78: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:29
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/histogram_pb2.py:29: DeprecationWarning: Call to deprecated create function Descriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _HISTOGRAMPROTO = _descriptor.Descriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:18
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:18: DeprecationWarning: Call to deprecated create function FileDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    DESCRIPTOR = _descriptor.FileDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:36
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:36: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:43
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:43: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:29
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:29: DeprecationWarning: Call to deprecated create function Descriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _TENSORSHAPEPROTO_DIM = _descriptor.Descriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:73
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:73: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:80
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:80: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:66
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_shape_pb2.py:66: DeprecationWarning: Call to deprecated create function Descriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _TENSORSHAPEPROTO = _descriptor.Descriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:19
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:19: DeprecationWarning: Call to deprecated create function FileDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    DESCRIPTOR = _descriptor.FileDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:33
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:33: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:37
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:37: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:41
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:41: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:45
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:45: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:49
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:49: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:53
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:53: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:57
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:57: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:61
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:61: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:65
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:65: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:69
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:69: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:73
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:73: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:77
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:77: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:81
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:81: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:85
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:85: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:89
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:89: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:93
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:93: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:97
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:97: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:101
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:101: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:105
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:105: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:109
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:109: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:113
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:113: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:117
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:117: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:121
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:121: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:125
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:125: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:129
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:129: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:133
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:133: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:137
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:137: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:141
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:141: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:145
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:145: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:149
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:149: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:153
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:153: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:157
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:157: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:161
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:161: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:165
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:165: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:169
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:169: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:173
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:173: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:177
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:177: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:181
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:181: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:185
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:185: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:189
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:189: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:193
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:193: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:197
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:197: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:201
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:201: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:205
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:205: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:209
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:209: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:213
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:213: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:217
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:217: DeprecationWarning: Call to deprecated create function EnumValueDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.EnumValueDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:27
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:27: DeprecationWarning: Call to deprecated create function EnumDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _DATATYPE = _descriptor.EnumDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:287
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:287: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/types_pb2.py:280
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/types_pb2.py:280: DeprecationWarning: Call to deprecated create function Descriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _SERIALIZEDDTYPE = _descriptor.Descriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:20
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:20: DeprecationWarning: Call to deprecated create function FileDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    DESCRIPTOR = _descriptor.FileDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:39
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:39: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:46
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:46: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:32
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:32: DeprecationWarning: Call to deprecated create function Descriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _RESOURCEHANDLEPROTO_DTYPEANDSHAPE = _descriptor.Descriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:76
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:76: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:83
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:83: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:90
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:90: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:97
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:97: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:104
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:104: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:111
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:111: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:69
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/resource_handle_pb2.py:69: DeprecationWarning: Call to deprecated create function Descriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _RESOURCEHANDLEPROTO = _descriptor.Descriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:21
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:21: DeprecationWarning: Call to deprecated create function FileDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    DESCRIPTOR = _descriptor.FileDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:40
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:40: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:47
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:47: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:54
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:54: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:61
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:61: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:68
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:68: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:75
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:75: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:82
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:82: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:89
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:89: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:96
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:96: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:103
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:103: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:110
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:110: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:117
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:117: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:124
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:124: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:131
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:131: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:138
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:138: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:145
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:145: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:152
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:152: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:33
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:33: DeprecationWarning: Call to deprecated create function Descriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _TENSORPROTO = _descriptor.Descriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:183
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:183: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:190
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:190: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:197
+  /home/intern/Neural Scene unet/.deps-dyna/tensorboard/compat/proto/tensor_pb2.py:197: DeprecationWarning: Call to deprecated create function FieldDescriptor(). Note: Create unlinked descriptors is going to go away. Please use get/find descriptors from generated code or query the descriptor_pool.
+    _descriptor.FieldDescriptor(
+
+tests/test_evaluation.py: 108 warnings
+tests/test_experiment.py: 135 warnings
+tests/test_model.py: 189 warnings
+tests/test_sparse_blocks.py: 3 warnings
+tests/test_training_io.py: 135 warnings
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:284: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    else MinkowskiConvolutionFunction()
+
+tests/test_evaluation.py: 16 warnings
+tests/test_experiment.py: 20 warnings
+tests/test_model.py: 28 warnings
+tests/test_sparse_blocks.py: 1 warning
+tests/test_training_io.py: 20 warnings
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiConvolution.py:282: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionTransposeFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    MinkowskiConvolutionTransposeFunction()
+
+tests/test_evaluation.py: 4 warnings
+tests/test_experiment.py: 5 warnings
+tests/test_model.py: 7 warnings
+tests/test_training_io.py: 5 warnings
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiPruning.py:82: DeprecationWarning: <class 'MinkowskiPruning.MinkowskiPruningFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    self.pruning = MinkowskiPruningFunction()
+
+tests/test_evaluation.py: 16 warnings
+tests/test_experiment.py: 404 warnings
+tests/test_model.py: 18 warnings
+tests/test_sparse_blocks.py: 1 warning
+tests/test_training_io.py: 16 warnings
+  /home/intern/Neural Scene unet/.deps-dyna/MinkowskiEngine/MinkowskiUnion.py:99: DeprecationWarning: <class 'MinkowskiUnion.MinkowskiUnionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    self.union = MinkowskiUnionFunction()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+47 passed, 1232 warnings in 18.31s

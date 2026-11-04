@@ -1,7 +1,7 @@
 """Generative sparse U-Net terrain reconstruction with predictive pruning.
 
 Paper backbone: arXiv:2206.08077v1, Figure 2 and Section III.B.
-User adaptation: scans and aligned previous predictions are merged at t=0.
+Current observations use t=0; aligned previous predictions use t=1.
 """
 
 from dataclasses import dataclass
@@ -12,7 +12,7 @@ from torch import nn
 import MinkowskiEngine as ME
 
 from .blocks import ConvBlock, SpatialDownsample, SpatialUpsample, union_concat
-from .inputs import ReconstructionInput
+from .inputs import INPUT_POLICIES, MERGED_POLICY, TEMPORAL_POLICY, ReconstructionInput
 from .loss import match_keys, spatial_keys
 from .voxel import VoxelGrid
 
@@ -21,12 +21,15 @@ from .voxel import VoxelGrid
 class UNetConfig:
     channels: Tuple[int, int, int, int, int] = (32, 64, 128, 256, 256)
     pruning_threshold: float = 0.5
+    input_policy: str = TEMPORAL_POLICY
 
     def __post_init__(self):
         if len(self.channels) != 5 or any(c <= 0 or int(c) != c for c in self.channels):
             raise ValueError("channels must contain five positive integers")
         if not 0 <= self.pruning_threshold <= 1:
             raise ValueError("pruning_threshold must be in [0, 1]")
+        if self.input_policy not in INPUT_POLICIES:
+            raise ValueError("Unsupported input policy: " + str(self.input_policy))
 
 
 @dataclass
@@ -46,11 +49,12 @@ class EmptyOffsets:
 
     F: torch.Tensor
     C: torch.Tensor
+    stride: Tuple[int, int, int, int] = (1, 1, 1, 1)
 
     @property
     def tensor_stride(self):
         """Return the spatial/temporal stride of the final output."""
-        return [1, 1, 1, 1]
+        return list(self.stride)
 
     def __len__(self):
         """Return the number of output feature rows."""
@@ -75,8 +79,9 @@ class ReconstructionResult:
 class ReconstructionUNet4D(nn.Module):
     """Four spatial down/up stages with two ordinary convolutions per block.
 
-    Input is [batch,x,y,z,0] with three centroid offsets. All down/up strides are
-    [2,2,2,1]. Generated coordinates survive only if occupancy >= alpha. No
+    Input is [batch,x,y,z,time] with three centroid offsets. All spatial down/up
+    strides are [2,2,2,1]. The temporal policy collapses t=0/1 at the offset head.
+    Generated coordinates survive only if occupancy >= alpha. No
     training-time GT retention or minimum-number-of-voxels fallback is used.
     """
 
@@ -89,7 +94,10 @@ class ReconstructionUNet4D(nn.Module):
         self.upsamples = nn.ModuleList([SpatialUpsample(channels[i+1], channels[i]) for i in range(3, -1, -1)])
         self.decoders = nn.ModuleList([ConvBlock(2 * channels[i], channels[i]) for i in range(3, -1, -1)])
         self.occupancy_heads = nn.ModuleList([ME.MinkowskiConvolution(channels[i], 1, kernel_size=1, bias=True, dimension=4) for i in range(3, -1, -1)])
-        self.offset_head = ME.MinkowskiConvolution(channels[0], 3, kernel_size=1, bias=True, dimension=4)
+        temporal = config.input_policy == TEMPORAL_POLICY
+        self.offset_head = ME.MinkowskiConvolution(channels[0], 3,
+            kernel_size=[1, 1, 1, 2] if temporal else 1,
+            stride=[1, 1, 1, 2] if temporal else 1, bias=True, dimension=4)
         self.sigmoid = ME.MinkowskiSigmoid()
         self.prune = ME.MinkowskiPruning()
 
@@ -98,7 +106,8 @@ class ReconstructionUNet4D(nn.Module):
         zero = self.offset_head.kernel.sum() * 0
         features = self.offset_head.kernel.new_empty((0, 3)) + zero
         coordinates = torch.empty((0, 5), dtype=torch.int32, device=features.device)
-        offsets = EmptyOffsets(F=features, C=coordinates)
+        stride = (1, 1, 1, 2) if self.config.input_policy == TEMPORAL_POLICY else (1, 1, 1, 1)
+        offsets = EmptyOffsets(F=features, C=coordinates, stride=stride)
         return ReconstructionResult(offsets, features.new_empty(0), stages, packed.batch_size, packed.grid)
 
     def forward(self, packed: ReconstructionInput):
@@ -106,8 +115,13 @@ class ReconstructionUNet4D(nn.Module):
             raise TypeError("Use merged_input() to construct a ReconstructionInput")
         if any(size % 16 != 0 for size in packed.grid.shape):
             raise ValueError("Grid dimensions must be divisible by 16")
-        if len(packed.coordinates) and (packed.coordinates[:, -1] != 0).any():
-            raise ValueError("This model expects merged input with all time coordinates t=0")
+        if packed.input_policy != self.config.input_policy:
+            raise ValueError("Packed input and model input policies differ")
+        if len(packed.coordinates):
+            times = packed.coordinates[:, -1]
+            maximum = 0 if self.config.input_policy == MERGED_POLICY else 1
+            if ((times < 0) | (times > maximum)).any():
+                raise ValueError("Input time coordinates are outside the configured policy")
         if packed.features.device != self.offset_head.kernel.device:
             raise ValueError("Input features and model must be on the same device")
         if not len(packed.coordinates):
@@ -134,8 +148,13 @@ class ReconstructionUNet4D(nn.Module):
         # Pruning may reorder rows: match by coordinates to align confidences.
         final_logits = stages[-1].logits
         device = offsets.F.device
-        matched, rows = match_keys(spatial_keys(offsets.C.to(device), packed.grid.shape), spatial_keys(final_logits.C.to(device), packed.grid.shape))
+        keys, inverse = torch.unique(spatial_keys(final_logits.C.to(device), packed.grid.shape), return_inverse=True)
+        probabilities = final_logits.F[:, 0].sigmoid()
+        # The two temporal rows can collapse onto one spatial output voxel.
+        confidence_by_key = probabilities.new_zeros(len(keys)).scatter_reduce_(
+            0, inverse, probabilities, reduce="amax", include_self=False)
+        matched, rows = match_keys(spatial_keys(offsets.C.to(device), packed.grid.shape), keys)
         if not matched.all():
             raise RuntimeError("Final points must have an occupancy prediction")
-        confidence = final_logits.F[rows, 0].sigmoid()
+        confidence = confidence_by_key[rows]
         return ReconstructionResult(offsets, confidence, stages, packed.batch_size, packed.grid)

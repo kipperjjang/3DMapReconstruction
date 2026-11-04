@@ -35,7 +35,7 @@ def export_evaluation(args):
     # Refuse to mix partial/new evaluation outputs with an earlier run.
     args.output.mkdir(parents=True, exist_ok=False)
     manifest = {
-        "format": FORMAT, "status": "running", "input_policy": "aligned_merge_t0",
+        "format": FORMAT, "status": "running", "input_policy": model.config.input_policy,
         "point_frame": "current_robot", "units": "metres",
         "checkpoint": str(args.checkpoint.resolve()),
         "checkpoint_sha256": hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),

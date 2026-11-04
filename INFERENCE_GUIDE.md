@@ -89,7 +89,11 @@ export 결과는 학습 데이터와 별도 저장되며, 10GB 수집 상한에 
 
 추론은 `.eval()`과 `torch.no_grad()`에서 수행한다. 각 scene의 첫 프레임은
 현재 관측만 입력하고, 다음부터 이전 모델 예측을 DynaMapping 상대 변환으로 현재
-robot frame에 맞춰 병합한다. 모든 시간 좌표는 `t=0`이며 scene마다 feedback을 초기화한다.
+robot frame에 맞춘다. 새 `aligned_temporal_t01` 모델은 현재 관측 `t=0`, 이전 예측
+`t=1`을 각각 voxel화해 입력하고 최종 head에서 한 출력 시점으로 통합한다.
+기존 `aligned_merge_t0` 체크포인트는 기존 병합 정책을 자동 사용한다.
+Export CLI 옵션을 바꿀 필요 없이 checkpoint가 입력 정책과 모델 구조를 결정하며,
+실제 정책은 `evaluation.json`의 `input_policy`에 기록된다. Scene마다 feedback을 초기화한다.
 
 ## 3. Export 결과 재생
 

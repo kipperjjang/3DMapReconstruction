@@ -3,13 +3,47 @@ from unittest.mock import patch
 
 import torch
 
-from neural_scene.inputs import merged_input
+from neural_scene.inputs import MERGED_POLICY, TEMPORAL_POLICY, merged_input
 from neural_scene.loss import reconstruction_loss
 from neural_scene.model import EmptyOffsets, ReconstructionUNet4D, UNetConfig
 from neural_scene.voxel import VoxelGrid
 
 
 class ModelTests(unittest.TestCase):
+    def test_temporal_collapse_uses_both_sources_without_duplicate_outputs(self):
+        model = self.model(alpha=0).eval()
+        # Positive weights/activations give a reliable gradient from both times.
+        with torch.no_grad():
+            for module in model.modules():
+                if hasattr(module, 'kernel'):
+                    module.kernel.fill_(0.02)
+            for norm in model.modules():
+                if isinstance(norm, torch.nn.BatchNorm1d):
+                    norm.bias.fill_(0.1)
+        current = torch.tensor([[.011, .022, .033]], requires_grad=True)
+        previous = torch.tensor([[.031, .012, .023]], requires_grad=True)
+        grid = VoxelGrid(shape=(16, 16, 16), origin=(0, 0, 0))
+        packed = merged_input([current], [previous], grid)
+        result = model(packed)
+        self.assertEqual(set(packed.coordinates[:, -1].tolist()), {0, 1})
+        for stage in result.stages:
+            self.assertEqual(set(stage.logits.C[:, -1].tolist()), {0, 1})
+        self.assertEqual(result.offsets.C[:, -1].unique().tolist(), [0])
+        self.assertEqual(len(result.offsets), 4096)
+        self.assertEqual(len(torch.unique(result.offsets.C[:, :4], dim=0)), 4096)
+        self.assertEqual(result.confidence.shape, (4096,))
+        result.offsets.F.sum().backward()
+        for source in (current, previous):
+            self.assertTrue(torch.isfinite(source.grad).all())
+            self.assertGreater(float(source.grad.abs().sum()), 0)
+        self.assertEqual(model.offset_head.kernel.shape[0], 2)
+        self.assertTrue((model.offset_head.kernel.grad.abs().sum(dim=(1, 2)) > 0).all())
+
+    def test_model_rejects_mismatched_input_policy(self):
+        model = self.model().eval()
+        with self.assertRaisesRegex(ValueError, 'policies differ'):
+            model(merged_input([torch.zeros(1, 3)], input_policy=MERGED_POLICY))
+
     def test_empty_output_bypasses_sparse_backend_on_available_devices(self):
         devices = ['cpu'] + (['cuda:0'] if torch.cuda.is_available() else [])
         for device in devices:
@@ -22,7 +56,7 @@ class ModelTests(unittest.TestCase):
                 self.assertIsInstance(result.offsets, EmptyOffsets)
                 self.assertEqual(result.offsets.F.device, packed.features.device)
                 self.assertEqual(result.offsets.C.shape, (0, 5))
-                self.assertEqual(result.offsets.tensor_stride, [1, 1, 1, 1])
+                self.assertEqual(result.offsets.tensor_stride, [1, 1, 1, 2])
                 self.assertEqual(result.points()[0].shape, (0, 3))
                 loss = reconstruction_loss(result, [torch.zeros((1, 3), device=device)])
                 self.assertEqual(loss.total.item(), 0)
@@ -67,7 +101,7 @@ class ModelTests(unittest.TestCase):
         targets = [torch.tensor([[0.011, 0.022, 0.033]]), torch.tensor([[0.071, 0.082, 0.093]])]
         result = model(merged_input(targets, grid=grid))
         self.assertEqual([s.logits.tensor_stride for s in result.stages], [[8, 8, 8, 1], [4, 4, 4, 1], [2, 2, 2, 1], [1, 1, 1, 1]])
-        self.assertEqual(result.offsets.tensor_stride, [1, 1, 1, 1])
+        self.assertEqual(result.offsets.tensor_stride, [1, 1, 1, 2])
         self.assertEqual(result.offsets.C[:, -1].unique().tolist(), [0])
         self.assertTrue(((result.offsets.F > 0) & (result.offsets.F < 1)).all())
         self.assertEqual([len(p) for p in result.points()], [4096, 4096])

@@ -41,7 +41,8 @@ def occupancy_labels(candidate_coordinates, target_coordinates, stride, grid):
     """Supervise coarse spatial occupancy with the current scene.
 
     Each occupied target cell maps to its enclosing coarse spatial cell. Time
-    does not enter the occupancy label; the merged input policy fixes it at zero.
+    does not enter the occupancy label: both input times reconstruct the current
+    scene, and the final offset head collapses them to one temporal output slice.
     """
     targets = target_coordinates.clone()
     stride_tensor = targets.new_tensor(stride[:3])

@@ -41,7 +41,7 @@ class MappingTests(unittest.TestCase):
         np.testing.assert_allclose(step.aligned_previous.numpy(), expected_points, atol=1e-6)
         self.assertAlmostEqual(step.dt_s, 0.1)
         self.assertEqual(model.inputs[0].coordinates[:, -1].tolist(), [0])
-        self.assertEqual(model.inputs[1].coordinates[:, -1].tolist(), [0, 0])
+        self.assertEqual(model.inputs[1].coordinates[:, -1].tolist(), [0, 1])
 
     def test_order_rejection_and_episode_reset(self):
         mapper = NeuralSceneMapper(FixedPrediction(), 10, VoxelGrid())
