@@ -243,6 +243,11 @@ python -m neural_scene.evaluation play --help
 | `--input DIR` | 완료된 export 디렉터리 경로 | **필수** | `evaluation.json`이 있고 `status=completed`인 폴더. `best.pt`나 학습 폴더 경로가 아니다. |
 | `--scene NAME` | export에 포함된 scene 이름, 예: `scene_0000` | 생략 시 export의 모든 scene | 저장된 결과 중 scene 하나만 재생한다. `scene_000` 같은 내부 저장 폴더 이름이 아닌 manifest의 원래 scene 이름이다. |
 | `--renderer NAME` | `vispy`, `rerun` 중 하나 | `vispy` | DynaViewer 렌더러 선택. VisPy는 GUI 비교용이며 Rerun은 GUI 또는 `.rrd` 기록에 사용한다. 선택한 렌더러의 의존성이 설치되어 있어야 한다. |
+| `--layers NAME ...` | `prediction`, `observation`, `target` | foreground/reference 사용 | 표시할 점군을 동시에 지정한다. GT는 `target`이다. |
+| `--prediction-opacity`, `--observation-opacity`, `--gt-opacity` | 0–1 | 1 | 각 점군의 불투명도. 0은 숨김, 1은 불투명. voxel 모드에서는 면과 테두리 모두에 적용한다. |
+| `--mesh [PATH]` | world 좌표 mesh 또는 `auto` | 꺼짐 | 경로 생략 시 export에 저장된 원본 mesh를 찾는다. 기존 v3 export는 원본 dataset에서도 찾는다. |
+| `--mesh-opacity` | 0–1 | 0.25 | mesh 불투명도. |
+| `--dataset PATH` | 원본 v3 dataset 폴더 | export에 기록된 경로 | 기존 export의 dataset을 옮긴 경우 `--mesh auto`와 함께 사용한다. |
 | `--foreground NAME` | `prediction`, `observation`, `target` 중 하나 | `prediction` | 청록 레이어에 표시할 점군. 각각 모델 예측, 현재 관측, GT를 뜻한다. |
 | `--reference NAME` | `target`, `observation`, `none` 중 하나 | `target` | 주황 비교 레이어. 각각 GT, 현재 관측, 비교 레이어 숨김이다. **예측만 보려면 `--foreground prediction --reference none`**을 사용한다. |
 | `--voxels` | 값 없음 | 꺼짐: point 표시 | 지정하면 선택된 점군을 dataset grid의 occupied voxel box로 표시한다. v3는 5cm다. 표시용 좌표는 voxel 중심이며 export된 예측값·지표는 바뀌지 않는다. |

@@ -22,6 +22,7 @@ def export_evaluation(args):
     import torch
     from .experiment import SequenceDataset, evaluate, write_json
     from .training import load_checkpoint
+    from .evaluation_mesh import export_source_mesh
 
     if str(args.device).startswith("cuda") and not torch.cuda.is_available():
         raise ValueError("CUDA is unavailable; select --device cpu explicitly if needed")
@@ -45,8 +46,9 @@ def export_evaluation(args):
         "model_config": asdict(model.config), "sequences": [],
     }
     for number, sequence in enumerate(dataset.splits[args.split]):
-        manifest["sequences"].append({"scene": sequence["scene"],
-                                      "directory": "scene_{:03d}".format(number), "frames": []})
+        entry = {"scene": sequence["scene"], "directory": "scene_{:03d}".format(number), "frames": []}
+        export_source_mesh(dataset.directory, sequence, args.output, entry)
+        manifest["sequences"].append(entry)
     entries = {s["scene"]: s for s in manifest["sequences"]}
     write_json(args.output / "evaluation.json", manifest)
 
@@ -93,8 +95,8 @@ def load_export(directory, scene=None):
     return manifest, sequences
 
 
-def comparison_snapshot(data, foreground, reference, grid, voxels=False):
-    """Adapt two same-time clouds to DynaViewer's aligned layer contract.
+def comparison_snapshot(data, foreground, reference, grid, voxels=False, layers=None):
+    """Adapt same-time clouds to named layers and the legacy aligned contract.
 
     The reference occupies the viewer's orange history slot, but is NOT a
     previous frame or recurrent input. Both clouds are already current-robot XYZ.
@@ -120,15 +122,23 @@ def comparison_snapshot(data, foreground, reference, grid, voxels=False):
         other = layer(reference)
         history.append(SimpleNamespace(frame=other, aligned_point_cloud=other.points,
                                        aligned_voxels=getattr(other, "voxel_centers", None)))
-    return SimpleNamespace(current=current, history=history)
+    names = layers if layers is not None else [foreground] + ([reference] if reference != "none" else [])
+    return SimpleNamespace(current=current, history=history, layers={name: layer(name) for name in names})
 
 
 def playback(args):
     # Normal installed package import: no sibling-checkout path injection.
-    from viewer.history import create_history_viewer
+    from .evaluation_mesh import load_mesh, resolve_mesh
+    from .evaluation_viewer import ComparisonViewer
 
     manifest, sequences = load_export(args.input, args.scene)
-    options = dict(title="Neural Scene | cyan={} orange={}".format(args.foreground, args.reference),
+    layers = tuple(dict.fromkeys(args.layers or [args.foreground] +
+                                ([args.reference] if args.reference != "none" else [])))
+    if args.mesh and args.mesh != "auto" and len(sequences) != 1:
+        raise ValueError("An explicit --mesh requires a single scene; select --scene NAME")
+    # Resolve before opening a window or creating a recording, so missing geometry fails cleanly.
+    meshes = {s["scene"]: resolve_mesh(args.mesh, args.input, manifest, s, args.dataset) for s in sequences}
+    options = dict(title="Neural Scene | " + ", ".join("GT" if n == "target" else n for n in layers),
                    max_points=args.max_points, point_size=args.point_size, distance=args.distance,
                    show=not args.headless)
     if args.recording:
@@ -136,17 +146,21 @@ def playback(args):
             raise FileExistsError(str(args.recording))
         args.recording.parent.mkdir(parents=True, exist_ok=True)
         options["recording_path"] = str(args.recording)
-    window = create_history_viewer(renderer=args.renderer, **options)
+    opacities = dict(prediction=args.prediction_opacity, observation=args.observation_opacity,
+                     target=args.gt_opacity, mesh=args.mesh_opacity)
+    window = ComparisonViewer(args.renderer, layers, opacities, **options)
     try:
         while True:
             for sequence in sequences:
+                mesh_path = meshes[sequence["scene"]]
+                window.set_mesh(load_mesh(mesh_path) if mesh_path else None)
                 for metadata in sequence["frames"]:
                     if window.closed:
                         return
                     started = time.perf_counter()
                     with np.load(args.input / metadata["file"], allow_pickle=False) as data:
                         snapshot = comparison_snapshot(data, args.foreground, args.reference,
-                                                       manifest["grid"], args.voxels)
+                                                       manifest["grid"], args.voxels, layers)
                     window.update(snapshot)
                     if hasattr(window, "canvas"):
                         window.canvas.title = "{} | {} frame {} | F1={:.4f}".format(
@@ -175,6 +189,13 @@ def positive_float(value):
     return number
 
 
+def opacity(value):
+    number = float(value)
+    if not np.isfinite(number) or not 0 <= number <= 1:
+        raise argparse.ArgumentTypeError("must be finite and between 0 (hidden) and 1 (opaque)")
+    return number
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
@@ -193,6 +214,14 @@ def main():
     play.add_argument("--renderer", choices=("vispy", "rerun"), default="vispy")
     play.add_argument("--foreground", choices=("prediction", "observation", "target"), default="prediction")
     play.add_argument("--reference", choices=("target", "observation", "none"), default="target")
+    play.add_argument("--layers", nargs="+", choices=("prediction", "observation", "target"),
+                      help="Clouds to display together; overrides foreground/reference")
+    for name in ("prediction", "observation", "gt"):
+        play.add_argument("--" + name + "-opacity", type=opacity, default=1., help="Layer opacity in [0, 1]")
+    play.add_argument("--mesh", nargs="?", const="auto", metavar="PATH",
+                      help="Overlay world-space mesh in metres; omit PATH to find bundled/source v3 mesh")
+    play.add_argument("--mesh-opacity", type=opacity, default=.25)
+    play.add_argument("--dataset", type=Path, help="Relocated source v3 dataset for --mesh auto on old exports")
     play.add_argument("--voxels", action="store_true", help="Show occupied cells using the dataset grid")
     play.add_argument("--fps", type=positive_float, default=10.)
     play.add_argument("--max-points", type=positive_int, default=200000)

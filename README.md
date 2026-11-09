@@ -334,13 +334,36 @@ bash scripts/run.sh -m neural_scene.evaluation export \
   --input outputs/my_validation --reference observation
 ```
 
-기본 색은 **청록=예측, 주황=GT**다. `--foreground observation --reference target`은
+기본 색은 **청록=예측, 녹색=관측, 주황=GT**다. `--foreground observation --reference target`은
 관측/GT 비교, `--reference none`은 단독 표시다. DynaViewer의 current/history 레이어를
 같은 시각의 비교 레이어로 사용하며, 주황은 과거 frame을 의미하지 않는다.
 모든 점은 현재 robot 좌표계(m)이고 카메라는 robot 원점에 고정된다.
 VisPy는 마우스로 회전·확대, `R`로 중심 복원, `Esc`로 종료한다.
 `--fps 10`, `--loop`, `--no-hold`, `--scene SCENE`를 지원하며 기본은 마지막 frame에서 유지한다.
 `--max-points`는 표시량만 제한하고 저장/평가 결과에는 영향을 주지 않는다.
+
+점군별 불투명도와 GT 원본 mesh 표시:
+
+```bash
+conda activate dyna
+python -m neural_scene.evaluation play --input outputs/my_validation \
+  --layers prediction observation target \
+  --prediction-opacity 0.9 --observation-opacity 0.7 --gt-opacity 0.15 \
+  --mesh --mesh-opacity 0.25
+```
+
+VisPy 창에서 `1`=예측, `2`=관측, `3`=GT, `4`=mesh를 선택한 뒤
+`+`/`-`로 불투명도를 10%씩 바꾼다. `0`은 선택 레이어를 숨기거나 복원한다.
+왼쪽 위에 현재 값이 표시되며 마지막 frame 유지 중에도 조절할 수 있다.
+0은 숨김, 1은 불투명이고 voxel의 면과 테두리에도 적용된다.
+Rerun은 실행 시 지정한 불투명도를 기록하며 레이어별 entity로 표시한다.
+
+새 v3 export에는 GT 수집에 사용한 `scene.obj`의 geometry를 함께 저장한다.
+기존 export는 `--mesh auto --dataset /path/to/training_dataset_v3`으로 원본을 찾거나,
+`--scene scene_0030 --mesh /path/to/scene.obj`로 직접 지정한다.
+직접 지정하는 mesh는 **world 좌표, metre 단위**여야 하며 재생 시 현재 robot 좌표로 변환된다.
+OBJ와 내장 NPZ는 추가 의존성 없이 읽고, 다른 형식은 `trimesh` 설치가 필요하다.
+v2처럼 원본 장면이 여러 object로 구성된 경우 world 좌표로 합성한 mesh를 직접 지정한다.
 
 출력 폴더:
 
