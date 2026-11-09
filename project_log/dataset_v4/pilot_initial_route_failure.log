@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v4.py", line 190, in <module>
+    main()
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v4.py", line 185, in main
+    result = base.collect_scene(args,args.scene)
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v3.py", line 160, in collect_scene
+    path, authored = make_scene(folder, scene_id, args.frames_per_scene, args.channels, args.azimuth_step)
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v4.py", line 75, in make_scene
+    times,xy,yaw = smooth_route(rng,route_duration,settings.world_size,speed)
+  File "/home/intern/Neural Scene unet/scripts/collect_dataset_v4.py", line 32, in smooth_route
+    raise RuntimeError('Could not extend forward roaming route')
+RuntimeError: Could not extend forward roaming route

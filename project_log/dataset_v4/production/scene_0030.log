@@ -1,0 +1,113 @@
+scene_0030 generating current surface boundary
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.data.gt_geometry 1ea2fb8 load on device 'cpu' took 1.63 ms  (cached)
+scene_0030 GT ready in 460.8s; 9246369 retained samples
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.34 ms  (cached)
+scene_0030 0/10000 coverage=0.521 voxel_recall=0.274 data=3.704GB
+scene_0030 100/10000 coverage=0.520 voxel_recall=0.274 data=3.706GB
+scene_0030 200/10000 coverage=0.521 voxel_recall=0.274 data=3.708GB
+scene_0030 300/10000 coverage=0.521 voxel_recall=0.274 data=3.710GB
+scene_0030 400/10000 coverage=0.523 voxel_recall=0.249 data=3.758GB
+scene_0030 500/10000 coverage=0.520 voxel_recall=0.274 data=3.761GB
+scene_0030 600/10000 coverage=0.521 voxel_recall=0.274 data=3.763GB
+scene_0030 700/10000 coverage=0.520 voxel_recall=0.274 data=3.767GB
+scene_0030 800/10000 coverage=0.521 voxel_recall=0.274 data=3.769GB
+scene_0030 900/10000 coverage=0.520 voxel_recall=0.274 data=3.772GB
+scene_0030 1000/10000 coverage=0.520 voxel_recall=0.274 data=3.775GB
+scene_0030 1100/10000 coverage=0.512 voxel_recall=0.267 data=3.778GB
+scene_0030 1200/10000 coverage=0.521 voxel_recall=0.274 data=3.781GB
+scene_0030 1300/10000 coverage=0.414 voxel_recall=0.195 data=3.783GB
+scene_0030 1400/10000 coverage=0.521 voxel_recall=0.274 data=3.787GB
+scene_0030 1500/10000 coverage=0.519 voxel_recall=0.272 data=3.789GB
+scene_0030 1600/10000 coverage=0.520 voxel_recall=0.274 data=3.792GB
+scene_0030 1700/10000 coverage=0.521 voxel_recall=0.274 data=3.795GB
+scene_0030 1800/10000 coverage=0.520 voxel_recall=0.274 data=3.798GB
+scene_0030 1900/10000 coverage=0.521 voxel_recall=0.274 data=3.801GB
+scene_0030 2000/10000 coverage=0.520 voxel_recall=0.274 data=3.803GB
+scene_0030 2100/10000 coverage=0.521 voxel_recall=0.274 data=3.806GB
+scene_0030 2200/10000 coverage=0.520 voxel_recall=0.274 data=3.809GB
+scene_0030 2300/10000 coverage=0.520 voxel_recall=0.274 data=3.812GB
+scene_0030 2400/10000 coverage=0.521 voxel_recall=0.274 data=3.815GB
+scene_0030 2500/10000 coverage=0.515 voxel_recall=0.270 data=3.817GB
+scene_0030 2600/10000 coverage=0.520 voxel_recall=0.274 data=3.820GB
+scene_0030 2700/10000 coverage=0.520 voxel_recall=0.274 data=3.823GB
+scene_0030 2800/10000 coverage=0.521 voxel_recall=0.274 data=3.825GB
+scene_0030 2900/10000 coverage=0.520 voxel_recall=0.274 data=3.828GB
+scene_0030 3000/10000 coverage=0.521 voxel_recall=0.274 data=3.831GB
+scene_0030 3100/10000 coverage=0.520 voxel_recall=0.274 data=3.834GB
+scene_0030 3200/10000 coverage=0.520 voxel_recall=0.274 data=3.836GB
+scene_0030 3300/10000 coverage=0.481 voxel_recall=0.232 data=3.839GB
+scene_0030 3400/10000 coverage=0.520 voxel_recall=0.274 data=3.843GB
+scene_0030 3500/10000 coverage=0.518 voxel_recall=0.273 data=3.846GB
+scene_0030 3600/10000 coverage=0.521 voxel_recall=0.274 data=3.849GB
+scene_0030 3700/10000 coverage=0.482 voxel_recall=0.234 data=3.852GB
+scene_0030 3800/10000 coverage=0.517 voxel_recall=0.258 data=3.855GB
+scene_0030 3900/10000 coverage=0.521 voxel_recall=0.274 data=3.858GB
+scene_0030 4000/10000 coverage=0.520 voxel_recall=0.274 data=3.861GB
+scene_0030 4100/10000 coverage=0.520 voxel_recall=0.274 data=3.864GB
+scene_0030 4200/10000 coverage=0.521 voxel_recall=0.274 data=3.866GB
+scene_0030 4300/10000 coverage=0.521 voxel_recall=0.274 data=3.869GB
+scene_0030 4400/10000 coverage=0.520 voxel_recall=0.274 data=3.872GB
+scene_0030 4500/10000 coverage=0.520 voxel_recall=0.274 data=3.874GB
+scene_0030 4600/10000 coverage=0.521 voxel_recall=0.274 data=3.878GB
+scene_0030 4700/10000 coverage=0.520 voxel_recall=0.274 data=3.880GB
+scene_0030 4800/10000 coverage=0.521 voxel_recall=0.274 data=3.883GB
+scene_0030 4900/10000 coverage=0.521 voxel_recall=0.274 data=3.886GB
+scene_0030 5000/10000 coverage=0.521 voxel_recall=0.274 data=3.889GB
+scene_0030 5100/10000 coverage=0.521 voxel_recall=0.274 data=3.892GB
+scene_0030 5200/10000 coverage=0.521 voxel_recall=0.274 data=3.894GB
+scene_0030 5300/10000 coverage=0.520 voxel_recall=0.274 data=3.897GB
+scene_0030 5400/10000 coverage=0.520 voxel_recall=0.274 data=3.899GB
+scene_0030 5500/10000 coverage=0.458 voxel_recall=0.227 data=3.902GB
+scene_0030 5600/10000 coverage=0.520 voxel_recall=0.274 data=3.904GB
+scene_0030 5700/10000 coverage=0.520 voxel_recall=0.274 data=3.907GB
+scene_0030 5800/10000 coverage=0.520 voxel_recall=0.274 data=3.910GB
+scene_0030 5900/10000 coverage=0.521 voxel_recall=0.274 data=3.913GB
+scene_0030 6000/10000 coverage=0.520 voxel_recall=0.274 data=3.916GB
+scene_0030 6100/10000 coverage=0.520 voxel_recall=0.274 data=3.918GB
+scene_0030 6200/10000 coverage=0.516 voxel_recall=0.269 data=3.921GB
+scene_0030 6300/10000 coverage=0.501 voxel_recall=0.254 data=3.924GB
+scene_0030 6400/10000 coverage=0.506 voxel_recall=0.262 data=3.929GB
+scene_0030 6500/10000 coverage=0.520 voxel_recall=0.274 data=3.932GB
+scene_0030 6600/10000 coverage=0.432 voxel_recall=0.224 data=3.934GB
+scene_0030 6700/10000 coverage=0.522 voxel_recall=0.274 data=3.936GB
+scene_0030 6800/10000 coverage=0.480 voxel_recall=0.242 data=3.938GB
+scene_0030 6900/10000 coverage=0.521 voxel_recall=0.274 data=3.940GB
+scene_0030 7000/10000 coverage=0.521 voxel_recall=0.274 data=3.943GB
+scene_0030 7100/10000 coverage=0.519 voxel_recall=0.274 data=3.945GB
+scene_0030 7200/10000 coverage=0.520 voxel_recall=0.274 data=3.946GB
+scene_0030 7300/10000 coverage=0.520 voxel_recall=0.274 data=3.949GB
+scene_0030 7400/10000 coverage=0.510 voxel_recall=0.262 data=3.951GB
+scene_0030 7500/10000 coverage=0.481 voxel_recall=0.236 data=3.954GB
+scene_0030 7600/10000 coverage=0.521 voxel_recall=0.274 data=3.956GB
+scene_0030 7700/10000 coverage=0.504 voxel_recall=0.255 data=3.958GB
+scene_0030 7800/10000 coverage=0.420 voxel_recall=0.202 data=3.960GB
+scene_0030 7900/10000 coverage=0.521 voxel_recall=0.274 data=3.962GB
+scene_0030 8000/10000 coverage=0.521 voxel_recall=0.274 data=3.964GB
+scene_0030 8100/10000 coverage=0.520 voxel_recall=0.274 data=3.966GB
+scene_0030 8200/10000 coverage=0.520 voxel_recall=0.274 data=3.968GB
+scene_0030 8300/10000 coverage=0.478 voxel_recall=0.241 data=3.970GB
+scene_0030 8400/10000 coverage=0.521 voxel_recall=0.274 data=3.974GB
+scene_0030 8500/10000 coverage=0.521 voxel_recall=0.274 data=3.976GB
+scene_0030 8600/10000 coverage=0.520 voxel_recall=0.274 data=3.978GB
+scene_0030 8700/10000 coverage=0.521 voxel_recall=0.274 data=3.979GB
+scene_0030 8800/10000 coverage=0.520 voxel_recall=0.274 data=3.982GB
+scene_0030 8900/10000 coverage=0.453 voxel_recall=0.228 data=3.984GB
+scene_0030 9000/10000 coverage=0.520 voxel_recall=0.274 data=3.985GB
+scene_0030 9100/10000 coverage=0.474 voxel_recall=0.246 data=3.988GB
+scene_0030 9200/10000 coverage=0.521 voxel_recall=0.274 data=3.990GB
+scene_0030 9300/10000 coverage=0.520 voxel_recall=0.274 data=3.992GB
+scene_0030 9400/10000 coverage=0.521 voxel_recall=0.274 data=3.995GB
+scene_0030 9500/10000 coverage=0.520 voxel_recall=0.274 data=3.997GB
+scene_0030 9600/10000 coverage=0.463 voxel_recall=0.230 data=3.999GB
+scene_0030 9700/10000 coverage=0.510 voxel_recall=0.268 data=4.001GB
+scene_0030 9800/10000 coverage=0.520 voxel_recall=0.274 data=4.003GB
+scene_0030 9900/10000 coverage=0.521 voxel_recall=0.274 data=4.005GB
+scene_0030 completed 10000 frames in 1644.7s, coverage 0.514
+{"status": "completed", "scene": "scene_0030", "frames": 10000}

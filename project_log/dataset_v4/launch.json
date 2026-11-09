@@ -1,0 +1,21 @@
+{
+  "state_at_handoff": "collecting",
+  "managed_background_session_id": 51497,
+  "last_checked_unix": 1794161083.9977021,
+  "pilot_status": "ready_for_training",
+  "pilot_frames": 120,
+  "pilot_audited_frames": 3,
+  "pilot_max_reconstruction_error_m": 0.0001449164981537947,
+  "production_target_frames": 400000,
+  "production_active_scenes": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "output": "outputs/training_dataset_v4",
+  "status_command": "python scripts/status_dataset_v4.py",
+  "auto_verification": true,
+  "training_auto_launch": false,
+  "launch_mode": "long-running managed exec session; no additional LLM calls needed"
+}

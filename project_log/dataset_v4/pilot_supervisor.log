@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/intern/Neural Scene unet/scripts/run_dataset_v4.py", line 136, in supervise
+    raise RuntimeError('Stop requested; partial shards retained')
+RuntimeError: Stop requested; partial shards retained
+Traceback (most recent call last):
+  File "/home/intern/Neural Scene unet/scripts/run_dataset_v4.py", line 228, in <module>
+    main()
+  File "/home/intern/Neural Scene unet/scripts/run_dataset_v4.py", line 224, in main
+    supervise(args)
+  File "/home/intern/Neural Scene unet/scripts/run_dataset_v4.py", line 136, in supervise
+    raise RuntimeError('Stop requested; partial shards retained')
+RuntimeError: Stop requested; partial shards retained

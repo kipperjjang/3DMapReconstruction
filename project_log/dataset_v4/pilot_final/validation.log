@@ -1,0 +1,18 @@
+{
+  "status": "validated",
+  "total_frames": 120,
+  "unique_geometry_scenes": 1,
+  "split_frames": {
+    "validation": 120
+  },
+  "dataset_bytes": 43479040,
+  "max_sensor_up_error": 0.0,
+  "max_feedback_transform_error": 2.5118795932144167e-15,
+  "mean_gt_point_coverage_5cm": 0.5237203656345356,
+  "gt_point_coverage_p05_p50_p95": [
+    0.5230307150706875,
+    0.5237230357284985,
+    0.5244858214770353
+  ],
+  "mean_gt_voxel_recall": 0.2626953125
+}

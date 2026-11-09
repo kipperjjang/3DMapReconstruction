@@ -1,0 +1,15 @@
+scene_9000 generating current surface boundary
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/intern/Neural Scene unet/.build/warp-dyna
+Module dynaraysim.data.gt_geometry 1ea2fb8 load on device 'cpu' took 1.68 ms  (cached)
+scene_9000 GT ready in 439.5s; 9319785 retained samples
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.31 ms  (cached)
+scene_9000 0/120 coverage=0.523 voxel_recall=0.263 data=0.043GB
+scene_9000 100/120 coverage=0.525 voxel_recall=0.263 data=0.043GB
+scene_9000 completed 120 frames in 451.6s, coverage 0.524
+{"status": "completed", "scene": "scene_9000", "frames": 120}

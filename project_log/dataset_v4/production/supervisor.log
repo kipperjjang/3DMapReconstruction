@@ -1,0 +1,80 @@
+Scene 2 closed: 10000/400000 frames
+Scene 1 closed: 20000/400000 frames
+Scene 3 closed: 30000/400000 frames
+Scene 0 closed: 40000/400000 frames
+Scene 6 closed: 50000/400000 frames
+Scene 7 closed: 60000/400000 frames
+Scene 5 closed: 70000/400000 frames
+Scene 4 closed: 80000/400000 frames
+Scene 8 closed: 90000/400000 frames
+Scene 9 closed: 100000/400000 frames
+Scene 10 closed: 110000/400000 frames
+Scene 11 closed: 120000/400000 frames
+Scene 12 closed: 130000/400000 frames
+Scene 13 closed: 140000/400000 frames
+Scene 14 closed: 150000/400000 frames
+Scene 15 closed: 160000/400000 frames
+Scene 16 closed: 170000/400000 frames
+Scene 17 closed: 180000/400000 frames
+Scene 18 closed: 190000/400000 frames
+Scene 19 closed: 200000/400000 frames
+Scene 21 closed: 210000/400000 frames
+Scene 20 closed: 220000/400000 frames
+Scene 22 closed: 230000/400000 frames
+Scene 23 closed: 240000/400000 frames
+Scene 24 closed: 250000/400000 frames
+Scene 25 closed: 260000/400000 frames
+Scene 26 closed: 270000/400000 frames
+Scene 27 closed: 280000/400000 frames
+Scene 28 closed: 290000/400000 frames
+Scene 30 closed: 300000/400000 frames
+Scene 31 closed: 310000/400000 frames
+Scene 29 closed: 320000/400000 frames
+Scene 32 closed: 330000/400000 frames
+Scene 33 closed: 340000/400000 frames
+Scene 34 closed: 350000/400000 frames
+Scene 35 closed: 360000/400000 frames
+Scene 36 closed: 370000/400000 frames
+Scene 37 closed: 380000/400000 frames
+Scene 38 closed: 390000/400000 frames
+Scene 39 closed: 400000/400000 frames
+{
+  "status": "ready_for_training",
+  "total_frames": 400000,
+  "unique_acquired_poses": 400000,
+  "split_frames": {
+    "train": 320000,
+    "validation": 40000,
+    "test": 40000
+  },
+  "world_size_m": [
+    40.0,
+    40.0
+  ],
+  "boxes_per_scene": 160,
+  "duration_s_per_scene": 1000.0,
+  "dynamic_objects": false,
+  "dataset_bytes": 5148200960,
+  "validation": {
+    "status": "validated",
+    "total_frames": 400000,
+    "unique_geometry_scenes": 40,
+    "split_frames": {
+      "validation": 40000,
+      "test": 40000,
+      "train": 320000
+    },
+    "dataset_bytes": 5148172288,
+    "max_sensor_up_error": 0.0,
+    "max_feedback_transform_error": 1.0232320633157821e-14,
+    "mean_gt_point_coverage_5cm": 0.5009217651292034,
+    "gt_point_coverage_p05_p50_p95": [
+      0.4422746161880687,
+      0.5024434764658443,
+      0.5288255564869144
+    ],
+    "mean_gt_voxel_recall": 0.25957564035666825
+  },
+  "audited_frames": 120,
+  "elapsed_s": 18567.073657989502
+}
