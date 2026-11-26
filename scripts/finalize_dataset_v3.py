@@ -93,7 +93,7 @@ of the paper's unspecified 43% visibility measure. Pilot frames are excluded.
 Full GPU training has not been started by the agent; the user will launch it.
 
 ```bash
-cd "/home/intern/Neural Scene unet"
+cd "<project root>"
 conda activate dyna
 bash scripts/train_v3.sh
 # Resume an interrupted run:

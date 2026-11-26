@@ -16,9 +16,10 @@ os.environ.setdefault("OPENBLAS_NUM_THREADS", "2")
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-DYNARAYSIM = Path("/home/intern/DynaRaySim")
+DYNARAYSIM = Path(os.environ.get("DYNARAYSIM_ROOT", ROOT.parent / "DynaRaySim"))
+MAPPING = Path(os.environ.get("DYNAMAPPING_ROOT", ROOT.parent / "DynaMapping"))
 sys.path.insert(0, str(DYNARAYSIM))
-sys.path.insert(0, str(DYNARAYSIM / "DynaMapping"))
+sys.path.insert(0, str(MAPPING))
 os.environ.setdefault("DYNARAYSIM_WARP_CACHE", str(ROOT / ".build" / "warp-cache"))
 
 from dynamapping import DynaMapping

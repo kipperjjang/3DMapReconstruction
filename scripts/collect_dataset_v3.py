@@ -20,6 +20,8 @@ import h5py
 import numpy as np
 import torch
 import yaml
+import dynamapping
+import dynaraysim
 from scipy.spatial import cKDTree
 
 from dynamapping import DynaMapping, PointCloudFrame, pose_matrix, inverse, transform_points
@@ -30,8 +32,8 @@ from dynaraysim.data.ground_truth import GroundTruth, load_config
 from neural_scene.packed import ORIGIN, SIZE, crop, keys, centroids, encode
 
 ROOT = Path(__file__).resolve().parents[1]
-SIM = Path('/home/intern/DynaRaySim/torch')
-MAP = Path('/home/intern/DynaMapping/torch')
+SIM = Path(dynaraysim.__file__).resolve().parent.parent
+MAP = Path(dynamapping.__file__).resolve().parent.parent
 RESERVE = 512 * 1024**2
 
 
@@ -267,8 +269,6 @@ def collect_scene(args, scene_id):
 def provenance(args):
     """Record active package source hashes and acquisition settings."""
     import dynaraysim, dynamapping, scipy
-    if Path(dynaraysim.__file__).resolve().parent != SIM/'dynaraysim' or Path(dynamapping.__file__).resolve().parent != MAP/'dynamapping':
-        raise ValueError('Expected DynaRaySim/torch and DynaMapping/torch')
     hashes = {}
     for folder in (SIM/'dynaraysim',MAP/'dynamapping'):
         for path in sorted(folder.rglob('*.py')):

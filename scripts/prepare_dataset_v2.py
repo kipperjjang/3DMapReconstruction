@@ -1,6 +1,6 @@
 """Collect current GT and robot-frame DynaMapping sequences within a 5 GB cap.
 
-Run with /home/intern/DynaRaySim/.venv/bin/python. External source trees are
+Run with a Python environment containing the simulator dependencies. Source trees are
 read-only. Each scene runs in a separate process to release GT caches.
 """
 
@@ -16,8 +16,8 @@ import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
-SIM = Path('/home/intern/DynaRaySim')
-MAPPING = Path('/home/intern/DynaMapping')
+SIM = Path(os.environ.get('DYNARAYSIM_ROOT', ROOT.parent / 'DynaRaySim'))
+MAPPING = Path(os.environ.get('DYNAMAPPING_ROOT', ROOT.parent / 'DynaMapping'))
 os.environ.setdefault('OMP_NUM_THREADS', '2')
 os.environ.setdefault('OPENBLAS_NUM_THREADS', '2')
 os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
