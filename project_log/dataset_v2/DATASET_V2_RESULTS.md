@@ -66,4 +66,4 @@ Adam LR 0.01→0.0001, seed 20261020, 100회마다 validation. Validation F1으�
 데이터: `outputs/training_dataset_v2/`. 전체 검증은 `validation_report.json`,
 대표 프레임 검사는 `sample_audit.json`, 원본 코드 해시는 `provenance.json`에 있다.
 실행 상태·코드 사본·초기 실패를 포함한 로그는
-[project_log/dataset_v2](project_log/dataset_v2/)에 보존했다.
+[project_log/dataset_v2]()에 보존했다.

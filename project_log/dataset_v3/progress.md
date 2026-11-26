@@ -64,5 +64,5 @@
 - First 12 closed production scenes (60,000 frames) passed complete shard checks.
   Independent reraycast/dense-GT audits passed for 36 production frames.
 - Commands and all data/coverage/quantization conventions are documented in
-  `DATASET_V3_GUIDE.md`. Partial reports are explicitly distinguished from final
+  `../../docs/DATASET_GUIDE`. Partial reports are explicitly distinguished from final
   200,000-frame readiness reports.

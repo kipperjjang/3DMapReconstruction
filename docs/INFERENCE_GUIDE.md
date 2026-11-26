@@ -4,6 +4,40 @@
 학습 폴더의 `best.pt`를 읽어 inference 결과를 **export**한 다음,
 export 폴더를 DynaViewer로 **play**한다.
 
+## 현재 컴퓨터에서 확인한 실행 방법 (2026-11-11)
+
+`dyna` 환경에서 아래처럼 실행한다. `run_dyna.sh`는 `.deps-dyna`에
+MinkowskiEngine이 없으면 설치된 `.deps-dyna-cuda`를 자동으로 선택한다.
+
+```bash
+conda activate dyna
+bash scripts/run_dyna.sh -m neural_scene.evaluation export \
+  --checkpoint outputs/training_run_v4_temporal/best.pt \
+  --dataset outputs/training_dataset_v4 \
+  --output outputs/my_v4_evaluation \
+  --split test --limit 100 --device cuda:0
+
+# 이번 점검에서 이미 생성한 결과를 재생한다.
+bash scripts/run_dyna.sh -m neural_scene.evaluation play \
+  --input outputs/evaluation_audit_20261111/validation \
+  --layers prediction observation target --mesh
+```
+
+export의 `--output`은 새 폴더를 지정해야 한다. `--limit`은 장면당 프레임 수다.
+전체 split 평가에는 `--limit`을 생략한다. 이번 점검의 validation/test 지표는
+각 장면 첫 100프레임을 평가한 결과이며 전체 데이터셋 지표가 아니다.
+자세한 범위와 결과는 [점검 기록](../project_log/evaluation_audit_20261111/report.md)을 참조한다.
+
+## 직접 조작하며 실시간 추론
+
+실시간 모드는 `neural_scene.evaluation_realtime`으로 실행한다.
+DynaRaySim에서 로봇을 직접 움직이고 새 관측으로 매 프레임 추론한다.
+
+[실시간 inference 실행·조작 가이드](REALTIME_INFERENCE_GUIDE.md)에 현재 컴퓨터의
+v4 시나리오 경로 보정, 실행 명령, 키보드·조이스틱 조작, 전체 옵션과 문제 해결을 정리했다.
+현재 데이터의 YAML에는 이전 컴퓨터의 asset 절대경로가 남아 있으므로
+가이드의 시나리오 사본 준비 단계부터 진행한다.
+
 ## 1. 환경과 checkpoint 선택
 
 아래 명령은 모두 프로젝트 루트에서 실행한다.
@@ -94,6 +128,15 @@ robot frame에 맞춘다. 새 `aligned_temporal_t01` 모델은 현재 관측 `t=
 기존 `aligned_merge_t0` 체크포인트는 기존 병합 정책을 자동 사용한다.
 Export CLI 옵션을 바꿀 필요 없이 checkpoint가 입력 정책과 모델 구조를 결정하며,
 실제 정책은 `evaluation.json`의 `input_policy`에 기록된다. Scene마다 feedback을 초기화한다.
+
+새 export는 출력 폴더의 `timing.json`에 `total_inference_s`(전체 프레임 추론
+시간의 합, 초), `mean_inference_ms`(프레임당 평균, ms), `frames`를 저장한다.
+같은 요약은 `report.json`과 `evaluation.json`의 `timing`에도 들어가며,
+manifest의 각 frame에는 `inference_ms`를 기록한다. 추론 측정은 입력 전송·전처리와
+모델 forward를 포함하며 데이터 읽기·정확도 평가·파일 저장은 제외한다.
+`evaluation_total_s`는 평가 루프 전체 시간으로 데이터 읽기·평가·프레임 저장까지
+포함하고, 모델 로딩과 초기 mesh export는 제외한다. CUDA는 측정 전후에 동기화한다.
+첫 프레임도 포함하며 warmup은 제외하지 않는다. 기존 export에는 소급 적용되지 않는다.
 
 ## 3. Export 결과 재생
 
@@ -194,7 +237,7 @@ bash scripts/run_dyna.sh -m neural_scene infer \
 
 ## 7. evaluation.py 전체 명령과 옵션
 
-현재 [evaluation.py](neural_scene/evaluation.py)의 CLI 정의를 기준으로 한다.
+현재 [evaluation.py](../neural_scene/evaluation.py)의 CLI 정의를 기준으로 한다.
 상대 경로는 명령을 실행한 현재 디렉터리 기준이다. 이 문서의 예시는 프로젝트 루트에서 실행한다.
 
 ### 명령 선택과 도움말
@@ -221,7 +264,7 @@ python -m neural_scene.evaluation play --help
 | 옵션 | 입력값·허용 범위 | 필수 / 기본값 | 입력값의 의미와 동작 |
 |---|---|---|---|
 | `--checkpoint PATH` | checkpoint 파일 경로 | **필수** | 모델 가중치·구조·입력 정책을 읽는다. 현재 loader와 호환되는 `best.pt` 또는 `last.pt`를 지정한다. |
-| `--dataset DIR` | `dataset.json`이 있는 디렉터리 | `outputs/training_dataset_v2` | 평가할 데이터셋. v3는 `outputs/training_dataset_v3`를 명시한다. |
+| `--dataset DIR` | `dataset.json`이 있는 디렉터리 | `outputs/training_dataset_v2` | 평가할 데이터셋. v3는 `../outputs/training_dataset_v3`를 명시한다. |
 | `--output DIR` | 아직 존재하지 않는 디렉터리 경로 | **필수** | `evaluation.json`, `report.json`, 프레임 NPZ를 저장할 새 폴더. 부모 폴더는 자동 생성한다. 기존 폴더에 이어 쓰지 않는다. |
 | `--split NAME` | `train`, `validation`, `test` 중 하나 | `validation` | 데이터셋의 평가 대상 split. `train`은 학습 데이터 확인, `validation`은 중간 확인, `test`는 최종 평가에 사용한다. |
 | `--scene NAME` | scene 이름 문자열, 예: `scene_0000` | 생략 시 선택 split의 모든 scene | 지정한 split에 실제로 존재하는 scene 하나만 평가한다. split이 다르거나 이름이 없으면 오류다. |
@@ -242,7 +285,7 @@ python -m neural_scene.evaluation play --help
 |---|---|---|---|
 | `--input DIR` | 완료된 export 디렉터리 경로 | **필수** | `evaluation.json`이 있고 `status=completed`인 폴더. `best.pt`나 학습 폴더 경로가 아니다. |
 | `--scene NAME` | export에 포함된 scene 이름, 예: `scene_0000` | 생략 시 export의 모든 scene | 저장된 결과 중 scene 하나만 재생한다. `scene_000` 같은 내부 저장 폴더 이름이 아닌 manifest의 원래 scene 이름이다. |
-| `--renderer NAME` | `vispy`, `rerun` 중 하나 | `vispy` | DynaViewer 렌더러 선택. VisPy는 GUI 비교용이며 Rerun은 GUI 또는 `.rrd` 기록에 사용한다. 선택한 렌더러의 의존성이 설치되어 있어야 한다. |
+| `--viewer NAME` | `vispy`, `rerun` 중 하나 | `vispy` | DynaViewer 렌더러 선택. VisPy는 GUI 비교용이며 Rerun은 GUI 또는 `.rrd` 기록에 사용한다. 선택한 렌더러의 의존성이 설치되어 있어야 한다. |
 | `--layers NAME ...` | `prediction`, `observation`, `target` | foreground/reference 사용 | 표시할 점군을 동시에 지정한다. GT는 `target`이다. |
 | `--prediction-opacity`, `--observation-opacity`, `--gt-opacity` | 0–1 | 1 | 각 점군의 불투명도. 0은 숨김, 1은 불투명. voxel 모드에서는 면과 테두리 모두에 적용한다. |
 | `--mesh [PATH]` | world 좌표 mesh 또는 `auto` | 꺼짐 | 경로 생략 시 export에 저장된 원본 mesh를 찾는다. 기존 v3 export는 원본 dataset에서도 찾는다. |
@@ -257,8 +300,8 @@ python -m neural_scene.evaluation play --help
 | `--distance D` | 유한한 양수 | `6.0` | viewer의 초기 카메라 거리 설정. 화면의 초기 관찰 거리를 조절하며 데이터 좌표·센서 거리·crop 범위는 바꾸지 않는다. |
 | `--loop` | 값 없음 | 꺼짐: 한 번 재생 | 선택한 모든 scene을 끝까지 재생한 후 처음부터 반복한다. headless와 함께 사용할 수 없다. |
 | `--no-hold` | 값 없음 | 꺼짐: 마지막 화면 유지 | 한 번 재생을 마친 후 마지막 화면을 유지하지 않고 종료한다. 반복 중에는 끝나지 않으므로 `--loop`를 중단하는 옵션이 아니다. headless에서는 마지막 화면 유지 자체가 없다. |
-| `--recording PATH` | 새 `.rrd` 파일 경로, 예: `outputs/v3_preview.rrd` | 생략 시 파일 기록 요청 없음 | Rerun 결과 저장 경로. `--renderer rerun`이 필요하다. 부모 폴더는 자동 생성하며 기존 파일은 덮어쓰지 않는다. |
-| `--headless` | 값 없음 | 꺼짐: 화면 표시 | 창을 열지 않고 Rerun 기록을 만든다. `--renderer rerun`과 `--recording PATH`가 모두 필요하며 `--loop`와 함께 사용할 수 없다. |
+| `--recording PATH` | 새 `.rrd` 파일 경로, 예: `outputs/v3_preview.rrd` | 생략 시 파일 기록 요청 없음 | Rerun 결과 저장 경로. `--viewer rerun`이 필요하다. 부모 폴더는 자동 생성하며 기존 파일은 덮어쓰지 않는다. |
+| `--headless` | 값 없음 | 꺼짐: 화면 표시 | 창을 열지 않고 Rerun 기록을 만든다. `--viewer rerun`과 `--recording PATH`가 모두 필요하며 `--loop`와 함께 사용할 수 없다. |
 | `-h`, `--help` | 값 없음 | 생략 | play 도움말을 출력하고 종료한다. |
 
 ### 옵션 조합 예시
@@ -279,10 +322,10 @@ GUI 없이 예측만 Rerun 파일로 저장한다. Rerun 의존성이 설치된 
 python -m neural_scene.evaluation play \
   --input outputs/v3_preview \
   --foreground prediction --reference none \
-  --renderer rerun \
+  --viewer rerun \
   --headless --recording outputs/v3_preview_prediction.rrd
 ```
 
 이 명령은 export 결과를 시각화용 기록으로 변환한다. 모델을 다시 추론하지 않는다.
 
-관련 문서: [TensorBoard와 저장 파일](TENSORBOARD_GUIDE.md), [v3 데이터 구성](DATASET_V3_GUIDE.md).
+관련 문서: [TensorBoard와 저장 파일](TENSORBOARD_GUIDE.md), [v3 데이터 구성](DATASET_GUIDE/DATASET_V3_GUIDE.md).

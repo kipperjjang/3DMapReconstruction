@@ -2,7 +2,7 @@
 
 v3의 좁은 통로 왕복 경로를 넓은 평지의 연속 이동·회전 경로로 바꾼 수집 작업이다.
 `/home/intern/DynaRaySim/torch`, `/home/intern/DynaMapping/torch`, conda `dyna`를 사용한다.
-기존 데이터셋과 학습 결과는 보존하고 새 데이터는 `outputs/training_dataset_v4`에 저장한다.
+기존 데이터셋과 학습 결과는 보존하고 새 데이터는 `../../outputs/training_dataset_v4`에 저장한다.
 
 ## 구성과 목표
 
@@ -121,18 +121,18 @@ tail -f project_log/dataset_v4/production/scene_0000.log
 
 | 경로 | 내용 |
 |---|---|
-| `outputs/training_dataset_v4/status.json` | phase·heartbeat·진행량·실패 원인 |
-| `outputs/training_dataset_v4/collection_settings.json` | 수집 목표·geometry·센서·seed 설정 |
-| `outputs/training_dataset_v4/provenance.json` | 실제 환경과 simulator/mapper 및 pipeline 소스 hash |
+| `../../outputs/training_dataset_v4/status.json` | phase·heartbeat·진행량·실패 원인 |
+| `../../outputs/training_dataset_v4/collection_settings.json` | 수집 목표·geometry·센서·seed 설정 |
+| `../../outputs/training_dataset_v4/provenance.json` | 실제 환경과 simulator/mapper 및 pipeline 소스 hash |
 | `outputs/training_dataset_v4/sequences/scene_XXXX/` | mesh, scenario, terrain/GT metadata, dense GT, frame shard |
 | 각 scene의 `terrain_metadata.json` | 상자 위치·크기, 경로 범위·길이·속도·충돌 여유 |
-| `outputs/training_dataset_v4/dataset.json` | 본 수집이 모두 끝나면 생성되는 학습 manifest |
-| `outputs/training_dataset_v4/validation_report.json` | 전체 frame 수·shard hash·pose·축·GT 검사 결과 |
-| `outputs/training_dataset_v4/sample_audit.json` | 독립 재현 검사 결과 |
-| `outputs/training_dataset_v4/result.json` | 모든 검사 통과 후 최종 요약 |
-| `project_log/dataset_v4/production/RESULTS.md` | 완료 후 사람이 읽을 수 있는 결과 요약 |
+| `../../outputs/training_dataset_v4/dataset.json` | 본 수집이 모두 끝나면 생성되는 학습 manifest |
+| `../../outputs/training_dataset_v4/validation_report.json` | 전체 frame 수·shard hash·pose·축·GT 검사 결과 |
+| `../../outputs/training_dataset_v4/sample_audit.json` | 독립 재현 검사 결과 |
+| `../../outputs/training_dataset_v4/result.json` | 모든 검사 통과 후 최종 요약 |
+| `../../project_log/dataset_v4/production/RESULTS.md` | 완료 후 사람이 읽을 수 있는 결과 요약 |
 | `project_log/dataset_v4/production/*.log` | supervisor, 각 scene, validation, audit 로그 |
-| `project_log/dataset_v4/terrain_preview.svg` | 별도 파일럿 seed의 지형·장기 경로를 나타낸 평면도 |
+| `../../project_log/dataset_v4/terrain_preview.svg` | 별도 파일럿 seed의 지형·장기 경로를 나타낸 평면도 |
 
 완료 판단은 `dataset.json`의 존재만으로 하지 않는다. `status.json`과 `result.json`의
 상태가 `ready_for_training`이고, 검증 frame 수 400,000 및 audit 120개가 통과해야 한다.
@@ -155,15 +155,63 @@ Supervisor가 worker를 종료하고 partial shard를 보존한다.
 실패 원인과 남은 파일을 확인한 뒤 새 수집 폴더를 사용하거나 해당 미완료 scene을 별도로 정리해야 한다.
 `stop.requested`가 있으면 다시 실행해도 중단되므로 재시작 전에 해당 요청을 해제해야 한다.
 
-완료 후 학습은 새 run 폴더에서 별도로 실행한다.
-`train_v3.sh`는 v4의 `collection_settings.json`에서 목표 프레임 수를 읽어
-400,000프레임 검증을 수행한다. 기존 v3는 200,000프레임 검증을 유지한다.
+## 20만 프레임씩 분할하여 학습
+
+완료된 v4 원본 40만 프레임을 장면 단위로 두 묶음으로 나눈다.
+같은 장면을 잘라 양쪽에 넣지 않으므로 장면·frame 중복이 없으며,
+각 장면의 1,000초 시계열과 기존 train/validation/test 소속을 유지한다.
+
+| 묶음 | 경로 | 장면 | Train / validation / test | 합계 |
+|---|---|---|---|---|
+| Part 1, 기본 학습 대상 | `../../outputs/training_dataset_v4_part1` | scene_0000–0019 | 160,000 / 20,000 / 20,000 | 200,000 |
+| Part 2 | `../../outputs/training_dataset_v4_part2` | scene_0020–0039 | 160,000 / 20,000 / 20,000 | 200,000 |
+
+분할 생성 명령은 다음과 같다. 이미 생성된 출력 폴더는 덮어쓰지 않는다.
 
 ```bash
-bash scripts/train_v3.sh \
-  --dataset outputs/training_dataset_v4 \
-  --output outputs/training_run_v4_temporal \
-  --input-policy aligned_temporal_t01
+bash scripts/run_dyna.sh scripts/split_dataset_v4.py
 ```
 
-수집 작업은 학습을 자동으로 시작하지 않는다.
+HDF5·dense GT·mesh 등의 불변 파일은 **hard link**로 연결하여 대용량 파일을
+복제하지 않는다. 각 폴더 안에는 실제 파일 경로가 있으므로 reader의 경로 검사도 통과한다.
+Hard link는 같은 파일 시스템에서 사용하며, 공유한 파일을 수정하면 원본에서도 바뀌므로
+공유 데이터 파일은 읽기 전용으로 취급한다. Manifest, scenario 및 sequence metadata는
+각 묶음에 별도로 저장하고 scenario의 mesh 경로와 config hash도 맞춰 갱신한다.
+
+각 묶음의 `partition.json`에 원본 manifest SHA256과 소속 scene을 기록한다.
+`validation_report.json`은 분할 후 20만 프레임 전체 검증 결과다.
+`sample_audit.json`은 데이터·geometry·pose가 동일한 원본의 독립 재현 검사 중
+해당 20개 장면의 60개 샘플을 선택한 것으로, 새 ray casting을 수행했다는 뜻은 아니다.
+이 상속 관계는 파일의 `inheritance`에 명시한다.
+
+`train_v4.sh`의 기본 데이터는 **Part 1**, 기본 출력은
+`../../outputs/training_run_v4_part1`이다. 학습 설정은 기존 v3_temporal과 동일하다.
+목표 프레임 수는 선택한 묶음의 `collection_settings.json`에서 읽는다.
+
+```bash
+conda activate dyna
+bash scripts/train_v4.sh
+```
+
+학습 길이는 `--epochs 10` 또는 `--updates 20000`으로 지정한다(동시 사용 불가).
+예: `bash scripts/train_v4.sh --epochs 10 --no-tensorboard`.
+현재 무작위 rollout 샘플링을 유지하므로 epoch는 전체 train 프레임 수에 해당하는
+처리량이다. 모든 프레임을 한 번씩 순회한다는 뜻은 아니다.
+epoch당 update는 `ceil(train_frames / (batch_size * rollout))`이며,
+Part 1의 batch 2, rollout 12에서는 6,667 updates다.
+설정과 로그에 epoch를 기록하고, LR decay도 계산된 총 update 수를 따른다.
+`--resume`할 때는 최초 실행과 같은 epoch 수를 지정한다.
+
+Part 2를 따로 학습하려면 데이터와 출력 폴더를 함께 지정한다.
+
+```bash
+bash scripts/train_v4.sh \
+  --dataset outputs/training_dataset_v4_part2 \
+  --output outputs/training_run_v4_part2
+```
+
+20,000 updates × batch 2 × rollout 12의 480,000 frame presentations는 각 묶음의
+train 160,000프레임을 약 세 번 사용하는 양으로, v3의 데이터 사용량과 대응한다.
+기존 40만 프레임 run의 checkpoint를 다른 묶음으로 `--resume`하면 데이터 hash가
+달라 거부된다. 각 묶음의 새 run 폴더에서 시작한다.
+원본 수집 완료 보고서의 400,000프레임과 분할 데이터의 200,000프레임을 구분한다.

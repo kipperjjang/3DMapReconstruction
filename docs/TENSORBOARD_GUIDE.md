@@ -1,7 +1,7 @@
 # v3 TensorBoard 확인과 저장 내용
 
 이 문서는 `neural_scene.experiment`와 `training.py`의 현재 기록 방식 및
-`outputs/training_run_v3`, `outputs/training_run_v3_cp`의 실제 event tag를 확인해 작성했다.
+`../outputs/training_run_v3`, `outputs/training_run_v3_cp`의 실제 event tag를 확인해 작성했다.
 현재 event에는 scalar가 기록되며 점군·이미지·가중치 histogram·모델 graph는 기록되지 않는다.
 
 ## 1. TensorBoard 실행
@@ -104,7 +104,7 @@ scalar로 추가되지 않는다. 현재 logger는 유한한 숫자만 기록한
 이미 존재하는 centroid tag가 특정 step에서 빠져 있어도 반드시 기록 오류는 아니다.
 
 데이터 수집 때 계산한 `gt_point_coverage_5cm`와 strict voxel recall은 별도 지표다.
-이 수집 통계는 `outputs/training_dataset_v3/collection_summary.json`에 있으며
+이 수집 통계는 `../outputs/training_dataset_v3/collection_summary.json`에 있으며
 현재 학습 event에 직접 기록되지 않는다.
 
 ## 5. 기록 주기와 재개
@@ -168,4 +168,4 @@ event에는 scalar만 있으므로 점군을 보려면 별도의 inference expor
 정확한 수치 확인에는 `training.jsonl`과 validation JSON을 함께 보관하는 편이 좋다.
 다시 inference하거나 학습을 재개하려면 목적에 맞는 checkpoint도 필요하다.
 
-관련 코드: [training.py](neural_scene/training.py), [experiment.py](neural_scene/experiment.py).
+관련 코드: [training.py](../neural_scene/training.py), [experiment.py](../neural_scene/experiment.py).

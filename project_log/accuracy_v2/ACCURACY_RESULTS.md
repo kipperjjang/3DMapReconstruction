@@ -58,7 +58,7 @@ GT와 일치하는 voxel에서의 centroid distance는 2.127cm에서 1.807cm로 
 - 선택 및 테스트 연결: `selection.json`, `selected_test.json`
 - 원본 v1 보존 확인: `baseline_artifact_hashes.json`의 20개 파일 SHA256 모두 일치.
 - 각 새 실험: `configuration.json`, `console.log`, `source/`, `source_hashes.json`과 결과 파일.
-- 이전 보고서 [TRAINING_RESULTS.md](TRAINING_RESULTS.md)와 v1 checkpoint는 그대로 보존했다.
+- 이전 보고서 [TRAINING_RESULTS.md](../../docs/TRAINING_RESULTS.md)와 v1 checkpoint는 그대로 보존했다.
 
 선택 모델의 학습 재현은 **새 output 경로**로 실행한다.
 

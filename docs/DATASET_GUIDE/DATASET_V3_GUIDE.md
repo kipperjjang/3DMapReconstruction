@@ -18,7 +18,7 @@ python scripts/status_dataset_v3.py
 완료된 장면만 `sequence.json`을 갖는다. `partial_*_report.json`은 중간 검사이며
 최종 완료 표시가 아니다.
 
-전체 생성 후 `outputs/training_dataset_v3/dataset.json`이 생성된다.
+전체 생성 후 `../../outputs/training_dataset_v3/dataset.json`이 생성된다.
 `validation_report.json`의 `status=validated`, `total_frames=200000`과
 `sample_audit.json`의 `status=passed`로 최종 검증 완료를 확인한다.
 
@@ -35,7 +35,7 @@ bash scripts/train_v3.sh --resume
 
 `train_v3.sh`는 dyna를 활성화하고 CUDA 사전 검사, 200,000프레임 데이터 검증,
 GPU smoke 검사를 통과한 뒤 학습한다. 결과/checkpoint/TensorBoard 이벤트는
-`outputs/training_run_v3`에 저장한다. 현재 도구 실행 공간에서는 NVIDIA 장치가
+`../../outputs/training_run_v3`에 저장한다. 현재 도구 실행 공간에서는 NVIDIA 장치가
 보이지 않으므로 여기서의 본 GPU 학습 시도는 사전 검사에서 중단됐다.
 
 ## 데이터 구성
@@ -135,4 +135,4 @@ XY mirror, Adam LR 0.01→0.0001, seed 20261028이다. 1,000 updates마다 전�
 전체 회귀 41개 및 packed reader/cache 추가 검사 1개가 통과했다. Pilot의 full-model
 CPU 학습 업데이트 1회와 validation/test 경로도 완료됐으나 학습 성능 결과로 취급하지 않는다.
 
-수집/빌드/검증 로그와 결정 기록은 `project_log/dataset_v3/`에 보존한다.
+수집/빌드/검증 로그와 결정 기록은 `../../project_log/dataset_v3`에 보존한다.

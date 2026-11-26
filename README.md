@@ -1,10 +1,13 @@
 # Neural Scene sparse U-Net reconstruction
 
+- [현재 구현 전체 흐름·shape·좌표계·핵심 알고리즘·수정 위치](docs/IMPLEMENTATION_GUIDE.md)
+
 v3 / conda `dyna` 사용 문서:
 
-- [Inference 실행·export·DynaViewer 재생](INFERENCE_GUIDE.md)
-- [TensorBoard 접속·지표·저장 파일 설명](TENSORBOARD_GUIDE.md)
-- [v3 데이터 구성과 학습 명령](DATASET_V3_GUIDE.md)
+- [Inference 실행·export·DynaViewer 재생](docs/INFERENCE_GUIDE.md)
+- [직접 조작하며 실시간 inference 실행·키보드·조이스틱 가이드](docs/REALTIME_INFERENCE_GUIDE.md)
+- [TensorBoard 접속·지표·저장 파일 설명](docs/TENSORBOARD_GUIDE.md)
+- [v3 데이터 구성과 학습 명령](docs/DATASET_GUIDE/DATASET_V3_GUIDE.md)
 
 `2206.08077v1.pdf`의 Figure 2 및 III.A–C를 참고한 MinkowskiEngine 구현이다.
 사용자와 결정한 채널은 `[32,64,128,256,256]`, 단계당 일반 convolution은 2개다.
@@ -218,13 +221,13 @@ GT와 일치하는 voxel이 없어 거리 지표가 `null`이면 해당 scalar�
 현재 `training_run_v1`은 학습·평가가 완료됐다. Best checkpoint는 update 150이며,
 test precision/recall/F1은 0.2075/0.3260/0.2536이다. 관측 baseline F1은 0.2552로,
 coverage는 늘었으나 false positives가 많아 F1 개선을 달성하지 못했다.
-상세 결과는 [TRAINING_RESULTS.md](TRAINING_RESULTS.md)를 참고한다.
+상세 결과는 [TRAINING_RESULTS.md](docs/TRAINING_RESULTS.md)를 참고한다.
 
 이후 정확도 개선 실험에서는 위치 노이즈를 ±5mm로 줄인 모델이 선택됐다.
 동일 test F1은 **0.2536 → 0.3132**, precision은 **0.2075 → 0.3456**,
 recall은 **0.3260 → 0.2863**이다. 새 추천 checkpoint는
 `outputs/accuracy_study_v2/runs/noise005/best.pt`이며 v1 파일은 보존했다.
-실패한 후보를 포함한 비교와 재현 방법은 [ACCURACY_RESULTS.md](ACCURACY_RESULTS.md)에 있다.
+실패한 후보를 포함한 비교와 재현 방법은 [ACCURACY_RESULTS.md](project_log/accuracy_v2/ACCURACY_RESULTS.md)에 있다.
 
 ## 최신 GT를 사용한 확장 데이터셋 (v2)
 
@@ -260,14 +263,14 @@ Validation F1으로 best를 선택한 후 test를 평가한다. 새로운 GT와 
 `report.json`의 `status=completed`가 있어야 본 학습·평가 완료다.
 GPU가 노출되지 않은 환경에서는 사전 검사에서 중단되며 CPU로 자동 전환하지 않는다.
 실행 기록은 [project_log/dataset_v2/progress.md](project_log/dataset_v2/progress.md)에 있다.
-현재 생성 결과와 GPU 실행 제한은 [DATASET_V2_RESULTS.md](DATASET_V2_RESULTS.md)에 정리했다.
+현재 생성 결과와 GPU 실행 제한은 [DATASET_V2_RESULTS.md](project_log/dataset_v2/DATASET_V2_RESULTS.md)에 정리했다.
 
 ## DynaRaySim/torch + dyna 확장 수집 (v3)
 
 World z축에 정렬한 LiDAR로 40개 랜덤 장면에서 200,000개 고유 프레임을 수집하는
 10GB 제한 파이프라인을 추가했다. 압축 HDF5, GT 기준 관측 커버리지, 실제 DynaMapping
 정렬을 사용한다. 상태 확인, 검증 및 사용자가 호스트에서 실행할 학습 명령은
-[DATASET_V3_GUIDE.md](DATASET_V3_GUIDE.md)에 있다.
+[DATASET_V3_GUIDE.md](docs/DATASET_GUIDE/DATASET_V3_GUIDE.md)에 있다.
 
 ```bash
 conda activate dyna
@@ -294,7 +297,7 @@ bash scripts/run.sh -m neural_scene infer \
 기존 출력은 덮어쓰지 않는다. `--origin X Y Z`, `--alpha`, `--device`를 지원한다.
 CUDA backend 재빌드 후 `--device cuda:0`을 사용한다.
 
-논문과의 차이 및 검증 결과: [PAPER_NOTES.md](PAPER_NOTES.md).
+논문과의 차이 및 검증 결과: [PAPER_NOTES.md](docs/PAPER_NOTES.md).
 
 ## 학습 checkpoint evaluation → DynaViewer 재생
 
@@ -386,7 +389,7 @@ python -m pip install -e "$HOME/DynaViewer[vispy]"
 # 선택 사항: Rerun 재생/파일 기록
 python -m pip install -e "$HOME/DynaViewer[rerun]"
 python -m neural_scene.evaluation play --input outputs/my_validation \
-  --renderer rerun --headless --recording outputs/my_validation.rrd
+  --viewer rerun --headless --recording outputs/my_validation.rrd
 ```
 
 Rerun은 선택 dependency이며 현재 DynaRaySim 환경에는 설치되어 있지 않다.
