@@ -1,0 +1,4 @@
+[submodule "MinkowskiEngineCuda13"]
+	path = submodules/MinkowskiEngineCuda13
+	url = https://github.com/kipperjjang/MinkowskiEngineCuda13.git
+	branch = cuda13-installation
