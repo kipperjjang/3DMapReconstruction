@@ -1,0 +1,227 @@
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_validation_solids.py", line 182, in main
+    base.atomic_json(args.output/'provenance.json',base.provenance(args))
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_dataset_v3.py", line 43, in atomic_json
+    temporary.write_text(json.dumps(data, indent=2) + '\n')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type PosixPath is not JSON serializable
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_validation_solids.py", line 215, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_validation_solids.py", line 182, in main
+    base.atomic_json(args.output/'provenance.json',base.provenance(args))
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_dataset_v3.py", line 43, in atomic_json
+    temporary.write_text(json.dumps(data, indent=2) + '\n')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/hoon/miniconda3/envs/dyna/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type PosixPath is not JSON serializable
+ERROR conda.cli.main_run:execute(149): `conda run python -u project_log/validation_basic_solids/source/scripts/collect_validation_solids.py --output /home/hoon/ResearchProjects/3DMapReconstruction/outputs/validation_basic_solids --assets /home/hoon/ResearchProjects/DynaRaySim/resources/assets/basic_solid` failed. (See above for error)
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_validation_solids.py", line 190, in main
+    result = base.collect_scene(args,0)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_dataset_v3.py", line 163, in collect_scene
+    resolved = resolve(path, args.device)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 269, in resolve
+    data['ego'] = _resolve_ego(copy.deepcopy(raw_ego), data['sensors'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 67, in _resolve_ego
+    keys(ego, "mode pose quaternion_order radius clearance speed sensor_height grid_spacing max_slope_deg bounds target trajectory randomize dataset", "ego")
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 34, in keys
+    raise ValueError(f"Unknown {label} settings: {sorted(unknown)}")
+ValueError: Unknown ego settings: ['terrain_alignment']
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_validation_solids.py", line 220, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_validation_solids.py", line 190, in main
+    result = base.collect_scene(args,0)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/validation_basic_solids/source/scripts/collect_dataset_v3.py", line 163, in collect_scene
+    resolved = resolve(path, args.device)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 269, in resolve
+    data['ego'] = _resolve_ego(copy.deepcopy(raw_ego), data['sensors'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 67, in _resolve_ego
+    keys(ego, "mode pose quaternion_order radius clearance speed sensor_height grid_spacing max_slope_deg bounds target trajectory randomize dataset", "ego")
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 34, in keys
+    raise ValueError(f"Unknown {label} settings: {sorted(unknown)}")
+ValueError: Unknown ego settings: ['terrain_alignment']
+ERROR conda.cli.main_run:execute(149): `conda run python -u project_log/validation_basic_solids/source/scripts/collect_validation_solids.py --output /home/hoon/ResearchProjects/3DMapReconstruction/outputs/validation_basic_solids --assets /home/hoon/ResearchProjects/DynaRaySim/resources/assets/basic_solid` failed. (See above for error)
+scene_0000 generating current surface boundary
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/hoon/ResearchProjects/3DMapReconstruction/.build/warp-dyna
+Module dynaraysim.data.gt_geometry 1ea2fb8 load on device 'cpu' took 796.91 ms  (compiled)
+scene_0000 GT ready in 78.4s; 6561866 retained samples
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.28 ms  (cached)
+scene_0000 0/10000 coverage=0.496 voxel_recall=0.206 data=0.054GB
+scene_0000 100/10000 coverage=0.307 voxel_recall=0.169 data=0.054GB
+scene_0000 200/10000 coverage=0.340 voxel_recall=0.173 data=0.055GB
+scene_0000 300/10000 coverage=0.484 voxel_recall=0.202 data=0.056GB
+scene_0000 400/10000 coverage=0.453 voxel_recall=0.216 data=0.056GB
+scene_0000 500/10000 coverage=0.542 voxel_recall=0.227 data=0.057GB
+scene_0000 600/10000 coverage=0.403 voxel_recall=0.194 data=0.058GB
+scene_0000 700/10000 coverage=0.496 voxel_recall=0.220 data=0.058GB
+scene_0000 800/10000 coverage=0.420 voxel_recall=0.195 data=0.059GB
+scene_0000 900/10000 coverage=0.364 voxel_recall=0.199 data=0.060GB
+scene_0000 1000/10000 coverage=0.496 voxel_recall=0.220 data=0.060GB
+scene_0000 1100/10000 coverage=0.532 voxel_recall=0.230 data=0.061GB
+scene_0000 1200/10000 coverage=0.447 voxel_recall=0.190 data=0.061GB
+scene_0000 1300/10000 coverage=0.467 voxel_recall=0.218 data=0.062GB
+scene_0000 1400/10000 coverage=0.484 voxel_recall=0.216 data=0.062GB
+scene_0000 1500/10000 coverage=0.471 voxel_recall=0.216 data=0.063GB
+scene_0000 1600/10000 coverage=0.421 voxel_recall=0.198 data=0.064GB
+scene_0000 1700/10000 coverage=0.496 voxel_recall=0.218 data=0.065GB
+scene_0000 1800/10000 coverage=0.408 voxel_recall=0.204 data=0.065GB
+scene_0000 1900/10000 coverage=0.419 voxel_recall=0.194 data=0.066GB
+scene_0000 2000/10000 coverage=0.460 voxel_recall=0.203 data=0.067GB
+scene_0000 2100/10000 coverage=0.496 voxel_recall=0.192 data=0.067GB
+scene_0000 2200/10000 coverage=0.497 voxel_recall=0.207 data=0.067GB
+scene_0000 2300/10000 coverage=0.497 voxel_recall=0.195 data=0.068GB
+scene_0000 2400/10000 coverage=0.495 voxel_recall=0.183 data=0.068GB
+scene_0000 2500/10000 coverage=0.298 voxel_recall=0.182 data=0.069GB
+scene_0000 2600/10000 coverage=0.375 voxel_recall=0.187 data=0.070GB
+scene_0000 2700/10000 coverage=0.486 voxel_recall=0.205 data=0.070GB
+scene_0000 2800/10000 coverage=0.443 voxel_recall=0.220 data=0.071GB
+scene_0000 2900/10000 coverage=0.501 voxel_recall=0.231 data=0.071GB
+scene_0000 3000/10000 coverage=0.406 voxel_recall=0.204 data=0.072GB
+scene_0000 3100/10000 coverage=0.488 voxel_recall=0.197 data=0.073GB
+scene_0000 3200/10000 coverage=0.407 voxel_recall=0.215 data=0.073GB
+scene_0000 3300/10000 coverage=0.333 voxel_recall=0.196 data=0.074GB
+scene_0000 3400/10000 coverage=0.449 voxel_recall=0.219 data=0.075GB
+scene_0000 3500/10000 coverage=0.481 voxel_recall=0.223 data=0.075GB
+scene_0000 3600/10000 coverage=0.442 voxel_recall=0.199 data=0.076GB
+scene_0000 3700/10000 coverage=0.498 voxel_recall=0.225 data=0.076GB
+scene_0000 3800/10000 coverage=0.496 voxel_recall=0.210 data=0.077GB
+scene_0000 3900/10000 coverage=0.464 voxel_recall=0.214 data=0.077GB
+scene_0000 4000/10000 coverage=0.357 voxel_recall=0.172 data=0.079GB
+scene_0000 4100/10000 coverage=0.462 voxel_recall=0.202 data=0.079GB
+scene_0000 4200/10000 coverage=0.378 voxel_recall=0.186 data=0.080GB
+scene_0000 4300/10000 coverage=0.496 voxel_recall=0.200 data=0.081GB
+scene_0000 4400/10000 coverage=0.453 voxel_recall=0.206 data=0.081GB
+scene_0000 4500/10000 coverage=0.497 voxel_recall=0.192 data=0.082GB
+scene_0000 4600/10000 coverage=0.497 voxel_recall=0.204 data=0.082GB
+scene_0000 4700/10000 coverage=0.496 voxel_recall=0.199 data=0.082GB
+scene_0000 4800/10000 coverage=0.497 voxel_recall=0.190 data=0.083GB
+scene_0000 4900/10000 coverage=0.308 voxel_recall=0.176 data=0.083GB
+scene_0000 5000/10000 coverage=0.367 voxel_recall=0.194 data=0.084GB
+scene_0000 5100/10000 coverage=0.488 voxel_recall=0.213 data=0.085GB
+scene_0000 5200/10000 coverage=0.481 voxel_recall=0.223 data=0.085GB
+scene_0000 5300/10000 coverage=0.501 voxel_recall=0.225 data=0.086GB
+scene_0000 5400/10000 coverage=0.395 voxel_recall=0.198 data=0.087GB
+scene_0000 5500/10000 coverage=0.497 voxel_recall=0.200 data=0.088GB
+scene_0000 5600/10000 coverage=0.430 voxel_recall=0.215 data=0.088GB
+scene_0000 5700/10000 coverage=0.474 voxel_recall=0.213 data=0.089GB
+scene_0000 5800/10000 coverage=0.456 voxel_recall=0.223 data=0.089GB
+scene_0000 5900/10000 coverage=0.486 voxel_recall=0.226 data=0.090GB
+scene_0000 6000/10000 coverage=0.469 voxel_recall=0.194 data=0.090GB
+scene_0000 6100/10000 coverage=0.465 voxel_recall=0.225 data=0.091GB
+scene_0000 6200/10000 coverage=0.495 voxel_recall=0.201 data=0.092GB
+scene_0000 6300/10000 coverage=0.468 voxel_recall=0.215 data=0.092GB
+scene_0000 6400/10000 coverage=0.396 voxel_recall=0.181 data=0.093GB
+scene_0000 6500/10000 coverage=0.484 voxel_recall=0.221 data=0.094GB
+scene_0000 6600/10000 coverage=0.300 voxel_recall=0.171 data=0.095GB
+scene_0000 6700/10000 coverage=0.392 voxel_recall=0.170 data=0.096GB
+scene_0000 6800/10000 coverage=0.499 voxel_recall=0.213 data=0.096GB
+scene_0000 6900/10000 coverage=0.496 voxel_recall=0.227 data=0.096GB
+scene_0000 7000/10000 coverage=0.495 voxel_recall=0.202 data=0.097GB
+scene_0000 7100/10000 coverage=0.496 voxel_recall=0.201 data=0.097GB
+scene_0000 7200/10000 coverage=0.484 voxel_recall=0.209 data=0.097GB
+scene_0000 7300/10000 coverage=0.410 voxel_recall=0.195 data=0.098GB
+scene_0000 7400/10000 coverage=0.326 voxel_recall=0.185 data=0.099GB
+scene_0000 7500/10000 coverage=0.427 voxel_recall=0.210 data=0.100GB
+scene_0000 7600/10000 coverage=0.476 voxel_recall=0.218 data=0.100GB
+scene_0000 7700/10000 coverage=0.527 voxel_recall=0.220 data=0.101GB
+scene_0000 7800/10000 coverage=0.511 voxel_recall=0.210 data=0.101GB
+scene_0000 7900/10000 coverage=0.502 voxel_recall=0.198 data=0.102GB
+scene_0000 8000/10000 coverage=0.383 voxel_recall=0.212 data=0.103GB
+scene_0000 8100/10000 coverage=0.461 voxel_recall=0.201 data=0.104GB
+scene_0000 8200/10000 coverage=0.542 voxel_recall=0.227 data=0.104GB
+scene_0000 8300/10000 coverage=0.477 voxel_recall=0.222 data=0.105GB
+scene_0000 8400/10000 coverage=0.486 voxel_recall=0.212 data=0.105GB
+scene_0000 8500/10000 coverage=0.475 voxel_recall=0.232 data=0.106GB
+scene_0000 8600/10000 coverage=0.496 voxel_recall=0.200 data=0.106GB
+scene_0000 8700/10000 coverage=0.434 voxel_recall=0.206 data=0.107GB
+scene_0000 8800/10000 coverage=0.360 voxel_recall=0.165 data=0.108GB
+scene_0000 8900/10000 coverage=0.488 voxel_recall=0.218 data=0.109GB
+scene_0000 9000/10000 coverage=0.315 voxel_recall=0.189 data=0.109GB
+scene_0000 9100/10000 coverage=0.375 voxel_recall=0.175 data=0.110GB
+scene_0000 9200/10000 coverage=0.493 voxel_recall=0.216 data=0.111GB
+scene_0000 9300/10000 coverage=0.496 voxel_recall=0.205 data=0.111GB
+scene_0000 9400/10000 coverage=0.496 voxel_recall=0.200 data=0.111GB
+scene_0000 9500/10000 coverage=0.495 voxel_recall=0.195 data=0.112GB
+scene_0000 9600/10000 coverage=0.494 voxel_recall=0.214 data=0.112GB
+scene_0000 9700/10000 coverage=0.470 voxel_recall=0.215 data=0.113GB
+scene_0000 9800/10000 coverage=0.465 voxel_recall=0.214 data=0.114GB
+scene_0000 9900/10000 coverage=0.427 voxel_recall=0.208 data=0.114GB
+scene_0000 completed 10000 frames in 785.8s, coverage 0.446
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/hoon/ResearchProjects/3DMapReconstruction/.build/warp-dyna
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.80 ms  (cached)
+{"scene": "scene_0000", "index": 0, "current_points_max_distance_m": 0.00016786735271722658, "target_points_max_distance_m": 0.00016910429136740094}
+{"scene": "scene_0000", "index": 5000, "current_points_max_distance_m": 0.0001680054321522159, "target_points_max_distance_m": 0.00016385124959269586}
+{"scene": "scene_0000", "index": 9999, "current_points_max_distance_m": 0.0001677816570730179, "target_points_max_distance_m": 0.00016808423006200705}
+{
+  "status": "ready_for_validation",
+  "total_frames": 10000,
+  "unique_geometry_scenes": 1,
+  "split_frames": {
+    "validation": 10000
+  },
+  "dataset_bytes": 119746560,
+  "max_sensor_up_error": 0.0,
+  "max_feedback_transform_error": 5.009881398621019e-15,
+  "mean_gt_point_coverage_5cm": 0.4455678311584896,
+  "gt_point_coverage_p05_p50_p95": [
+    0.306742936890886,
+    0.47009633155825764,
+    0.5025216495058238
+  ],
+  "mean_gt_voxel_recall": 0.20241070429933017,
+  "audited_frames": 3,
+  "elapsed_s": 792.9813916683197
+}

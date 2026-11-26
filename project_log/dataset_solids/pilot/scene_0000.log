@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pilot/source/scripts/collect_dataset_v4.py", line 195, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pilot/source/scripts/collect_dataset_v4.py", line 190, in main
+    result = base.collect_scene(args,args.scene)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pilot/source/scripts/collect_dataset_v3.py", line 162, in collect_scene
+    path, authored = make_scene(folder, scene_id, args.frames_per_scene, args.channels, args.azimuth_step)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pilot/source/scripts/collect_dataset_solids.py", line 69, in make_scene
+    raise RuntimeError('Cannot place all assets around the protected route')
+RuntimeError: Cannot place all assets around the protected route

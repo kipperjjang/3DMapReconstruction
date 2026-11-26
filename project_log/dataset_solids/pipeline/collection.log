@@ -1,0 +1,34 @@
+
+START ["bash", "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dyna.sh", "-u", "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", "--output", "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/training_dataset_v4_solids", "--logdir", "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/production", "--scenes", "20", "--frames-per-scene", "10000", "--jobs", "1", "--assets", "/home/hoon/ResearchProjects/DynaRaySim/resources/assets/basic_solid", "--seed", "20261110", "--pilot-dataset", "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/dataset_solids_pilot_v3"]
+Scene 0 closed: 10000/200000 frames
+Scene 1 closed: 20000/200000 frames
+Scene 2 closed: 30000/200000 frames
+Scene 3 closed: 40000/200000 frames
+Scene 4 closed: 50000/200000 frames
+Scene 5 closed: 60000/200000 frames
+Scene 6 closed: 70000/200000 frames
+Scene 7 closed: 80000/200000 frames
+Scene 8 closed: 90000/200000 frames
+Scene 9 closed: 100000/200000 frames
+Scene 10 closed: 110000/200000 frames
+Scene 11 closed: 120000/200000 frames
+Scene 12 closed: 130000/200000 frames
+Scene 13 closed: 140000/200000 frames
+Scene 14 closed: 150000/200000 frames
+Scene 15 closed: 160000/200000 frames
+Scene 16 closed: 170000/200000 frames
+Scene 17 closed: 180000/200000 frames
+Scene 18 closed: 190000/200000 frames
+Scene 19 closed: 200000/200000 frames
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", line 254, in supervise
+    raise RuntimeError('External source files changed during acquisition: '+str(changed))
+RuntimeError: External source files changed during acquisition: ['/home/hoon/ResearchProjects/DynaMapping/dynamapping/viewer.py']
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", line 303, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", line 299, in main
+    supervise(args)
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", line 254, in supervise
+    raise RuntimeError('External source files changed during acquisition: '+str(changed))
+RuntimeError: External source files changed during acquisition: ['/home/hoon/ResearchProjects/DynaMapping/dynamapping/viewer.py']

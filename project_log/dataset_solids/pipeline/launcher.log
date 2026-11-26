@@ -1,0 +1,233 @@
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 118, in main
+    stage(command,'collecting_and_verifying','collection.log')
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 85, in stage
+    raise RuntimeError(f'{phase} failed ({child.returncode}); see {logpath}')
+RuntimeError: collecting_and_verifying failed (1); see /home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/collection.log
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 141, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 118, in main
+    stage(command,'collecting_and_verifying','collection.log')
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 85, in stage
+    raise RuntimeError(f'{phase} failed ({child.returncode}); see {logpath}')
+RuntimeError: collecting_and_verifying failed (1); see /home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/collection.log
+{
+  "status": "completed",
+  "configuration": {
+    "dataset_sha256": "754846ad43ae59393260aa2fd1c6d7ce3e0d13647d505ed05bd7c2ee63a2a984",
+    "updates": 20000,
+    "batch_size": 4,
+    "rollout": 12,
+    "seed": 20261109,
+    "channels": [
+      32,
+      64,
+      128,
+      256,
+      256
+    ],
+    "pruning_threshold": 0.5,
+    "input_policy": "aligned_temporal_t01",
+    "device": "cuda:0",
+    "position_noise_m": 0.005,
+    "trajectory_mirror_xy": true,
+    "rollout_start_policy": "nonempty first observation; subsequent blind frames retained",
+    "train_windows": {
+      "scene_0002": 9989,
+      "scene_0003": 9989,
+      "scene_0004": 9989,
+      "scene_0005": 9989,
+      "scene_0006": 9989,
+      "scene_0007": 9989,
+      "scene_0008": 9989,
+      "scene_0009": 9989,
+      "scene_0012": 9989,
+      "scene_0013": 9989,
+      "scene_0014": 9989,
+      "scene_0015": 9989,
+      "scene_0016": 9989,
+      "scene_0017": 9989,
+      "scene_0018": 9989,
+      "scene_0019": 9989
+    },
+    "initial_lr": 0.01,
+    "final_lr": 0.0001,
+    "test_deferred": false,
+    "initial_checkpoint": null,
+    "initial_checkpoint_sha256": null
+  },
+  "best_validation": {
+    "step": 19000,
+    "metrics": {
+      "model": {
+        "tp": 85376987,
+        "fp": 919322,
+        "fn": 1404313,
+        "matched_distance_sum_m": 378503.5939350128,
+        "matched_height_sum_m": 286299.5442752838,
+        "frames": 20000,
+        "precision": 0.989346914014596,
+        "recall": 0.9838177925428635,
+        "f1": 0.9865746065396593,
+        "matched_centroid_distance_m": 0.004433321053306938,
+        "matched_height_mae_m": 0.003353357319523162
+      },
+      "measurement_baseline": {
+        "tp": 22482899,
+        "fp": 5592,
+        "fn": 64298401,
+        "matched_distance_sum_m": 386856.49602508545,
+        "matched_height_sum_m": 6452.938137150006,
+        "frames": 20000,
+        "precision": 0.9997513394740447,
+        "recall": 0.2590753883613175,
+        "f1": 0.41151170500545753,
+        "matched_centroid_distance_m": 0.017206699902227264,
+        "matched_height_mae_m": 0.0002870153949964373
+      },
+      "per_scene": {
+        "scene_0000": {
+          "tp": 43103413,
+          "fp": 582261,
+          "fn": 866528,
+          "matched_distance_sum_m": 153640.21927452087,
+          "matched_height_sum_m": 97268.78079414368,
+          "frames": 10000,
+          "precision": 0.9866715802530596,
+          "recall": 0.980292718609743,
+          "f1": 0.9834718061130482,
+          "matched_centroid_distance_m": 0.003564456004319678,
+          "matched_height_mae_m": 0.0022566375612563133
+        },
+        "scene_0010": {
+          "tp": 42273574,
+          "fp": 337061,
+          "fn": 537785,
+          "matched_distance_sum_m": 224863.37466049194,
+          "matched_height_sum_m": 189030.76348114014,
+          "frames": 10000,
+          "precision": 0.9920897447315676,
+          "recall": 0.9874382637561213,
+          "f1": 0.9897585392352232,
+          "matched_centroid_distance_m": 0.005319242102891322,
+          "matched_height_mae_m": 0.00447160591345175
+        }
+      }
+    }
+  },
+  "initial_validation": {
+    "model": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 86781300,
+      "matched_distance_sum_m": 0.0,
+      "matched_height_sum_m": 0.0,
+      "frames": 20000,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "matched_centroid_distance_m": null,
+      "matched_height_mae_m": null
+    },
+    "measurement_baseline": {
+      "tp": 22482899,
+      "fp": 5592,
+      "fn": 64298401,
+      "matched_distance_sum_m": 386856.49602508545,
+      "matched_height_sum_m": 6452.938137150006,
+      "frames": 20000,
+      "precision": 0.9997513394740447,
+      "recall": 0.2590753883613175,
+      "f1": 0.41151170500545753,
+      "matched_centroid_distance_m": 0.017206699902227264,
+      "matched_height_mae_m": 0.0002870153949964373
+    },
+    "per_scene": {
+      "scene_0000": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 43969941,
+        "matched_distance_sum_m": 0.0,
+        "matched_height_sum_m": 0.0,
+        "frames": 10000,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_centroid_distance_m": null,
+        "matched_height_mae_m": null
+      },
+      "scene_0010": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 42811359,
+        "matched_distance_sum_m": 0.0,
+        "matched_height_sum_m": 0.0,
+        "frames": 10000,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matched_centroid_distance_m": null,
+        "matched_height_mae_m": null
+      }
+    }
+  },
+  "held_out_test": {
+    "model": {
+      "tp": 85114254,
+      "fp": 863021,
+      "fn": 1152795,
+      "matched_distance_sum_m": 424397.7073135376,
+      "matched_height_sum_m": 312794.0312860012,
+      "frames": 20000,
+      "precision": 0.9899622196679297,
+      "recall": 0.9866369023472682,
+      "f1": 0.9882967638457567,
+      "matched_centroid_distance_m": 0.0049862119136183415,
+      "matched_height_mae_m": 0.003674989987998969
+    },
+    "measurement_baseline": {
+      "tp": 22589281,
+      "fp": 5574,
+      "fn": 63677768,
+      "matched_distance_sum_m": 405386.2239933014,
+      "matched_height_sum_m": 5721.2391899104405,
+      "frames": 20000,
+      "precision": 0.9997533066709213,
+      "recall": 0.26185294688821453,
+      "f1": 0.41500800867859156,
+      "matched_centroid_distance_m": 0.017945955163128097,
+      "matched_height_mae_m": 0.0002532723015801362
+    },
+    "per_scene": {
+      "scene_0001": {
+        "tp": 42692153,
+        "fp": 431510,
+        "fn": 541261,
+        "matched_distance_sum_m": 118910.41070747375,
+        "matched_height_sum_m": 40517.61163306236,
+        "frames": 10000,
+        "precision": 0.9899936607889733,
+        "recall": 0.9874804936755631,
+        "f1": 0.9887354802432695,
+        "matched_centroid_distance_m": 0.0027852989917719483,
+        "matched_height_mae_m": 0.0009490646122499927
+      },
+      "scene_0011": {
+        "tp": 42422101,
+        "fp": 431511,
+        "fn": 611534,
+        "matched_distance_sum_m": 305487.29660606384,
+        "matched_height_sum_m": 272276.41965293884,
+        "frames": 10000,
+        "precision": 0.989930580414085,
+        "recall": 0.9857893947373956,
+        "f1": 0.9878556475328636,
+        "matched_centroid_distance_m": 0.0072011354790292885,
+        "matched_height_mae_m": 0.006418268148787323
+      }
+    }
+  },
+  "elapsed_s_this_invocation": 51301.60266987901,
+  "note": "Bounded baseline experiment, not a reproduction of the paper's 200,000-step dataset"
+}

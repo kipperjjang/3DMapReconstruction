@@ -1,0 +1,14 @@
+{
+  "no_limit_real_frames": 12,
+  "loop": {
+    "updates": 4,
+    "held": false,
+    "closed": true
+  },
+  "hold": {
+    "updates": 2,
+    "held": true,
+    "closed": true
+  },
+  "legacy_relocated_mesh": true
+}

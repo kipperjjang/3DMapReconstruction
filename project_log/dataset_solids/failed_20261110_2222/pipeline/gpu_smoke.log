@@ -1,0 +1,65 @@
+
+START ["bash", "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dyna.sh", "-m", "neural_scene", "smoke", "--device", "cuda:0"]
+{
+  "channels": [
+    32,
+    64,
+    128,
+    256,
+    256
+  ],
+  "ordinary_convolutions_per_block": 2,
+  "parameters": 47537479,
+  "device": "cuda:0",
+  "input_voxels": 267,
+  "time_coordinates": [
+    0,
+    1
+  ],
+  "decoder": [
+    {
+      "stride": [
+        8,
+        8,
+        8,
+        1
+      ],
+      "candidates": 320,
+      "kept": 87
+    },
+    {
+      "stride": [
+        4,
+        4,
+        4,
+        1
+      ],
+      "candidates": 886,
+      "kept": 446
+    },
+    {
+      "stride": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "candidates": 3695,
+      "kept": 666
+    },
+    {
+      "stride": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "candidates": 5546,
+      "kept": 3658
+    }
+  ],
+  "output_points": 3636,
+  "loss": 1.1832913160324097,
+  "backward": "passed",
+  "weights": "random initialization; this checks execution, not reconstruction quality"
+}

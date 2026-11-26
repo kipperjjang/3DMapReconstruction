@@ -1,0 +1,15 @@
+{
+  "phase": "complete",
+  "pid": 749214,
+  "started_at_unix": 1794358080.7118998,
+  "dataset": "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/training_dataset_v4_solids",
+  "training_output": "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/training_run_v4_solids",
+  "target_frames": 200000,
+  "training_updates": 20000,
+  "concurrent_training": true,
+  "child_pid": 751212,
+  "stage_log": "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/training.log",
+  "heartbeat_unix": 1794409691.4487388,
+  "finished_at_unix": 1794409691.4486942,
+  "report": "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/training_run_v4_solids/report.json"
+}

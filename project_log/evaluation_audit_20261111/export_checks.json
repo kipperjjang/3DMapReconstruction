@@ -1,0 +1,43 @@
+{
+  "validation": {
+    "frames": 400,
+    "model_f1": 0.9908087387912264,
+    "baseline_f1": 0.4133063173347967
+  },
+  "test": {
+    "frames": 400,
+    "model_f1": 0.9932665923769126,
+    "baseline_f1": 0.41876702579330993
+  },
+  "train": {
+    "frames": 160,
+    "model_f1": 0.9313248029971609,
+    "baseline_f1": 0.40218997708549115
+  },
+  "no_feedback": {
+    "frames": 400,
+    "model_f1": 0.768926104334753,
+    "baseline_f1": 0.4133063173347967
+  },
+  "cpu": {
+    "frames": 2,
+    "model_f1": 0.9713711702661979,
+    "baseline_f1": 0.41608662026295434
+  },
+  "v3_temporal": {
+    "frames": 5,
+    "model_f1": 0.8637964612770894,
+    "baseline_f1": 0.3549621826867134
+  },
+  "v3_legacy": {
+    "frames": 5,
+    "model_f1": 0.8872669575565252,
+    "baseline_f1": 0.3549621826867134
+  },
+  "no_limit": {
+    "frames": 12,
+    "model_f1": 0.9953397105714986,
+    "baseline_f1": 0.41608662026295434
+  },
+  "cpu_gpu_max_coordinate_difference_m": 2.384185791015625e-07
+}

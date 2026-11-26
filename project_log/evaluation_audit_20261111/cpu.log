@@ -1,0 +1,45 @@
+scene_0000 frame 0: 3640 predictions, F1=0.9411
+scene_0000 frame 1: 4096 predictions, F1=1.0000
+{
+  "model": {
+    "tp": 7736,
+    "fp": 0,
+    "fn": 456,
+    "matched_distance_sum_m": 31.502580642700195,
+    "matched_height_sum_m": 13.290031671524048,
+    "frames": 2,
+    "precision": 1.0,
+    "recall": 0.9443359375,
+    "f1": 0.9713711702661979,
+    "matched_centroid_distance_m": 0.004072205357122569,
+    "matched_height_mae_m": 0.0017179461829788065
+  },
+  "measurement_baseline": {
+    "tp": 2152,
+    "fp": 0,
+    "fn": 6040,
+    "matched_distance_sum_m": 36.329118728637695,
+    "matched_height_sum_m": 0.0,
+    "frames": 2,
+    "precision": 1.0,
+    "recall": 0.2626953125,
+    "f1": 0.41608662026295434,
+    "matched_centroid_distance_m": 0.016881560747508222,
+    "matched_height_mae_m": 0.0
+  },
+  "per_scene": {
+    "scene_0000": {
+      "tp": 7736,
+      "fp": 0,
+      "fn": 456,
+      "matched_distance_sum_m": 31.502580642700195,
+      "matched_height_sum_m": 13.290031671524048,
+      "frames": 2,
+      "precision": 1.0,
+      "recall": 0.9443359375,
+      "f1": 0.9713711702661979,
+      "matched_centroid_distance_m": 0.004072205357122569,
+      "matched_height_mae_m": 0.0017179461829788065
+    }
+  }
+}

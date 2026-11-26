@@ -1,0 +1,9 @@
+{
+  "scripts/audit_validation_solids.py": "dd6e369e4ebe92f751ba168eb69ae8cdb8bb140c14ffab1a9e32d0f067cd3d04",
+  "scripts/collect_dataset_v3.py": "eec5804bb2adf425aca47aabe78b3732b1f23127b752da8c01186eedb480a4d7",
+  "scripts/audit_dataset_v3.py": "cb87b76d67db1f2a87c5ce0fbff5442a3412dd900f4a39d2714022fd36334b06",
+  "scripts/validate_dataset_v3.py": "e2d1e6b663d4bb7ee2ece3df1c720e32adaaec2d1bc7aff1f227303514b63f8f",
+  "scripts/collect_validation_solids.py": "8871e231ea11ae5f8fba3fffcf473d0cbeb32e01aa2cc801955f963b2f29c7ce",
+  "scripts/collect_dataset_v4.py": "66eb9f795955726a3200a9cab2db821cdb094ddbc845fb49bd355ad3b9c90794",
+  "neural_scene/packed.py": "c9ba31554592286db9628f73b442efc6c83b452003d42b828026cb669db9685e"
+}

@@ -1,0 +1,56 @@
+{
+  "previous_status": {
+    "phase": "failed",
+    "target_frames": 200000,
+    "completed_scenes": 20,
+    "acquired_frames_lower_bound": 200000,
+    "started_at_unix": 1794317014.9475005,
+    "supervisor_pid_in_namespace": 442580,
+    "output": "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/training_dataset_v4_solids",
+    "logs": "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/production",
+    "pilot_dataset": "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/dataset_solids_pilot_v3",
+    "pilot_phase": "ready_for_training",
+    "pilot_verified": true,
+    "heartbeat_unix": 1794332633.002918,
+    "elapsed_s": 15618.055418014526,
+    "active_scenes": [],
+    "dataset_bytes": 2982866944,
+    "worker_memory_kib": {},
+    "scene_retries": {},
+    "stage_log": "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/production/audit.log",
+    "error": "External source files changed during acquisition: ['/home/hoon/ResearchProjects/DynaMapping/dynamapping/viewer.py']"
+  },
+  "source_changes": {
+    "/home/hoon/ResearchProjects/DynaMapping/dynamapping/viewer.py": {
+      "acquisition_sha256": "904efae3a9db4f9d120891008f914f79fd47074a8f218a4b6ea80d0ee2e6f1d7",
+      "current_sha256": "a2334603b996a7b9f2ccc9b63c4333cba616dc5a2169f379fd6f37dc02a2acc3"
+    }
+  },
+  "reason": "Standalone viewer is not imported by acquisition; all acquisition core hashes unchanged",
+  "original_provenance_sha256": "e2bd1ab35a5d43514466ae11f4fa1e389419a9fd11732f385bd5a6103fecfb24",
+  "recovery_script_sha256": "8a3c14f8ee59db42b3074e8809f6f7ff2679e49c875b07a42438edc7a8eee596",
+  "started_at_unix": 1794358086.1601202,
+  "status": "passed",
+  "finished_at_unix": 1794358164.4662666,
+  "validation": {
+    "status": "validated",
+    "total_frames": 200000,
+    "unique_geometry_scenes": 20,
+    "split_frames": {
+      "validation": 20000,
+      "test": 20000,
+      "train": 160000
+    },
+    "dataset_bytes": 2982866944,
+    "max_sensor_up_error": 0.0,
+    "max_feedback_transform_error": 9.797718192317006e-15,
+    "mean_gt_point_coverage_5cm": 0.4945866279170573,
+    "gt_point_coverage_p05_p50_p95": [
+      0.40879460145370455,
+      0.5007357460837819,
+      0.528954868031367
+    ],
+    "mean_gt_voxel_recall": 0.2601622838029707
+  },
+  "audited_frames": 60
+}

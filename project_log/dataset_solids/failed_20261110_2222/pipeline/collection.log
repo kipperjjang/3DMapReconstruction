@@ -1,0 +1,14 @@
+
+START ["bash", "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dyna.sh", "-u", "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", "--output", "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/training_dataset_v4_solids", "--logdir", "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/production", "--scenes", "20", "--frames-per-scene", "10000", "--jobs", "2", "--assets", "/home/hoon/ResearchProjects/DynaRaySim/resources/assets/basic_solid", "--seed", "20261110", "--pilot-dataset", "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/dataset_solids_pilot_v3"]
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", line 198, in supervise
+    raise RuntimeError('Scene {} failed ({}); see {}'.format(scene,child.returncode,path))
+RuntimeError: Scene 0 failed (-9); see /home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/production/scene_0000.log
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", line 278, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", line 274, in main
+    supervise(args)
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/scripts/run_dataset_v4.py", line 198, in supervise
+    raise RuntimeError('Scene {} failed ({}); see {}'.format(scene,child.returncode,path))
+RuntimeError: Scene 0 failed (-9); see /home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/production/scene_0000.log

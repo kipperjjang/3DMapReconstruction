@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "method": "World AABB membership above Z=1mm, tolerance 0.2mm; counts use stored local-crop measurements",
+  "placed_instances": 54,
+  "unique_assets": 27,
+  "minimum_copies_per_asset": 2,
+  "instances_with_gt_samples": 54,
+  "instances_with_acquired_returns": 54
+}

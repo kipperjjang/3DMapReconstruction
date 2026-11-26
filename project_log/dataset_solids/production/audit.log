@@ -1,0 +1,68 @@
+Warp 1.9.1 initialized:
+   CUDA Toolkit 12.8, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA GeForce RTX 5060 Ti" (15 GiB, sm_120, mempool enabled)
+   Kernel cache:
+     /home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/source/.build/warp-dyna
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.87 ms  (cached)
+{"scene": "scene_0000", "index": 0, "current_points_max_distance_m": 0.00013653651278612073, "target_points_max_distance_m": 0.0001417686796616411}
+{"scene": "scene_0000", "index": 5000, "current_points_max_distance_m": 0.00013796567672367158, "target_points_max_distance_m": 0.00015564256518464463}
+{"scene": "scene_0000", "index": 9999, "current_points_max_distance_m": 0.000135587554628247, "target_points_max_distance_m": 0.00013585223989915496}
+{"scene": "scene_0001", "index": 0, "current_points_max_distance_m": 0.00014114075311873588, "target_points_max_distance_m": 0.000142385902915936}
+{"scene": "scene_0001", "index": 5000, "current_points_max_distance_m": 0.00014203893152448253, "target_points_max_distance_m": 0.00014070802226714271}
+{"scene": "scene_0001", "index": 9999, "current_points_max_distance_m": 0.00014108601983133738, "target_points_max_distance_m": 0.00014223052122984238}
+{"scene": "scene_0002", "index": 0, "current_points_max_distance_m": 0.00013966752670104118, "target_points_max_distance_m": 0.00014070111654122873}
+{"scene": "scene_0002", "index": 5000, "current_points_max_distance_m": 0.00013978459206756859, "target_points_max_distance_m": 0.00014012844091452844}
+{"scene": "scene_0002", "index": 9999, "current_points_max_distance_m": 0.00013963241534403656, "target_points_max_distance_m": 0.00014018576876874528}
+{"scene": "scene_0003", "index": 0, "current_points_max_distance_m": 0.00015695951366423197, "target_points_max_distance_m": 0.00016092076302628064}
+{"scene": "scene_0003", "index": 5000, "current_points_max_distance_m": 0.00015666328750502196, "target_points_max_distance_m": 0.00015867745247663507}
+{"scene": "scene_0003", "index": 9999, "current_points_max_distance_m": 0.00015690116727971144, "target_points_max_distance_m": 0.00015763482539783835}
+{"scene": "scene_0004", "index": 0, "current_points_max_distance_m": 0.00013744117936311833, "target_points_max_distance_m": 0.0001415709065456222}
+{"scene": "scene_0004", "index": 5000, "current_points_max_distance_m": 0.00015450940390986242, "target_points_max_distance_m": 0.00016188566930862123}
+{"scene": "scene_0004", "index": 9999, "current_points_max_distance_m": 0.0001373009855929857, "target_points_max_distance_m": 0.00014244582645299837}
+{"scene": "scene_0005", "index": 0, "current_points_max_distance_m": 0.00014361285607617657, "target_points_max_distance_m": 0.00015059139158546763}
+{"scene": "scene_0005", "index": 5000, "current_points_max_distance_m": 0.00016669985970755105, "target_points_max_distance_m": 0.0001508761107071874}
+{"scene": "scene_0005", "index": 9999, "current_points_max_distance_m": 0.00014583175015293371, "target_points_max_distance_m": 0.00015563301216614422}
+{"scene": "scene_0006", "index": 0, "current_points_max_distance_m": 0.0001374620611057328, "target_points_max_distance_m": 0.00015192319275588926}
+{"scene": "scene_0006", "index": 5000, "current_points_max_distance_m": 0.00013676361664195885, "target_points_max_distance_m": 0.00013587756998224913}
+{"scene": "scene_0006", "index": 9999, "current_points_max_distance_m": 0.00015255485129010138, "target_points_max_distance_m": 0.00015258188420377207}
+{"scene": "scene_0007", "index": 0, "current_points_max_distance_m": 0.00014441292142900524, "target_points_max_distance_m": 0.00016283893570199107}
+{"scene": "scene_0007", "index": 5000, "current_points_max_distance_m": 0.00014016522584277432, "target_points_max_distance_m": 0.00014333170954973864}
+{"scene": "scene_0007", "index": 9999, "current_points_max_distance_m": 0.00014012269055703697, "target_points_max_distance_m": 0.00014477211175445347}
+{"scene": "scene_0008", "index": 0, "current_points_max_distance_m": 0.0001528178442705025, "target_points_max_distance_m": 0.00016399329548487534}
+{"scene": "scene_0008", "index": 5000, "current_points_max_distance_m": 0.00015264787185673186, "target_points_max_distance_m": 0.00015462079031474372}
+{"scene": "scene_0008", "index": 9999, "current_points_max_distance_m": 0.00015267664205971843, "target_points_max_distance_m": 0.00015465788214644863}
+{"scene": "scene_0009", "index": 0, "current_points_max_distance_m": 0.00015863360771825306, "target_points_max_distance_m": 0.00015729070884298055}
+{"scene": "scene_0009", "index": 5000, "current_points_max_distance_m": 0.00014061136887974114, "target_points_max_distance_m": 0.00014044392409230026}
+{"scene": "scene_0009", "index": 9999, "current_points_max_distance_m": 0.00014072087649327007, "target_points_max_distance_m": 0.00013978426598265076}
+{"scene": "scene_0010", "index": 0, "current_points_max_distance_m": 0.00014046866770793764, "target_points_max_distance_m": 0.00014340526985979866}
+{"scene": "scene_0010", "index": 5000, "current_points_max_distance_m": 0.00014032560224919502, "target_points_max_distance_m": 0.00014320238880263398}
+{"scene": "scene_0010", "index": 9999, "current_points_max_distance_m": 0.00014028509630357777, "target_points_max_distance_m": 0.00014280004118600385}
+{"scene": "scene_0011", "index": 0, "current_points_max_distance_m": 0.00013931934057812148, "target_points_max_distance_m": 0.00013889479698759368}
+{"scene": "scene_0011", "index": 5000, "current_points_max_distance_m": 0.0001389844402714773, "target_points_max_distance_m": 0.000138226512549425}
+{"scene": "scene_0011", "index": 9999, "current_points_max_distance_m": 0.00013912022630252553, "target_points_max_distance_m": 0.000137182572915411}
+{"scene": "scene_0012", "index": 0, "current_points_max_distance_m": 0.0001479339044008642, "target_points_max_distance_m": 0.0001467153804106922}
+{"scene": "scene_0012", "index": 5000, "current_points_max_distance_m": 0.00014688331158027303, "target_points_max_distance_m": 0.00014659118640633146}
+{"scene": "scene_0012", "index": 9999, "current_points_max_distance_m": 0.0001473753429208093, "target_points_max_distance_m": 0.00015881917928182367}
+{"scene": "scene_0013", "index": 0, "current_points_max_distance_m": 0.00015128616997065302, "target_points_max_distance_m": 0.0001565012542465825}
+{"scene": "scene_0013", "index": 5000, "current_points_max_distance_m": 0.00015224193119027835, "target_points_max_distance_m": 0.00016475523035731487}
+{"scene": "scene_0013", "index": 9999, "current_points_max_distance_m": 0.0001524118156358562, "target_points_max_distance_m": 0.0001537883146611227}
+{"scene": "scene_0014", "index": 0, "current_points_max_distance_m": 0.00013846102853288495, "target_points_max_distance_m": 0.00013780451111503663}
+{"scene": "scene_0014", "index": 5000, "current_points_max_distance_m": 0.00013832944974330152, "target_points_max_distance_m": 0.0001383742151723735}
+{"scene": "scene_0014", "index": 9999, "current_points_max_distance_m": 0.00013830704594225093, "target_points_max_distance_m": 0.0001388238242332161}
+{"scene": "scene_0015", "index": 0, "current_points_max_distance_m": 0.00014468808987673214, "target_points_max_distance_m": 0.0001500801991195431}
+{"scene": "scene_0015", "index": 5000, "current_points_max_distance_m": 0.00014489861331617407, "target_points_max_distance_m": 0.00014531677183753176}
+{"scene": "scene_0015", "index": 9999, "current_points_max_distance_m": 0.00014483318229682935, "target_points_max_distance_m": 0.00014361394996125054}
+{"scene": "scene_0016", "index": 0, "current_points_max_distance_m": 0.0001459553788398985, "target_points_max_distance_m": 0.0001456393116885231}
+{"scene": "scene_0016", "index": 5000, "current_points_max_distance_m": 0.00014615505008473576, "target_points_max_distance_m": 0.00014389110926931104}
+{"scene": "scene_0016", "index": 9999, "current_points_max_distance_m": 0.00014611407137091474, "target_points_max_distance_m": 0.0001465692788883911}
+{"scene": "scene_0017", "index": 0, "current_points_max_distance_m": 0.00013795396850712052, "target_points_max_distance_m": 0.00014774985472003243}
+{"scene": "scene_0017", "index": 5000, "current_points_max_distance_m": 0.0001384205558263043, "target_points_max_distance_m": 0.00013724516633502638}
+{"scene": "scene_0017", "index": 9999, "current_points_max_distance_m": 0.0001379120493062122, "target_points_max_distance_m": 0.00013693063206846113}
+{"scene": "scene_0018", "index": 0, "current_points_max_distance_m": 0.0001644675689659092, "target_points_max_distance_m": 0.00015869003279511898}
+{"scene": "scene_0018", "index": 5000, "current_points_max_distance_m": 0.00015412176440544471, "target_points_max_distance_m": 0.0001532020326524743}
+{"scene": "scene_0018", "index": 9999, "current_points_max_distance_m": 0.00015429280267125305, "target_points_max_distance_m": 0.00015375564303090285}
+{"scene": "scene_0019", "index": 0, "current_points_max_distance_m": 0.00016501443371119207, "target_points_max_distance_m": 0.00016338055263623617}
+{"scene": "scene_0019", "index": 5000, "current_points_max_distance_m": 0.00016515296233772582, "target_points_max_distance_m": 0.00016376699391508064}
+{"scene": "scene_0019", "index": 9999, "current_points_max_distance_m": 0.00016394294114358986, "target_points_max_distance_m": 0.00016501278667979807}

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 116, in main
+    stage(command,'collecting_and_verifying','collection.log')
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 83, in stage
+    raise RuntimeError(f'{phase} failed ({child.returncode}); see {logpath}')
+RuntimeError: collecting_and_verifying failed (1); see /home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/collection.log
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 139, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 116, in main
+    stage(command,'collecting_and_verifying','collection.log')
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/scripts/run_solids_pipeline.py", line 83, in stage
+    raise RuntimeError(f'{phase} failed ({child.returncode}); see {logpath}')
+RuntimeError: collecting_and_verifying failed (1); see /home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/collection.log
+ERROR conda.cli.main_run:execute(149): `conda run python -u scripts/run_solids_pipeline.py --pilot /home/hoon/ResearchProjects/3DMapReconstruction/outputs/dataset_solids_pilot_v3` failed. (See above for error)

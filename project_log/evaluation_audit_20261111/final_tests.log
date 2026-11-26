@@ -1,0 +1,23 @@
+...........                                                              [100%]
+=============================== warnings summary ===============================
+tests/test_evaluation.py: 108 warnings
+  /home/hoon/ResearchProjects/3DMapReconstruction/.deps-dyna-cuda/MinkowskiEngine/MinkowskiConvolution.py:284: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    else MinkowskiConvolutionFunction()
+
+tests/test_evaluation.py: 16 warnings
+  /home/hoon/ResearchProjects/3DMapReconstruction/.deps-dyna-cuda/MinkowskiEngine/MinkowskiConvolution.py:282: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionTransposeFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    MinkowskiConvolutionTransposeFunction()
+
+tests/test_evaluation.py::EvaluationTests::test_export_matches_training_evaluator_and_preserves_clouds
+tests/test_evaluation.py::EvaluationTests::test_export_matches_training_evaluator_and_preserves_clouds
+tests/test_evaluation.py::EvaluationTests::test_export_matches_training_evaluator_and_preserves_clouds
+tests/test_evaluation.py::EvaluationTests::test_export_matches_training_evaluator_and_preserves_clouds
+  /home/hoon/ResearchProjects/3DMapReconstruction/.deps-dyna-cuda/MinkowskiEngine/MinkowskiPruning.py:82: DeprecationWarning: <class 'MinkowskiPruning.MinkowskiPruningFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    self.pruning = MinkowskiPruningFunction()
+
+tests/test_evaluation.py: 16 warnings
+  /home/hoon/ResearchProjects/3DMapReconstruction/.deps-dyna-cuda/MinkowskiEngine/MinkowskiUnion.py:99: DeprecationWarning: <class 'MinkowskiUnion.MinkowskiUnionFunction'> should not be instantiated. Methods on autograd functions are all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+    self.union = MinkowskiUnionFunction()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+11 passed, 144 warnings in 3.82s

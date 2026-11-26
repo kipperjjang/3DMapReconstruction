@@ -1,0 +1,14 @@
+{
+  "phase": "failed",
+  "pid": 335773,
+  "started_at_unix": 1794270266.4868038,
+  "dataset": "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/training_dataset_v4_solids",
+  "training_output": "/home/hoon/ResearchProjects/3DMapReconstruction/outputs/training_run_v4_solids",
+  "target_frames": 200000,
+  "training_updates": 20000,
+  "concurrent_training": true,
+  "child_pid": 335862,
+  "stage_log": "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/collection.log",
+  "heartbeat_unix": 1794270376.59963,
+  "error": "collecting_and_verifying failed (1); see /home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pipeline/collection.log"
+}

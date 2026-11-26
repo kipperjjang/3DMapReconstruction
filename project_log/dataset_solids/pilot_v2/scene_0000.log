@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pilot_v2/source/scripts/collect_dataset_v4.py", line 195, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pilot_v2/source/scripts/collect_dataset_v4.py", line 190, in main
+    result = base.collect_scene(args,args.scene)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/project_log/dataset_solids/pilot_v2/source/scripts/collect_dataset_v3.py", line 163, in collect_scene
+    resolved = resolve(path, args.device)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 269, in resolve
+    data['ego'] = _resolve_ego(copy.deepcopy(raw_ego), data['sensors'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 67, in _resolve_ego
+    keys(ego, "mode pose quaternion_order radius clearance speed sensor_height grid_spacing max_slope_deg bounds target trajectory randomize dataset", "ego")
+  File "/home/hoon/ResearchProjects/DynaRaySim/dynaraysim/main/config.py", line 34, in keys
+    raise ValueError(f"Unknown {label} settings: {sorted(unknown)}")
+ValueError: Unknown ego settings: ['terrain_alignment']

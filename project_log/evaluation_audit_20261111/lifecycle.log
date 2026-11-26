@@ -1,0 +1,12 @@
+rerun_gui True 1.27
+Starting lifecycle loop
+Lifecycle update loop 1
+Lifecycle update loop 2
+Lifecycle update loop 3
+Lifecycle update loop 4
+Finished lifecycle loop
+Starting lifecycle hold
+Lifecycle update hold 1
+Lifecycle update hold 2
+Finished lifecycle hold
+{"no_limit_real_frames": 12, "loop": {"updates": 4, "held": false, "closed": true}, "hold": {"updates": 2, "held": true, "closed": true}, "legacy_relocated_mesh": true}

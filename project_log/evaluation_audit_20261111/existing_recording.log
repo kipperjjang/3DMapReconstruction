@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/neural_scene/evaluation.py", line 247, in <module>
+    main()
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/neural_scene/evaluation.py", line 243, in main
+    playback(args)
+  File "/home/hoon/ResearchProjects/3DMapReconstruction/neural_scene/evaluation.py", line 146, in playback
+    raise FileExistsError(str(args.recording))
+FileExistsError: /home/hoon/ResearchProjects/3DMapReconstruction/outputs/evaluation_audit_20261111/explicit.rrd

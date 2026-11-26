@@ -1,0 +1,11 @@
+Warp CUDA error 100: no CUDA-capable device is detected (in function init_cuda_driver, /builds/omniverse/warp/warp/native/cuda_util.cpp:279)
+Warp 1.9.1 initialized:
+   CUDA driver not found or failed to initialize
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /home/hoon/ResearchProjects/3DMapReconstruction/.build/warp-dyna
+Module dynaraysim.sensors.warp_backend df25990 load on device 'cpu' took 0.94 ms  (cached)
+{"scene": "scene_0000", "index": 0, "current_points_max_distance_m": 0.00013653651278612073, "target_points_max_distance_m": 0.0001417686796616411}
+{"scene": "scene_0000", "index": 60, "current_points_max_distance_m": 0.00013564461635280016, "target_points_max_distance_m": 0.000137571910361675}
+{"scene": "scene_0000", "index": 119, "current_points_max_distance_m": 0.00013558545118868783, "target_points_max_distance_m": 0.00013782447369376855}

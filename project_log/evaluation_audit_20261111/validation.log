@@ -1,0 +1,482 @@
+scene_0000 frame 0: 3640 predictions, F1=0.9411
+scene_0000 frame 1: 4096 predictions, F1=1.0000
+scene_0000 frame 2: 4096 predictions, F1=1.0000
+scene_0000 frame 3: 4096 predictions, F1=1.0000
+scene_0000 frame 4: 4096 predictions, F1=1.0000
+scene_0000 frame 5: 4096 predictions, F1=1.0000
+scene_0000 frame 6: 4096 predictions, F1=1.0000
+scene_0000 frame 7: 4096 predictions, F1=1.0000
+scene_0000 frame 8: 4096 predictions, F1=1.0000
+scene_0000 frame 9: 4096 predictions, F1=1.0000
+scene_0000 frame 10: 4096 predictions, F1=1.0000
+scene_0000 frame 11: 4096 predictions, F1=1.0000
+scene_0000 frame 12: 4096 predictions, F1=1.0000
+scene_0000 frame 13: 4096 predictions, F1=1.0000
+scene_0000 frame 14: 4096 predictions, F1=1.0000
+scene_0000 frame 15: 4096 predictions, F1=1.0000
+scene_0000 frame 16: 4096 predictions, F1=1.0000
+scene_0000 frame 17: 4096 predictions, F1=1.0000
+scene_0000 frame 18: 4096 predictions, F1=1.0000
+scene_0000 frame 19: 4096 predictions, F1=1.0000
+scene_0000 frame 20: 4096 predictions, F1=1.0000
+scene_0000 frame 21: 4096 predictions, F1=1.0000
+scene_0000 frame 22: 4096 predictions, F1=1.0000
+scene_0000 frame 23: 4096 predictions, F1=1.0000
+scene_0000 frame 24: 4096 predictions, F1=1.0000
+scene_0000 frame 25: 4096 predictions, F1=1.0000
+scene_0000 frame 26: 4096 predictions, F1=1.0000
+scene_0000 frame 27: 4096 predictions, F1=1.0000
+scene_0000 frame 28: 4096 predictions, F1=1.0000
+scene_0000 frame 29: 4096 predictions, F1=1.0000
+scene_0000 frame 30: 4096 predictions, F1=1.0000
+scene_0000 frame 31: 4096 predictions, F1=1.0000
+scene_0000 frame 32: 4096 predictions, F1=1.0000
+scene_0000 frame 33: 4096 predictions, F1=1.0000
+scene_0000 frame 34: 4096 predictions, F1=1.0000
+scene_0000 frame 35: 4096 predictions, F1=1.0000
+scene_0000 frame 36: 4096 predictions, F1=1.0000
+scene_0000 frame 37: 4096 predictions, F1=1.0000
+scene_0000 frame 38: 4096 predictions, F1=1.0000
+scene_0000 frame 39: 4096 predictions, F1=1.0000
+scene_0000 frame 40: 4096 predictions, F1=1.0000
+scene_0000 frame 41: 4096 predictions, F1=1.0000
+scene_0000 frame 42: 4096 predictions, F1=1.0000
+scene_0000 frame 43: 4096 predictions, F1=1.0000
+scene_0000 frame 44: 4096 predictions, F1=1.0000
+scene_0000 frame 45: 4096 predictions, F1=1.0000
+scene_0000 frame 46: 4096 predictions, F1=1.0000
+scene_0000 frame 47: 4096 predictions, F1=1.0000
+scene_0000 frame 48: 4096 predictions, F1=1.0000
+scene_0000 frame 49: 4096 predictions, F1=1.0000
+scene_0000 frame 50: 4096 predictions, F1=1.0000
+scene_0000 frame 51: 4096 predictions, F1=1.0000
+scene_0000 frame 52: 4096 predictions, F1=1.0000
+scene_0000 frame 53: 4096 predictions, F1=1.0000
+scene_0000 frame 54: 4096 predictions, F1=1.0000
+scene_0000 frame 55: 4096 predictions, F1=1.0000
+scene_0000 frame 56: 4096 predictions, F1=1.0000
+scene_0000 frame 57: 4096 predictions, F1=1.0000
+scene_0000 frame 58: 4096 predictions, F1=1.0000
+scene_0000 frame 59: 4096 predictions, F1=1.0000
+scene_0000 frame 60: 4096 predictions, F1=1.0000
+scene_0000 frame 61: 4096 predictions, F1=1.0000
+scene_0000 frame 62: 4096 predictions, F1=1.0000
+scene_0000 frame 63: 4096 predictions, F1=1.0000
+scene_0000 frame 64: 4096 predictions, F1=1.0000
+scene_0000 frame 65: 4096 predictions, F1=1.0000
+scene_0000 frame 66: 4096 predictions, F1=1.0000
+scene_0000 frame 67: 4096 predictions, F1=1.0000
+scene_0000 frame 68: 4096 predictions, F1=1.0000
+scene_0000 frame 69: 4096 predictions, F1=1.0000
+scene_0000 frame 70: 4096 predictions, F1=1.0000
+scene_0000 frame 71: 4096 predictions, F1=1.0000
+scene_0000 frame 72: 4096 predictions, F1=1.0000
+scene_0000 frame 73: 4096 predictions, F1=1.0000
+scene_0000 frame 74: 4096 predictions, F1=1.0000
+scene_0000 frame 75: 4096 predictions, F1=1.0000
+scene_0000 frame 76: 4096 predictions, F1=1.0000
+scene_0000 frame 77: 4096 predictions, F1=1.0000
+scene_0000 frame 78: 4096 predictions, F1=1.0000
+scene_0000 frame 79: 4096 predictions, F1=1.0000
+scene_0000 frame 80: 4096 predictions, F1=1.0000
+scene_0000 frame 81: 4096 predictions, F1=1.0000
+scene_0000 frame 82: 4096 predictions, F1=1.0000
+scene_0000 frame 83: 4096 predictions, F1=1.0000
+scene_0000 frame 84: 4096 predictions, F1=1.0000
+scene_0000 frame 85: 4096 predictions, F1=1.0000
+scene_0000 frame 86: 4096 predictions, F1=1.0000
+scene_0000 frame 87: 4096 predictions, F1=1.0000
+scene_0000 frame 88: 4096 predictions, F1=1.0000
+scene_0000 frame 89: 4096 predictions, F1=1.0000
+scene_0000 frame 90: 4096 predictions, F1=1.0000
+scene_0000 frame 91: 4096 predictions, F1=1.0000
+scene_0000 frame 92: 4096 predictions, F1=1.0000
+scene_0000 frame 93: 4096 predictions, F1=1.0000
+scene_0000 frame 94: 4096 predictions, F1=1.0000
+scene_0000 frame 95: 4096 predictions, F1=1.0000
+scene_0000 frame 96: 4096 predictions, F1=1.0000
+scene_0000 frame 97: 4096 predictions, F1=1.0000
+scene_0000 frame 98: 4096 predictions, F1=1.0000
+scene_0000 frame 99: 4096 predictions, F1=1.0000
+scene_0010 frame 0: 1147 predictions, F1=0.3772
+scene_0010 frame 1: 4279 predictions, F1=0.9454
+scene_0010 frame 2: 4248 predictions, F1=0.9858
+scene_0010 frame 3: 4113 predictions, F1=0.9970
+scene_0010 frame 4: 4096 predictions, F1=1.0000
+scene_0010 frame 5: 4096 predictions, F1=1.0000
+scene_0010 frame 6: 4096 predictions, F1=1.0000
+scene_0010 frame 7: 4096 predictions, F1=1.0000
+scene_0010 frame 8: 4096 predictions, F1=1.0000
+scene_0010 frame 9: 4096 predictions, F1=1.0000
+scene_0010 frame 10: 4096 predictions, F1=1.0000
+scene_0010 frame 11: 4096 predictions, F1=1.0000
+scene_0010 frame 12: 4096 predictions, F1=1.0000
+scene_0010 frame 13: 4096 predictions, F1=1.0000
+scene_0010 frame 14: 4096 predictions, F1=1.0000
+scene_0010 frame 15: 4096 predictions, F1=1.0000
+scene_0010 frame 16: 4096 predictions, F1=1.0000
+scene_0010 frame 17: 4096 predictions, F1=1.0000
+scene_0010 frame 18: 4096 predictions, F1=1.0000
+scene_0010 frame 19: 4096 predictions, F1=1.0000
+scene_0010 frame 20: 4096 predictions, F1=1.0000
+scene_0010 frame 21: 4096 predictions, F1=1.0000
+scene_0010 frame 22: 4096 predictions, F1=1.0000
+scene_0010 frame 23: 4096 predictions, F1=1.0000
+scene_0010 frame 24: 4096 predictions, F1=1.0000
+scene_0010 frame 25: 4096 predictions, F1=1.0000
+scene_0010 frame 26: 4096 predictions, F1=1.0000
+scene_0010 frame 27: 4096 predictions, F1=1.0000
+scene_0010 frame 28: 4096 predictions, F1=1.0000
+scene_0010 frame 29: 4096 predictions, F1=1.0000
+scene_0010 frame 30: 4096 predictions, F1=1.0000
+scene_0010 frame 31: 4096 predictions, F1=1.0000
+scene_0010 frame 32: 4096 predictions, F1=1.0000
+scene_0010 frame 33: 4096 predictions, F1=1.0000
+scene_0010 frame 34: 4096 predictions, F1=1.0000
+scene_0010 frame 35: 4096 predictions, F1=1.0000
+scene_0010 frame 36: 4096 predictions, F1=1.0000
+scene_0010 frame 37: 4096 predictions, F1=1.0000
+scene_0010 frame 38: 4147 predictions, F1=0.9822
+scene_0010 frame 39: 4343 predictions, F1=0.9726
+scene_0010 frame 40: 4377 predictions, F1=0.9658
+scene_0010 frame 41: 4498 predictions, F1=0.9560
+scene_0010 frame 42: 4618 predictions, F1=0.9565
+scene_0010 frame 43: 4638 predictions, F1=0.9507
+scene_0010 frame 44: 4671 predictions, F1=0.9458
+scene_0010 frame 45: 4756 predictions, F1=0.9401
+scene_0010 frame 46: 4808 predictions, F1=0.9407
+scene_0010 frame 47: 4841 predictions, F1=0.9502
+scene_0010 frame 48: 4901 predictions, F1=0.9504
+scene_0010 frame 49: 4940 predictions, F1=0.9526
+scene_0010 frame 50: 4868 predictions, F1=0.9473
+scene_0010 frame 51: 4928 predictions, F1=0.9501
+scene_0010 frame 52: 4907 predictions, F1=0.9581
+scene_0010 frame 53: 4813 predictions, F1=0.9447
+scene_0010 frame 54: 4916 predictions, F1=0.9549
+scene_0010 frame 55: 4898 predictions, F1=0.9529
+scene_0010 frame 56: 4871 predictions, F1=0.9460
+scene_0010 frame 57: 4927 predictions, F1=0.9545
+scene_0010 frame 58: 4890 predictions, F1=0.9605
+scene_0010 frame 59: 4884 predictions, F1=0.9493
+scene_0010 frame 60: 4876 predictions, F1=0.9540
+scene_0010 frame 61: 4939 predictions, F1=0.9510
+scene_0010 frame 62: 4879 predictions, F1=0.9482
+scene_0010 frame 63: 4867 predictions, F1=0.9579
+scene_0010 frame 64: 4977 predictions, F1=0.9425
+scene_0010 frame 65: 4892 predictions, F1=0.9441
+scene_0010 frame 66: 4945 predictions, F1=0.9348
+scene_0010 frame 67: 4864 predictions, F1=0.9382
+scene_0010 frame 68: 4944 predictions, F1=0.9514
+scene_0010 frame 69: 4909 predictions, F1=0.9495
+scene_0010 frame 70: 4928 predictions, F1=0.9535
+scene_0010 frame 71: 4885 predictions, F1=0.9550
+scene_0010 frame 72: 4948 predictions, F1=0.9512
+scene_0010 frame 73: 4880 predictions, F1=0.9450
+scene_0010 frame 74: 4843 predictions, F1=0.9526
+scene_0010 frame 75: 4976 predictions, F1=0.9529
+scene_0010 frame 76: 4888 predictions, F1=0.9508
+scene_0010 frame 77: 4924 predictions, F1=0.9531
+scene_0010 frame 78: 4965 predictions, F1=0.9529
+scene_0010 frame 79: 4929 predictions, F1=0.9521
+scene_0010 frame 80: 5031 predictions, F1=0.9576
+scene_0010 frame 81: 4971 predictions, F1=0.9436
+scene_0010 frame 82: 5012 predictions, F1=0.9534
+scene_0010 frame 83: 5006 predictions, F1=0.9544
+scene_0010 frame 84: 4994 predictions, F1=0.9462
+scene_0010 frame 85: 4716 predictions, F1=0.9589
+scene_0010 frame 86: 4613 predictions, F1=0.9696
+scene_0010 frame 87: 4596 predictions, F1=0.9814
+scene_0010 frame 88: 4512 predictions, F1=0.9808
+scene_0010 frame 89: 4437 predictions, F1=0.9872
+scene_0010 frame 90: 4303 predictions, F1=0.9894
+scene_0010 frame 91: 4096 predictions, F1=1.0000
+scene_0010 frame 92: 4096 predictions, F1=1.0000
+scene_0010 frame 93: 4096 predictions, F1=1.0000
+scene_0010 frame 94: 4096 predictions, F1=1.0000
+scene_0010 frame 95: 4096 predictions, F1=1.0000
+scene_0010 frame 96: 4096 predictions, F1=1.0000
+scene_0010 frame 97: 4096 predictions, F1=1.0000
+scene_0010 frame 98: 4096 predictions, F1=1.0000
+scene_0010 frame 99: 4096 predictions, F1=1.0000
+scene_0020 frame 0: 3607 predictions, F1=0.9365
+scene_0020 frame 1: 4096 predictions, F1=1.0000
+scene_0020 frame 2: 4096 predictions, F1=1.0000
+scene_0020 frame 3: 4096 predictions, F1=1.0000
+scene_0020 frame 4: 4096 predictions, F1=1.0000
+scene_0020 frame 5: 4096 predictions, F1=1.0000
+scene_0020 frame 6: 4096 predictions, F1=1.0000
+scene_0020 frame 7: 4096 predictions, F1=1.0000
+scene_0020 frame 8: 4096 predictions, F1=1.0000
+scene_0020 frame 9: 4096 predictions, F1=1.0000
+scene_0020 frame 10: 4096 predictions, F1=1.0000
+scene_0020 frame 11: 4096 predictions, F1=1.0000
+scene_0020 frame 12: 4096 predictions, F1=1.0000
+scene_0020 frame 13: 4096 predictions, F1=1.0000
+scene_0020 frame 14: 4096 predictions, F1=1.0000
+scene_0020 frame 15: 4096 predictions, F1=1.0000
+scene_0020 frame 16: 4096 predictions, F1=1.0000
+scene_0020 frame 17: 4096 predictions, F1=1.0000
+scene_0020 frame 18: 4096 predictions, F1=1.0000
+scene_0020 frame 19: 4096 predictions, F1=1.0000
+scene_0020 frame 20: 4096 predictions, F1=1.0000
+scene_0020 frame 21: 4096 predictions, F1=1.0000
+scene_0020 frame 22: 4096 predictions, F1=1.0000
+scene_0020 frame 23: 4096 predictions, F1=1.0000
+scene_0020 frame 24: 4096 predictions, F1=1.0000
+scene_0020 frame 25: 4096 predictions, F1=1.0000
+scene_0020 frame 26: 4096 predictions, F1=1.0000
+scene_0020 frame 27: 4096 predictions, F1=1.0000
+scene_0020 frame 28: 4096 predictions, F1=1.0000
+scene_0020 frame 29: 4096 predictions, F1=1.0000
+scene_0020 frame 30: 4096 predictions, F1=1.0000
+scene_0020 frame 31: 4096 predictions, F1=1.0000
+scene_0020 frame 32: 4096 predictions, F1=1.0000
+scene_0020 frame 33: 4096 predictions, F1=1.0000
+scene_0020 frame 34: 4096 predictions, F1=1.0000
+scene_0020 frame 35: 4096 predictions, F1=1.0000
+scene_0020 frame 36: 4096 predictions, F1=1.0000
+scene_0020 frame 37: 4096 predictions, F1=1.0000
+scene_0020 frame 38: 4096 predictions, F1=1.0000
+scene_0020 frame 39: 4096 predictions, F1=1.0000
+scene_0020 frame 40: 4096 predictions, F1=1.0000
+scene_0020 frame 41: 4096 predictions, F1=1.0000
+scene_0020 frame 42: 4096 predictions, F1=1.0000
+scene_0020 frame 43: 4096 predictions, F1=1.0000
+scene_0020 frame 44: 4096 predictions, F1=1.0000
+scene_0020 frame 45: 4096 predictions, F1=1.0000
+scene_0020 frame 46: 4096 predictions, F1=1.0000
+scene_0020 frame 47: 4096 predictions, F1=1.0000
+scene_0020 frame 48: 4096 predictions, F1=1.0000
+scene_0020 frame 49: 4096 predictions, F1=1.0000
+scene_0020 frame 50: 4096 predictions, F1=1.0000
+scene_0020 frame 51: 4096 predictions, F1=1.0000
+scene_0020 frame 52: 4096 predictions, F1=1.0000
+scene_0020 frame 53: 4096 predictions, F1=1.0000
+scene_0020 frame 54: 4096 predictions, F1=1.0000
+scene_0020 frame 55: 4096 predictions, F1=1.0000
+scene_0020 frame 56: 4096 predictions, F1=1.0000
+scene_0020 frame 57: 4096 predictions, F1=1.0000
+scene_0020 frame 58: 4096 predictions, F1=1.0000
+scene_0020 frame 59: 4096 predictions, F1=1.0000
+scene_0020 frame 60: 4096 predictions, F1=1.0000
+scene_0020 frame 61: 4096 predictions, F1=1.0000
+scene_0020 frame 62: 4096 predictions, F1=1.0000
+scene_0020 frame 63: 4096 predictions, F1=1.0000
+scene_0020 frame 64: 4096 predictions, F1=1.0000
+scene_0020 frame 65: 4096 predictions, F1=1.0000
+scene_0020 frame 66: 4096 predictions, F1=1.0000
+scene_0020 frame 67: 4096 predictions, F1=1.0000
+scene_0020 frame 68: 4096 predictions, F1=1.0000
+scene_0020 frame 69: 4096 predictions, F1=1.0000
+scene_0020 frame 70: 4096 predictions, F1=1.0000
+scene_0020 frame 71: 4096 predictions, F1=1.0000
+scene_0020 frame 72: 4096 predictions, F1=1.0000
+scene_0020 frame 73: 4096 predictions, F1=1.0000
+scene_0020 frame 74: 4096 predictions, F1=1.0000
+scene_0020 frame 75: 4096 predictions, F1=1.0000
+scene_0020 frame 76: 4096 predictions, F1=1.0000
+scene_0020 frame 77: 4096 predictions, F1=1.0000
+scene_0020 frame 78: 4096 predictions, F1=1.0000
+scene_0020 frame 79: 4096 predictions, F1=1.0000
+scene_0020 frame 80: 4096 predictions, F1=1.0000
+scene_0020 frame 81: 4096 predictions, F1=1.0000
+scene_0020 frame 82: 4096 predictions, F1=1.0000
+scene_0020 frame 83: 4096 predictions, F1=1.0000
+scene_0020 frame 84: 4096 predictions, F1=1.0000
+scene_0020 frame 85: 4096 predictions, F1=1.0000
+scene_0020 frame 86: 4096 predictions, F1=1.0000
+scene_0020 frame 87: 4096 predictions, F1=1.0000
+scene_0020 frame 88: 4096 predictions, F1=1.0000
+scene_0020 frame 89: 4096 predictions, F1=1.0000
+scene_0020 frame 90: 4096 predictions, F1=1.0000
+scene_0020 frame 91: 4096 predictions, F1=1.0000
+scene_0020 frame 92: 4096 predictions, F1=1.0000
+scene_0020 frame 93: 4096 predictions, F1=1.0000
+scene_0020 frame 94: 4096 predictions, F1=1.0000
+scene_0020 frame 95: 4096 predictions, F1=1.0000
+scene_0020 frame 96: 4096 predictions, F1=1.0000
+scene_0020 frame 97: 4096 predictions, F1=1.0000
+scene_0020 frame 98: 4096 predictions, F1=1.0000
+scene_0020 frame 99: 4096 predictions, F1=1.0000
+scene_0030 frame 0: 2400 predictions, F1=0.7389
+scene_0030 frame 1: 4096 predictions, F1=1.0000
+scene_0030 frame 2: 4096 predictions, F1=1.0000
+scene_0030 frame 3: 4096 predictions, F1=1.0000
+scene_0030 frame 4: 4096 predictions, F1=1.0000
+scene_0030 frame 5: 4096 predictions, F1=1.0000
+scene_0030 frame 6: 4096 predictions, F1=1.0000
+scene_0030 frame 7: 4096 predictions, F1=1.0000
+scene_0030 frame 8: 4096 predictions, F1=1.0000
+scene_0030 frame 9: 4096 predictions, F1=1.0000
+scene_0030 frame 10: 4096 predictions, F1=1.0000
+scene_0030 frame 11: 4096 predictions, F1=1.0000
+scene_0030 frame 12: 4096 predictions, F1=1.0000
+scene_0030 frame 13: 4096 predictions, F1=1.0000
+scene_0030 frame 14: 4096 predictions, F1=1.0000
+scene_0030 frame 15: 4096 predictions, F1=1.0000
+scene_0030 frame 16: 4096 predictions, F1=1.0000
+scene_0030 frame 17: 4096 predictions, F1=1.0000
+scene_0030 frame 18: 4096 predictions, F1=1.0000
+scene_0030 frame 19: 4096 predictions, F1=1.0000
+scene_0030 frame 20: 4096 predictions, F1=1.0000
+scene_0030 frame 21: 4096 predictions, F1=1.0000
+scene_0030 frame 22: 4096 predictions, F1=1.0000
+scene_0030 frame 23: 4096 predictions, F1=1.0000
+scene_0030 frame 24: 4096 predictions, F1=1.0000
+scene_0030 frame 25: 4096 predictions, F1=1.0000
+scene_0030 frame 26: 4096 predictions, F1=1.0000
+scene_0030 frame 27: 4096 predictions, F1=1.0000
+scene_0030 frame 28: 4096 predictions, F1=1.0000
+scene_0030 frame 29: 4096 predictions, F1=1.0000
+scene_0030 frame 30: 4096 predictions, F1=1.0000
+scene_0030 frame 31: 4096 predictions, F1=1.0000
+scene_0030 frame 32: 4096 predictions, F1=1.0000
+scene_0030 frame 33: 4096 predictions, F1=1.0000
+scene_0030 frame 34: 4096 predictions, F1=1.0000
+scene_0030 frame 35: 4096 predictions, F1=1.0000
+scene_0030 frame 36: 4096 predictions, F1=1.0000
+scene_0030 frame 37: 4096 predictions, F1=1.0000
+scene_0030 frame 38: 4096 predictions, F1=1.0000
+scene_0030 frame 39: 4096 predictions, F1=1.0000
+scene_0030 frame 40: 4096 predictions, F1=1.0000
+scene_0030 frame 41: 4096 predictions, F1=1.0000
+scene_0030 frame 42: 4096 predictions, F1=1.0000
+scene_0030 frame 43: 4096 predictions, F1=1.0000
+scene_0030 frame 44: 4096 predictions, F1=1.0000
+scene_0030 frame 45: 4096 predictions, F1=1.0000
+scene_0030 frame 46: 4096 predictions, F1=1.0000
+scene_0030 frame 47: 4096 predictions, F1=1.0000
+scene_0030 frame 48: 4096 predictions, F1=1.0000
+scene_0030 frame 49: 4096 predictions, F1=1.0000
+scene_0030 frame 50: 4096 predictions, F1=1.0000
+scene_0030 frame 51: 4096 predictions, F1=1.0000
+scene_0030 frame 52: 4096 predictions, F1=1.0000
+scene_0030 frame 53: 4096 predictions, F1=1.0000
+scene_0030 frame 54: 4096 predictions, F1=1.0000
+scene_0030 frame 55: 4096 predictions, F1=1.0000
+scene_0030 frame 56: 4096 predictions, F1=1.0000
+scene_0030 frame 57: 4096 predictions, F1=1.0000
+scene_0030 frame 58: 4096 predictions, F1=1.0000
+scene_0030 frame 59: 4096 predictions, F1=1.0000
+scene_0030 frame 60: 4096 predictions, F1=1.0000
+scene_0030 frame 61: 4096 predictions, F1=1.0000
+scene_0030 frame 62: 4096 predictions, F1=1.0000
+scene_0030 frame 63: 4096 predictions, F1=1.0000
+scene_0030 frame 64: 4096 predictions, F1=1.0000
+scene_0030 frame 65: 4096 predictions, F1=1.0000
+scene_0030 frame 66: 4096 predictions, F1=1.0000
+scene_0030 frame 67: 4096 predictions, F1=1.0000
+scene_0030 frame 68: 4096 predictions, F1=1.0000
+scene_0030 frame 69: 4096 predictions, F1=1.0000
+scene_0030 frame 70: 4096 predictions, F1=1.0000
+scene_0030 frame 71: 4096 predictions, F1=1.0000
+scene_0030 frame 72: 4096 predictions, F1=1.0000
+scene_0030 frame 73: 4096 predictions, F1=1.0000
+scene_0030 frame 74: 4096 predictions, F1=1.0000
+scene_0030 frame 75: 4096 predictions, F1=1.0000
+scene_0030 frame 76: 4096 predictions, F1=1.0000
+scene_0030 frame 77: 4096 predictions, F1=1.0000
+scene_0030 frame 78: 4096 predictions, F1=1.0000
+scene_0030 frame 79: 4096 predictions, F1=1.0000
+scene_0030 frame 80: 4096 predictions, F1=1.0000
+scene_0030 frame 81: 4096 predictions, F1=1.0000
+scene_0030 frame 82: 4096 predictions, F1=1.0000
+scene_0030 frame 83: 4096 predictions, F1=1.0000
+scene_0030 frame 84: 4096 predictions, F1=1.0000
+scene_0030 frame 85: 4096 predictions, F1=1.0000
+scene_0030 frame 86: 4096 predictions, F1=1.0000
+scene_0030 frame 87: 4096 predictions, F1=1.0000
+scene_0030 frame 88: 4096 predictions, F1=1.0000
+scene_0030 frame 89: 4096 predictions, F1=1.0000
+scene_0030 frame 90: 4096 predictions, F1=1.0000
+scene_0030 frame 91: 4096 predictions, F1=1.0000
+scene_0030 frame 92: 4096 predictions, F1=1.0000
+scene_0030 frame 93: 4096 predictions, F1=1.0000
+scene_0030 frame 94: 4096 predictions, F1=1.0000
+scene_0030 frame 95: 4096 predictions, F1=1.0000
+scene_0030 frame 96: 4096 predictions, F1=1.0000
+scene_0030 frame 97: 4096 predictions, F1=1.0000
+scene_0030 frame 98: 4096 predictions, F1=1.0000
+scene_0030 frame 99: 4096 predictions, F1=1.0000
+{
+  "model": {
+    "tp": 1665764,
+    "fp": 5199,
+    "fn": 25706,
+    "matched_distance_sum_m": 5662.596462249756,
+    "matched_height_sum_m": 3225.6558755636215,
+    "frames": 400,
+    "precision": 0.9968886205140389,
+    "recall": 0.9848025681803402,
+    "f1": 0.9908087387912264,
+    "matched_centroid_distance_m": 0.0033993989918438363,
+    "matched_height_mae_m": 0.001936442302489201
+  },
+  "measurement_baseline": {
+    "tp": 440599,
+    "fp": 1,
+    "fn": 1250871,
+    "matched_distance_sum_m": 7494.015865325928,
+    "matched_height_sum_m": 47.05078233778477,
+    "frames": 400,
+    "precision": 0.9999977303676805,
+    "recall": 0.26048289357777554,
+    "f1": 0.4133063173347967,
+    "matched_centroid_distance_m": 0.01700869921476428,
+    "matched_height_mae_m": 0.00010678821862461052
+  },
+  "per_scene": {
+    "scene_0000": {
+      "tp": 409144,
+      "fp": 0,
+      "fn": 456,
+      "matched_distance_sum_m": 925.559588432312,
+      "matched_height_sum_m": 90.0140951871872,
+      "frames": 100,
+      "precision": 1.0,
+      "recall": 0.99888671875,
+      "f1": 0.9994430493536441,
+      "matched_centroid_distance_m": 0.0022621854125498895,
+      "matched_height_mae_m": 0.0002200059030248206
+    },
+    "scene_0010": {
+      "tp": 439605,
+      "fp": 5199,
+      "fn": 23065,
+      "matched_distance_sum_m": 1674.0028829574585,
+      "matched_height_sum_m": 1086.8541297912598,
+      "frames": 100,
+      "precision": 0.9883117058299835,
+      "recall": 0.950148053688374,
+      "f1": 0.9688542040873899,
+      "matched_centroid_distance_m": 0.0038079705257161737,
+      "matched_height_mae_m": 0.002472342511553007
+    },
+    "scene_0020": {
+      "tp": 409111,
+      "fp": 0,
+      "fn": 489,
+      "matched_distance_sum_m": 1911.0515594482422,
+      "matched_height_sum_m": 1519.314118385315,
+      "frames": 100,
+      "precision": 1.0,
+      "recall": 0.99880615234375,
+      "f1": 0.9994027196409967,
+      "matched_centroid_distance_m": 0.0046712299582466425,
+      "matched_height_mae_m": 0.0037136965722879976
+    },
+    "scene_0030": {
+      "tp": 407904,
+      "fp": 0,
+      "fn": 1696,
+      "matched_distance_sum_m": 1151.9824314117432,
+      "matched_height_sum_m": 529.4735321998596,
+      "frames": 100,
+      "precision": 1.0,
+      "recall": 0.995859375,
+      "f1": 0.997925392413982,
+      "matched_centroid_distance_m": 0.0028241508575835078,
+      "matched_height_mae_m": 0.0012980346655091875
+    }
+  }
+}
