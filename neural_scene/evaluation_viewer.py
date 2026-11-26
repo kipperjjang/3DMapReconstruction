@@ -1,5 +1,9 @@
 """Named comparison layers on the installed DynaViewer's window/recording."""
 
+import os
+from pathlib import Path
+import socket
+
 import numpy as np
 
 from .evaluation_mesh import mesh_in_robot
@@ -14,7 +18,7 @@ NAMES = ("prediction", "observation", "target", "mesh")
 class ComparisonViewer:
     """Keep DynaViewer's camera/lifecycle while drawing semantic layers."""
 
-    def __init__(self, renderer, layers, opacities, **options):
+    def __init__(self, renderer, layers, opacities, *, follow_ego=False, **options):
         from viewer.history import create_history_viewer
 
         self.renderer = renderer
@@ -25,7 +29,30 @@ class ComparisonViewer:
         self._mesh = None
         self._visuals = {}
         self._step = 0
+        self.follow_ego = follow_ego
+        spawn_ego_viewer = renderer == 'rerun' and follow_ego and options.get('show', True)
+        if renderer == 'rerun' and follow_ego:
+            options['show'] = False
         self.window = create_history_viewer(renderer=renderer, **options)
+        if renderer == 'rerun' and follow_ego:
+            try:
+                from rerun import blueprint as rrb
+                if spawn_ego_viewer:
+                    self._spawn_ego_viewer()
+                distance = options.get('distance', 6.)
+                # Geometry is already in ego coordinates. An explicit orbit target
+                # prevents the full scene mesh from determining the camera center.
+                direction = np.array([1., -np.sqrt(3.), 2 / np.sqrt(3.)])
+                position = direction / np.linalg.norm(direction) * distance
+                self.window.recording.send_blueprint(rrb.Blueprint(
+                    rrb.Spatial3DView(origin='current_sensor', name='Ego',
+                        eye_controls=rrb.EyeControls3D(
+                            position=position, look_target=(0., 0., 0.), eye_up=(0., 0., 1.),
+                            tracking_entity='current_sensor/origin')),
+                    collapse_panels=True))
+            except BaseException:
+                self.window.close()
+                raise
         if renderer == "vispy":
             from vispy import scene
             try:
@@ -41,7 +68,7 @@ class ComparisonViewer:
                 self._mesh_visual.visible = False
                 self._visuals["mesh"] = (self._mesh_visual,)
                 self._hud = scene.visuals.Text(parent=self.window.canvas.scene, color="white",
-                    font_size=10, anchor_x="left", anchor_y="top", pos=(12, 12))
+                    font_size=10, anchor_x="left", anchor_y="bottom", pos=(12, 12))
                 self.window.canvas.events.key_press.connect(self._key_press)
                 for name in self._visuals:
                     self.set_opacity(name, self.opacities[name])
@@ -51,6 +78,25 @@ class ComparisonViewer:
 
     def __getattr__(self, name):
         return getattr(self.window, name)
+
+    def _spawn_ego_viewer(self):
+        """Use the matching SDK executable and a fresh port, avoiding older viewers."""
+        import rerun_cli
+        executable_dir = str(Path(rerun_cli.__file__).resolve().parent)
+        previous_path = os.environ.get('PATH')
+        # The SDK reuses an existing viewer on its default port, which may be an
+        # incompatible version from a previous saved-result playback session.
+        with socket.socket() as listener:
+            listener.bind(('127.0.0.1', 0))
+            port = listener.getsockname()[1]
+        try:
+            os.environ['PATH'] = executable_dir + os.pathsep + (previous_path or '')
+            self.window.recording.spawn(port=port)
+        finally:
+            if previous_path is None:
+                os.environ.pop('PATH', None)
+            else:
+                os.environ['PATH'] = previous_path
 
     def set_mesh(self, mesh):
         """Replace world-space geometry between scenes; None clears the mesh."""
@@ -103,6 +149,8 @@ class ComparisonViewer:
             self._update_rerun(snapshot)
 
     def _update_vispy(self, snapshot):
+        if self.follow_ego:
+            self.window.camera.center = (0., 0., 0.)
         for name, layer in snapshot.layers.items():
             points, faces, edges = self._visuals[name]
             voxels = getattr(layer, "voxel_centers", None)
@@ -125,13 +173,19 @@ class ComparisonViewer:
     def _update_rerun(self, snapshot):
         rr, recording = self.window.rr, self.window.recording
         # A monotonic index also distinguishes scenes/loops with repeated frame IDs.
-        recording.set_time_sequence("playback", self._step)
+        if hasattr(recording, 'set_time'):
+            recording.set_time('playback', sequence=self._step)
+            recording.set_time('frame', sequence=int(snapshot.current.frame_id))
+            recording.set_time('simulation', timestamp=np.datetime64(int(snapshot.current.timestamp_ns), 'ns'))
+        else:
+            recording.set_time_sequence('playback', self._step)
+            recording.set_time_sequence('frame', int(snapshot.current.frame_id))
+            recording.set_time_nanos('simulation', int(snapshot.current.timestamp_ns))
         self._step += 1
-        recording.set_time_sequence("frame", int(snapshot.current.frame_id))
-        recording.set_time_nanos("simulation", int(snapshot.current.timestamp_ns))
         for name, layer in snapshot.layers.items():
             path = "current_sensor/" + name
             recording.log(path, rr.Clear(recursive=True))
+            recording.log(path, rr.Transform3D(translation=(0., 0., 0.)))
             alpha = self.opacities[name]
             voxels = getattr(layer, "voxel_centers", None)
             centers = layer.points if voxels is None else voxels
@@ -150,6 +204,7 @@ class ComparisonViewer:
                         half_sizes=np.full((len(centers), 3), layer.voxel_size_m / 2, dtype=np.float32),
                         colors=color + [round(opacity * 255)], fill_mode=fill))
         recording.log("current_sensor/mesh", rr.Clear(recursive=True))
+        recording.log('current_sensor/mesh', rr.Transform3D(translation=(0., 0., 0.)))
         if self._mesh is not None and self.opacities["mesh"]:
             vertices, faces = self._mesh
             recording.log("current_sensor/mesh", rr.Mesh3D(

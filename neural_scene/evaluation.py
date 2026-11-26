@@ -23,6 +23,9 @@ def export_evaluation(args):
     from .experiment import SequenceDataset, evaluate, write_json
     from .training import load_checkpoint
     from .evaluation_mesh import export_source_mesh
+    from .inference_timing import InferenceTiming
+
+    inference_timing = InferenceTiming(args.device)
 
     if str(args.device).startswith("cuda") and not torch.cuda.is_available():
         raise ValueError("CUDA is unavailable; select --device cpu explicitly if needed")
@@ -65,17 +68,25 @@ def export_evaluation(args):
                 robot_pose=frame["robot_pose"], transformation=frame["transformation"],
                 timestamp_ns=frame["timestamp_ns"], frame_id=np.int64(index))
         entry["frames"].append({"file": relative.as_posix(), "frame_id": index,
+            "inference_ms": inference_timing.last_s * 1000,
             "timestamp_ns": int(frame["timestamp_ns"]), "model": metrics,
             "measurement_baseline": baseline})
         print("{} frame {}: {} predictions, F1={:.4f}".format(
             sequence["scene"], index, len(points), metrics["f1"]), flush=True)
 
+    started = time.perf_counter()
     metrics = evaluate(model, dataset, args.split, args.device, limit=args.limit,
-                       feedback=not args.no_feedback, on_frame=save_frame)
-    write_json(args.output / "report.json", metrics)
+                       feedback=not args.no_feedback, on_frame=save_frame,
+                       inference_timing=inference_timing)
+    timing = inference_timing.summary()
+    timing.update(evaluation_total_s=time.perf_counter() - started,
+                  scope="predict: input transfer/preprocessing and model forward; excludes dataset reads, metrics and export writes")
+    write_json(args.output / "timing.json", timing)
+    write_json(args.output / "report.json", dict(metrics, timing=timing))
+    manifest["timing"] = timing
     manifest["status"] = "completed"
     write_json(args.output / "evaluation.json", manifest)
-    print(json.dumps(metrics, indent=2))
+    print(json.dumps(dict(metrics, timing=timing), indent=2))
     return metrics
 
 
@@ -137,7 +148,10 @@ def playback(args):
     if args.mesh and args.mesh != "auto" and len(sequences) != 1:
         raise ValueError("An explicit --mesh requires a single scene; select --scene NAME")
     # Resolve before opening a window or creating a recording, so missing geometry fails cleanly.
-    meshes = {s["scene"]: resolve_mesh(args.mesh, args.input, manifest, s, args.dataset) for s in sequences}
+    meshes = {}
+    for sequence in sequences:
+        path = resolve_mesh(args.mesh, args.input, manifest, sequence, args.dataset)
+        meshes[sequence["scene"]] = load_mesh(path) if path is not None else None
     options = dict(title="Neural Scene | " + ", ".join("GT" if n == "target" else n for n in layers),
                    max_points=args.max_points, point_size=args.point_size, distance=args.distance,
                    show=not args.headless)
@@ -148,12 +162,11 @@ def playback(args):
         options["recording_path"] = str(args.recording)
     opacities = dict(prediction=args.prediction_opacity, observation=args.observation_opacity,
                      target=args.gt_opacity, mesh=args.mesh_opacity)
-    window = ComparisonViewer(args.renderer, layers, opacities, **options)
+    window = ComparisonViewer(args.viewer, layers, opacities, **options)
     try:
         while True:
             for sequence in sequences:
-                mesh_path = meshes[sequence["scene"]]
-                window.set_mesh(load_mesh(mesh_path) if mesh_path else None)
+                window.set_mesh(meshes[sequence["scene"]])
                 for metadata in sequence["frames"]:
                     if window.closed:
                         return
@@ -211,7 +224,7 @@ def main():
     play = commands.add_parser("play", help="Replay an export with installed DynaViewer; no model dependencies")
     play.add_argument("--input", type=Path, required=True)
     play.add_argument("--scene")
-    play.add_argument("--renderer", choices=("vispy", "rerun"), default="vispy")
+    play.add_argument("--viewer", choices=("vispy", "rerun"), default="vispy")
     play.add_argument("--foreground", choices=("prediction", "observation", "target"), default="prediction")
     play.add_argument("--reference", choices=("target", "observation", "none"), default="target")
     play.add_argument("--layers", nargs="+", choices=("prediction", "observation", "target"),
@@ -233,8 +246,8 @@ def main():
     play.add_argument("--headless", action="store_true", help="Record Rerun without opening a window")
     args = parser.parse_args()
     if args.command == "play":
-        if (args.recording or args.headless) and args.renderer != "rerun":
-            parser.error("--recording and --headless require --renderer rerun")
+        if (args.recording or args.headless) and args.viewer != "rerun":
+            parser.error("--recording and --headless require --viewer rerun")
         if args.headless and (not args.recording or args.loop):
             parser.error("--headless requires --recording and cannot use --loop")
     if args.command == "export":

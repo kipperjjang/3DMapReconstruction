@@ -32,6 +32,15 @@ class EvaluationTests(unittest.TestCase):
             self.assertTrue(manifest['feedback'])
             self.assertEqual(len(sequences), 1)
             self.assertEqual(len(sequences[0]['frames']), 2)
+            timing = json.loads((args.output / 'timing.json').read_text())
+            self.assertEqual(timing['frames'], 2)
+            self.assertGreater(timing['total_inference_s'], 0)
+            self.assertAlmostEqual(timing['mean_inference_ms'], timing['total_inference_s'] * 1000 / 2)
+            self.assertAlmostEqual(sum(f['inference_ms'] for f in sequences[0]['frames']),
+                                   timing['total_inference_s'] * 1000)
+            self.assertGreaterEqual(timing['evaluation_total_s'], timing['total_inference_s'])
+            self.assertEqual(manifest['timing'], timing)
+            self.assertEqual(json.loads((args.output / 'report.json').read_text())['timing'], timing)
             for metadata in sequences[0]['frames']:
                 with np.load(args.output / metadata['file'], allow_pickle=False) as data:
                     np.testing.assert_array_equal(data['current_points'], [[np.float32(.021), np.float32(.022), np.float32(.023)]])

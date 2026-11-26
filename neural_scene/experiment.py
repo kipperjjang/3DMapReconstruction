@@ -15,7 +15,7 @@ import torch
 from .inputs import INPUT_POLICIES, TEMPORAL_POLICY, merged_input, point_tensor
 from .loss import match_keys, reconstruction_loss, spatial_keys, target_voxels
 from .model import ReconstructionUNet4D, UNetConfig
-from .training import adam_with_decay, checkpoint_config, log_scalars, save_checkpoint, tensorboard_writer
+from .training import adam_with_decay, checkpoint_config, epoch_updates, log_scalars, save_checkpoint, tensorboard_writer
 from .voxel import VoxelGrid, transform_points, voxelize
 
 
@@ -126,7 +126,7 @@ def summarize(totals):
         matched_height_mae_m=totals["matched_height_sum_m"] / tp if tp else None)
 
 
-def evaluate(model, dataset, split, device, limit=None, feedback=True, on_frame=None):
+def evaluate(model, dataset, split, device, limit=None, feedback=True, on_frame=None, inference_timing=None):
     model.eval()
     totals = {"tp": 0, "fp": 0, "fn": 0, "matched_distance_sum_m": 0., "matched_height_sum_m": 0., "frames": 0}
     observed = totals.copy()
@@ -137,7 +137,11 @@ def evaluate(model, dataset, split, device, limit=None, feedback=True, on_frame=
             scene = {key: 0 for key in totals}
             for index in range(min(len(sequence["frames"]), limit or len(sequence["frames"]))):
                 frame = dataset.frame(sequence, index)
-                result = predict(model, [frame], previous, dataset.grid, device)
+                if inference_timing is None:
+                    result = predict(model, [frame], previous, dataset.grid, device)
+                else:
+                    with inference_timing.measure():
+                        result = predict(model, [frame], previous, dataset.grid, device)
                 target = [point_tensor(frame["target_points"], device)]
                 stats = counts_and_errors(result.offsets.C, result.offsets.F, target, dataset.grid)
                 for key, value in stats.items():
@@ -232,7 +236,10 @@ def main():
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--input-policy", choices=INPUT_POLICIES,
         help="New runs default to aligned_temporal_t01; resume/evaluation inherit the saved policy")
-    parser.add_argument("--updates", type=int, default=500)
+    duration = parser.add_mutually_exclusive_group()
+    duration.add_argument("--updates", type=int, help="Optimizer updates (default: 500)")
+    duration.add_argument("--epochs", type=int,
+        help="Effective frame passes: ceil(train frames / (batch size * rollout)) updates per epoch; rollouts remain randomly sampled")
     parser.add_argument("--batch-size", type=int, default=2)
     parser.add_argument("--rollout", type=int, default=12)
     parser.add_argument("--eval-every", type=int, default=50)
@@ -248,6 +255,10 @@ def main():
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--no-tensorboard", action="store_true", help="Disable TensorBoard event logging (enabled by default in OUTPUT alongside checkpoints)")
     args = parser.parse_args()
+    if args.epochs is not None and args.epochs < 1:
+        parser.error("--epochs must be positive")
+    if args.updates is None:
+        args.updates = 500
     if args.evaluate_only and (args.initial_checkpoint is None or args.resume):
         parser.error('--evaluate-only requires --initial-checkpoint and cannot resume training')
     if args.calibrate_bn < 0 or (args.calibrate_bn and not args.evaluate_only):
@@ -275,6 +286,12 @@ def main():
     train_windows = [(sequence, starts) for sequence, starts in train_windows if starts]
     if not train_windows:
         parser.error("No training rollout has an observed first frame")
+    train_frames = sum(len(sequence['frames']) for sequence in dataset.splits['train'])
+    updates_per_epoch = epoch_updates(train_frames, args.batch_size, args.rollout)
+    if args.epochs is not None:
+        args.updates = args.epochs * updates_per_epoch
+        print('Training {} effective epochs: {} updates/epoch, {} total updates (random rollout sampling)'.format(
+            args.epochs, updates_per_epoch, args.updates), flush=True)
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
     if (output / "report.json").exists():
@@ -306,6 +323,9 @@ def main():
     metadata.update(initial_lr=args.initial_lr, final_lr=args.final_lr, test_deferred=args.skip_test,
         initial_checkpoint=str(args.initial_checkpoint.resolve()) if args.initial_checkpoint else None,
         initial_checkpoint_sha256=initial_checkpoint_hash)
+    if args.epochs is not None:
+        metadata.update(epochs=args.epochs, updates_per_epoch=updates_per_epoch,
+            epoch_policy='effective frame passes with random rollout sampling')
     if args.evaluate_only:
         metadata.update(updates=0, evaluation_only=True)
         if args.calibrate_bn:
@@ -394,6 +414,8 @@ def main():
                 optimizer.step()
                 scheduler.step()
                 record = dict(metrics, step=step, lr=optimizer.param_groups[0]["lr"], elapsed_s=time.monotonic()-begun)
+                if args.epochs is not None:
+                    record['epoch'] = step / updates_per_epoch
                 log.write(json.dumps(record) + "\n")
                 log.flush()
                 log_scalars(writer, "train", {key: value for key, value in record.items() if key != "step"}, step)

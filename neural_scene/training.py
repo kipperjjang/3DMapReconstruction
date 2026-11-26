@@ -8,6 +8,13 @@ from pathlib import Path
 import torch
 
 
+def epoch_updates(train_frames, batch_size, rollout):
+    """Round a frame-equivalent pass up to a complete optimizer update."""
+    if min(train_frames, batch_size, rollout) < 1:
+        raise ValueError('Frame, batch and rollout counts must be positive')
+    return (train_frames + batch_size * rollout - 1) // (batch_size * rollout)
+
+
 def tensorboard_writer(directory, resume_step=None, enabled=True):
     """Flush/close on exit and hide uncommitted events when resuming."""
     if not enabled:
