@@ -50,7 +50,8 @@ python -m neural_scene smoke --device cuda:0
 ## 2. 관측과 GT 저장
 
 - 저장 경로는 `logs/<split>/<시퀀스 이름>/<timestep>.npz`.
-- `train`, `validation`, `test`에 시퀀스를 각각 하나 이상 배치. 같은 장면의 연속 프레임은 같은 split에 배치. 시퀀스 이름은 split 전체에서 고유하게 지정.
+- \<split\>: `train`, `validation`, `test`에 시퀀스를 각각 하나 이상 배치. 같은 장면의 연속 프레임은 같은 split에 배치.
+- 시퀀스 이름은 split 전체에서 고유하게 지정. (중복 금지)
 - 파일은 `0.npz`, `1.npz`, `10.npz`처럼 숫자 순서로 로드.
 
 | NPZ 키 | Shape | 내용 |
@@ -61,7 +62,7 @@ python -m neural_scene smoke --device cuda:0
 | `target_points_world` | `[M, 3]` | 월드 좌표계의 GT 표면 XYZ(m). 가려진 표면도 포함 가능. |
 | `timestamp_ns` | 스칼라 정수 | 선택 필드. 시퀀스 내에서 증가하는 나노초 값. 생략 시 프레임 순번 사용. |
 
-점 배열에는 유한한 실수 좌표 사용. 두 pose의 순서는 `[x, y, z, qx, qy, qz, qw]`, 위치 단위는 m. GT와 pose는 같은 월드 좌표계 사용.
+점 배열에는 유한한 실수 좌표 사용. 두 pose의 순서는 `[x, y, z, qx, qy, qz, qw]`(coordinate[x, y, z] & quaternion[qx, qy, qz, qw]), 위치 단위는 m. GT와 pose는 같은 월드 좌표계 사용.
 
 ```python
 import numpy as np
