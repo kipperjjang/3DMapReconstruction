@@ -14,15 +14,17 @@ import sys
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source", type=Path, default=Path("/home/intern/MinkowskiEngine"))
+    root = Path(__file__).resolve().parents[1]
+    parser.add_argument("--source", type=Path, default=Path(os.environ.get("MINKOWSKI_SOURCE", root / "submodules" / "MinkowskiEngineCuda13")))
     parser.add_argument("--cuda", action="store_true")
-    parser.add_argument("--cuda-home", type=Path, default=Path("/home/intern/cuda-11.7"))
+    nvcc = shutil.which("nvcc")
+    cuda_home = os.environ.get("NEURAL_SCENE_CUDA_HOME") or os.environ.get("CUDA_HOME") or os.environ.get("CUDA_PATH")
+    parser.add_argument("--cuda-home", type=Path, default=Path(cuda_home) if cuda_home else (Path(nvcc).resolve().parent.parent if nvcc else Path("/usr/local/cuda")))
     parser.add_argument("--jobs", type=int, default=2)
     parser.add_argument("--output", type=Path, help="Dependency directory (default: workspace .deps)")
     parser.add_argument("--build-dir", type=Path, help="Isolated workspace build copy")
     parser.add_argument("--cuda-arch", help="TORCH_CUDA_ARCH_LIST, e.g. 8.6+PTX for CUDA 11.7/Ada")
     args = parser.parse_args()
-    root = Path(__file__).resolve().parents[1]
     target = args.build_dir or root / ".build" / ("minkowski-source-cuda" if args.cuda else "minkowski-source")
     if not (args.source / "setup.py").is_file():
         parser.error("--source must be a MinkowskiEngine source checkout")
@@ -46,6 +48,10 @@ def main():
     command = [sys.executable, "setup.py", "build", "--blas=openblas"]
     if args.cuda:
         env["CUDA_HOME"] = str(args.cuda_home)
+        cccl = args.cuda_home / "include" / "cccl"
+        if cccl.is_dir():
+            env["CPLUS_INCLUDE_PATH"] = str(cccl) + os.pathsep + env.get("CPLUS_INCLUDE_PATH", "")
+            env["CPATH"] = str(cccl) + os.pathsep + env.get("CPATH", "")
         if args.cuda_arch:
             env["TORCH_CUDA_ARCH_LIST"] = args.cuda_arch
         command.append("--force_cuda")

@@ -6,6 +6,7 @@ __pycache__/
 .deps-dyna/
 .deps-dyna-cuda/
 .deps-tensorboard/
+.deps-rerun/
 outputs/
 *.egg-info/
 .idea/

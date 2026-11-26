@@ -2,16 +2,17 @@
 set -euo pipefail
 NEURAL_SCENE_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd -- "${NEURAL_SCENE_ROOT}"
-export NEURAL_SCENE_DYNA_DEPS="${NEURAL_SCENE_ROOT}/.deps-dyna-cuda"
-export LD_LIBRARY_PATH="/home/intern/cuda-11.7/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+export NEURAL_SCENE_DYNA_DEPS="${NEURAL_SCENE_DYNA_DEPS:-${NEURAL_SCENE_ROOT}/.deps-dyna-cuda}"
 if [[ " ${*} " == *" --help "* ]]; then
   exec bash scripts/run_dyna.sh -m neural_scene.experiment --help
 fi
 NEURAL_SCENE_DATASET="outputs/training_dataset_v3"
 NEURAL_SCENE_RUN_OUTPUT="outputs/training_run_v3"
 training_arguments=("$@")
+duration_arguments=(--updates 20000)
 for ((i=0; i<${#training_arguments[@]}; i++)); do
   case "${training_arguments[i]}" in
+    --epochs|--epochs=*|--updates|--updates=*) duration_arguments=() ;;
     --dataset) NEURAL_SCENE_DATASET="${training_arguments[i+1]}" ;;
     --dataset=*) NEURAL_SCENE_DATASET="${training_arguments[i]#--dataset=}" ;;
     --output) NEURAL_SCENE_RUN_OUTPUT="${training_arguments[i+1]}" ;;
@@ -30,5 +31,5 @@ bash scripts/run_dyna.sh scripts/validate_dataset_v3.py --dataset "${NEURAL_SCEN
 bash scripts/run_dyna.sh -m neural_scene smoke --device cuda:0
 exec bash scripts/run_dyna.sh -m neural_scene.experiment \
   --dataset "${NEURAL_SCENE_DATASET}" --output "${NEURAL_SCENE_RUN_OUTPUT}" \
-  --device cuda:0 --updates 20000 --batch-size 2 --rollout 12 --eval-every 1000 \
+  --device cuda:0 "${duration_arguments[@]}" --batch-size 2 --rollout 12 --eval-every 1000 \
   --position-noise 0.005 --initial-lr 0.01 --final-lr 0.0001 --seed 20261028 "$@"

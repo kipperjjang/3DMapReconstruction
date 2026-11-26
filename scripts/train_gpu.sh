@@ -25,7 +25,7 @@ exec > >(tee -a "${NEURAL_SCENE_RUN_OUTPUT}/console.log") 2>&1
 bash scripts/run.sh scripts/check_gpu.py --require-cuda
 if [[ ! -f "${NEURAL_SCENE_DATASET}/dataset.json" ]]; then
   if [[ "${NEURAL_SCENE_DATASET}" == "outputs/training_dataset_v1" ]]; then
-    /home/intern/DynaRaySim/.venv/bin/python scripts/prepare_training_data.py --device cuda:0
+    bash scripts/run_dyna.sh scripts/prepare_training_data.py --device cuda:0
   else
     echo "Dataset is not prepared: ${NEURAL_SCENE_DATASET}/dataset.json" >&2
     exit 1
